@@ -1,0 +1,241 @@
+{
+  "schema_version": 1,
+  "scope": "synthetic tests only; selected evidence is not an exhaustive proof of all DD cases",
+  "pytest_exit": 0,
+  "checks": {
+    "AC01": {
+      "status": "passed",
+      "tests": {
+        "tests/integration/test_faults.py::test_copy_fault_preserves_source[snapshot:INCAR]": "passed",
+        "tests/integration/test_faults.py::test_copy_fault_preserves_source[snapshot:POSCAR]": "passed",
+        "tests/integration/test_faults.py::test_copy_fault_preserves_source[snapshot:POTCAR]": "passed",
+        "tests/integration/test_faults.py::test_copy_fault_preserves_source[snapshot:KPOINTS]": "passed",
+        "tests/integration/test_faults.py::test_copy_fault_preserves_source[snapshot:run.sh]": "passed",
+        "tests/integration/test_faults.py::test_copy_fault_preserves_source[input:INCAR]": "passed",
+        "tests/integration/test_faults.py::test_copy_fault_preserves_source[input:POSCAR]": "passed",
+        "tests/integration/test_faults.py::test_copy_fault_preserves_source[input:POTCAR]": "passed",
+        "tests/integration/test_faults.py::test_copy_fault_preserves_source[input:KPOINTS]": "passed",
+        "tests/integration/test_faults.py::test_copy_fault_preserves_source[input:run.sh]": "passed",
+        "tests/integration/test_faults.py::test_copy_fault_preserves_source[provenance/resolved_config.json]": "passed",
+        "tests/integration/test_faults.py::test_copy_fault_preserves_source[provenance/validation.json]": "passed",
+        "tests/integration/test_preparation.py::test_end_to_end[f]": "passed",
+        "tests/integration/test_preparation.py::test_end_to_end[d]": "passed",
+        "tests/unit/test_t01.py::test_strict_json[{\"a\":1,\"a\":2}]": "passed",
+        "tests/unit/test_t01.py::test_strict_json[{\"x\":NaN}]": "passed",
+        "tests/unit/test_t01.py::test_strict_json[{\"x\":Infinity}]": "passed",
+        "tests/unit/test_t01.py::test_schema[value0]": "passed",
+        "tests/unit/test_t01.py::test_schema[value1]": "passed",
+        "tests/unit/test_t01.py::test_schema[value2]": "passed",
+        "tests/unit/test_t01.py::test_paths": "passed",
+        "tests/unit/test_t01.py::test_parent_symlink_hardlink_and_traversal": "passed"
+      }
+    },
+    "AC02": {
+      "status": "passed",
+      "tests": {
+        "tests/unit/test_t05_t07.py::test_protocol[f]": "passed",
+        "tests/unit/test_t12.py::test_independent_goldens": "passed"
+      }
+    },
+    "AC03a": {
+      "status": "passed",
+      "tests": {
+        "tests/unit/test_t05_t07.py::test_restart_closed[s02_e5]": "passed",
+        "tests/unit/test_t05_t07.py::test_restart_closed[s03_e6]": "passed"
+      }
+    },
+    "AC03b": {
+      "status": "passed",
+      "tests": {
+        "tests/unit/test_t06.py::test_restart_positive[s02_e5]": "passed",
+        "tests/unit/test_t06.py::test_restart_positive[s03_e6]": "passed"
+      }
+    },
+    "AC03c": {
+      "status": "passed",
+      "tests": {
+        "tests/unit/test_t06.py::test_restart_negative[<lambda>0]": "passed",
+        "tests/unit/test_t06.py::test_restart_negative[<lambda>1]": "passed",
+        "tests/unit/test_t06.py::test_restart_negative[<lambda>2]": "passed",
+        "tests/unit/test_t06.py::test_restart_negative[<lambda>3]": "passed",
+        "tests/unit/test_t06.py::test_restart_negative[<lambda>4]": "passed",
+        "tests/unit/test_t06.py::test_restart_negative[<lambda>5]": "passed",
+        "tests/unit/test_t06.py::test_restart_negative[<lambda>6]": "passed",
+        "tests/unit/test_t06.py::test_restart_negative[<lambda>7]": "passed",
+        "tests/unit/test_t06.py::test_restart_negative[<lambda>8]": "passed",
+        "tests/unit/test_t06.py::test_restart_negative[<lambda>9]": "passed",
+        "tests/unit/test_t06.py::test_restart_negative[<lambda>10]": "passed",
+        "tests/unit/test_t06.py::test_revocation_and_header": "passed"
+      }
+    },
+    "AC04": {
+      "status": "passed",
+      "tests": {
+        "tests/unit/test_t05_t07.py::test_protocol[d]": "passed"
+      }
+    },
+    "AC05a": {
+      "status": "passed",
+      "tests": {
+        "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-SPECIES_MISMATCH0]": "passed",
+        "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-SPECIES_MISMATCH1]": "passed",
+        "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-POTENTIAL_MISMATCH0]": "passed",
+        "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-POTENTIAL_MISMATCH1]": "passed",
+        "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-SPECIES_MISMATCH2]": "passed",
+        "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-LDAU_MAPPING_INVALID0]": "passed",
+        "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-LDAU_MAPPING_INVALID1]": "passed",
+        "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-LDAU_MAPPING_INVALID2]": "passed",
+        "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-LDAU_MAPPING_INVALID3]": "passed",
+        "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-MAGMOM_COUNT0]": "passed",
+        "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-MAGMOM_COUNT1]": "passed",
+        "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-MAGMOM_COUNT2]": "passed",
+        "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-SPIN_MODE_CONFLICT]": "passed",
+        "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-KPOINTS_MISMATCH]": "passed"
+      }
+    },
+    "AC05b": {
+      "status": "passed",
+      "tests": {
+        "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-SPECIES_MISMATCH0]": "passed",
+        "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-SPECIES_MISMATCH1]": "passed",
+        "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-POTENTIAL_MISMATCH0]": "passed",
+        "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-POTENTIAL_MISMATCH1]": "passed",
+        "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-SPECIES_MISMATCH2]": "passed",
+        "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-LDAU_MAPPING_INVALID0]": "passed",
+        "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-LDAU_MAPPING_INVALID1]": "passed",
+        "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-LDAU_MAPPING_INVALID2]": "passed",
+        "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-LDAU_MAPPING_INVALID3]": "passed",
+        "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-MAGMOM_COUNT0]": "passed",
+        "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-MAGMOM_COUNT1]": "passed",
+        "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-MAGMOM_COUNT2]": "passed",
+        "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-SPIN_MODE_CONFLICT]": "passed",
+        "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-KPOINTS_MISMATCH]": "passed"
+      }
+    },
+    "AC05c": {
+      "status": "passed",
+      "tests": {
+        "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-SPECIES_MISMATCH0]": "passed",
+        "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-SPECIES_MISMATCH1]": "passed",
+        "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-POTENTIAL_MISMATCH0]": "passed",
+        "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-POTENTIAL_MISMATCH1]": "passed",
+        "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-SPECIES_MISMATCH2]": "passed",
+        "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-LDAU_MAPPING_INVALID0]": "passed",
+        "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-LDAU_MAPPING_INVALID1]": "passed",
+        "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-LDAU_MAPPING_INVALID2]": "passed",
+        "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-LDAU_MAPPING_INVALID3]": "passed",
+        "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-MAGMOM_COUNT0]": "passed",
+        "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-MAGMOM_COUNT1]": "passed",
+        "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-MAGMOM_COUNT2]": "passed",
+        "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-SPIN_MODE_CONFLICT]": "passed",
+        "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-KPOINTS_MISMATCH]": "passed"
+      }
+    },
+    "AC06a": {
+      "status": "passed",
+      "tests": {
+        "tests/unit/test_validation_matrix.py::test_generated_magmom[1-MAGMOM_COUNT]": "passed",
+        "tests/unit/test_validation_matrix.py::test_generated_magmom[1 -1 0-MAGMOM_COUNT]": "passed",
+        "tests/unit/test_validation_matrix.py::test_generated_magmom[-1 1-MAGMOM_MAPPING]": "passed"
+      }
+    },
+    "AC06b": {
+      "status": "passed",
+      "tests": {
+        "tests/unit/test_validation_matrix.py::test_noncollinear_soc_positive_and_scalar_rejection": "passed"
+      }
+    },
+    "AC06c": {
+      "status": "passed",
+      "tests": {
+        "tests/unit/test_validation_matrix.py::test_generated_magmom[1-MAGMOM_COUNT]": "passed",
+        "tests/unit/test_validation_matrix.py::test_generated_magmom[1 -1 0-MAGMOM_COUNT]": "passed",
+        "tests/unit/test_validation_matrix.py::test_generated_magmom[-1 1-MAGMOM_MAPPING]": "passed"
+      }
+    },
+    "AC07": {
+      "status": "passed",
+      "tests": {
+        "tests/unit/test_t05_t07.py::test_script_injection[x\\ny]": "passed",
+        "tests/unit/test_t05_t07.py::test_script_injection[$(id)]": "passed",
+        "tests/unit/test_t05_t07.py::test_script_injection[`id`]": "passed",
+        "tests/unit/test_t05_t07.py::test_script_injection[a'b]": "passed",
+        "tests/unit/test_t05_t07.py::test_script_injection[]": "passed",
+        "tests/unit/test_t05_t07.py::test_profile[<lambda>0]": "passed",
+        "tests/unit/test_t05_t07.py::test_profile[<lambda>1]": "passed",
+        "tests/unit/test_t05_t07.py::test_profile[<lambda>2]": "passed",
+        "tests/unit/test_t05_t07.py::test_profile[<lambda>3]": "passed",
+        "tests/unit/test_t12.py::test_independent_goldens": "passed"
+      }
+    },
+    "AC08": {
+      "status": "passed",
+      "tests": {
+        "tests/integration/test_faults.py::test_verify_tampering[missing_manifest]": "passed",
+        "tests/integration/test_faults.py::test_verify_tampering[missing_ready]": "passed",
+        "tests/integration/test_faults.py::test_verify_tampering[missing_potcar]": "passed",
+        "tests/integration/test_faults.py::test_verify_tampering[manifest_traversal]": "passed",
+        "tests/integration/test_faults.py::test_verify_tampering[omitted_payload]": "passed",
+        "tests/integration/test_faults.py::test_verify_tampering[modified_snapshot]": "passed",
+        "tests/integration/test_faults.py::test_verify_tampering[new_input]": "passed"
+      }
+    },
+    "AC09": {
+      "status": "passed",
+      "tests": {
+        "tests/integration/test_cli_worker.py::test_cli_dry": "passed",
+        "tests/integration/test_preparation.py::test_end_to_end[f]": "passed",
+        "tests/integration/test_preparation.py::test_end_to_end[d]": "passed"
+      }
+    },
+    "AC10a": {
+      "status": "passed",
+      "tests": {
+        "tests/integration/test_preparation.py::test_end_to_end[f]": "passed",
+        "tests/integration/test_preparation.py::test_end_to_end[d]": "passed"
+      }
+    },
+    "AC10b": {
+      "status": "passed",
+      "tests": {
+        "tests/integration/test_preparation.py::test_identity_conflict": "passed"
+      }
+    },
+    "AC10c": {
+      "status": "passed",
+      "tests": {
+        "tests/integration/test_preparation.py::test_crash_reconciliation[intent]": "passed",
+        "tests/integration/test_preparation.py::test_crash_reconciliation[snapshot:POTCAR]": "passed",
+        "tests/integration/test_preparation.py::test_crash_reconciliation[before_manifest]": "passed",
+        "tests/integration/test_preparation.py::test_crash_reconciliation[before_ready]": "passed",
+        "tests/integration/test_preparation.py::test_crash_reconciliation[ready]": "passed",
+        "tests/integration/test_preparation.py::test_crash_reconciliation[before_rename]": "passed",
+        "tests/integration/test_preparation.py::test_crash_reconciliation[renamed]": "passed",
+        "tests/integration/test_preparation.py::test_crash_reconciliation[db_success]": "passed",
+        "tests/integration/test_preparation.py::test_two_process_writers": "passed"
+      }
+    },
+    "AC11": {
+      "status": "passed",
+      "tests": {
+        "tests/integration/test_preparation.py::test_end_to_end[f]": "passed",
+        "tests/integration/test_preparation.py::test_end_to_end[d]": "passed",
+        "tests/unit/test_t12.py::test_repo_synthetic_only": "passed"
+      }
+    },
+    "AC14": {
+      "status": "passed",
+      "tests": {
+        "tests/unit/test_t12.py::test_repo_synthetic_only": "passed"
+      }
+    },
+    "AC12": {
+      "status": "not_run_exact_target",
+      "reason": "Cloud Python 3.9.19 verified; linked SQLite 3.46.0, not CentOS 6.9"
+    },
+    "AC13": {
+      "status": "not_run",
+      "reason": "Approved actual f/d bytes, private registry and reviewer golden evidence required on HPC only"
+    }
+  }
+}

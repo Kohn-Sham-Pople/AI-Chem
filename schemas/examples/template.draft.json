@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "id": null,
+  "revision": null,
+  "approval": {
+    "reviewer": null,
+    "approved_at": null,
+    "note": null
+  },
+  "material_id": null,
+  "shell_class": null,
+  "source_dir": null,
+  "files": {
+    "INCAR": {
+      "size_bytes": null,
+      "sha256": null,
+      "source_relative_name": null
+    },
+    "POSCAR": {
+      "size_bytes": null,
+      "sha256": null,
+      "source_relative_name": null
+    },
+    "POTCAR": {
+      "size_bytes": null,
+      "sha256": null,
+      "source_relative_name": null
+    },
+    "KPOINTS": {
+      "size_bytes": null,
+      "sha256": null,
+      "source_relative_name": null
+    },
+    "run.sh": {
+      "size_bytes": null,
+      "sha256": null,
+      "source_relative_name": null
+    }
+  },
+  "profile": {
+    "id": null,
+    "revision": null
+  },
+  "protocol": {
+    "id": null,
+    "revision": null
+  }
+}

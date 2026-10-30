@@ -1,0 +1,8 @@
+# Target Python 3.9 dev-only dependencies; provision approved offline wheels on HPC.
+pytest==8.3.5
+exceptiongroup==1.3.1
+iniconfig==2.1.0
+packaging==25.0
+pluggy==1.6.0
+tomli==2.2.1
+typing_extensions==4.13.2

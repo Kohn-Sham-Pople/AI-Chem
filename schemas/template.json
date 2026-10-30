@@ -1,0 +1,246 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "approval": {
+      "type": "object",
+      "properties": {
+        "reviewer": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+        },
+        "approved_at": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^\\d{4}-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$"
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "reviewer",
+        "approved_at",
+        "note"
+      ],
+      "additionalProperties": false
+    },
+    "material_id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+    },
+    "shell_class": {
+      "type": "string",
+      "minLength": 1,
+      "enum": [
+        "f",
+        "d"
+      ]
+    },
+    "source_dir": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^/[^\\n\\r]*$"
+    },
+    "files": {
+      "type": "object",
+      "properties": {
+        "INCAR": {
+          "type": "object",
+          "properties": {
+            "size_bytes": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "sha256": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "source_relative_name": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "size_bytes",
+            "sha256",
+            "source_relative_name"
+          ],
+          "additionalProperties": false
+        },
+        "POSCAR": {
+          "type": "object",
+          "properties": {
+            "size_bytes": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "sha256": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "source_relative_name": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "size_bytes",
+            "sha256",
+            "source_relative_name"
+          ],
+          "additionalProperties": false
+        },
+        "POTCAR": {
+          "type": "object",
+          "properties": {
+            "size_bytes": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "sha256": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "source_relative_name": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "size_bytes",
+            "sha256",
+            "source_relative_name"
+          ],
+          "additionalProperties": false
+        },
+        "KPOINTS": {
+          "type": "object",
+          "properties": {
+            "size_bytes": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "sha256": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "source_relative_name": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "size_bytes",
+            "sha256",
+            "source_relative_name"
+          ],
+          "additionalProperties": false
+        },
+        "run.sh": {
+          "type": "object",
+          "properties": {
+            "size_bytes": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "sha256": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "source_relative_name": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "size_bytes",
+            "sha256",
+            "source_relative_name"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "INCAR",
+        "POSCAR",
+        "POTCAR",
+        "KPOINTS",
+        "run.sh"
+      ],
+      "additionalProperties": false
+    },
+    "profile": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id",
+        "revision"
+      ],
+      "additionalProperties": false
+    },
+    "protocol": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id",
+        "revision"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "revision",
+    "approval",
+    "material_id",
+    "shell_class",
+    "source_dir",
+    "files",
+    "profile",
+    "protocol"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ai-chem-v1-template"
+}

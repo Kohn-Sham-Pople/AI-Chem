@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61,<76"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ai-chem-input"
+version = "0.1.0"
+description = "Local-only, fail-closed VASP input preparation"
+requires-python = ">=3.9,<3.10"
+dependencies = []
+
+[project.scripts]
+ai-chem-input = "ai_chem_input.cli:main"
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "tests"]
+testpaths = ["tests"]
+addopts = "-p no:cacheprovider"
+
+[tool.setuptools.package-data]
+ai_chem_input = ["schemas/*.json"]

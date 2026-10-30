@@ -1,0 +1,347 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "approval": {
+      "type": "object",
+      "properties": {
+        "reviewer": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+        },
+        "approved_at": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^\\d{4}-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$"
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "reviewer",
+        "approved_at",
+        "note"
+      ],
+      "additionalProperties": false
+    },
+    "roots": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^/[^\\n\\r]*$"
+          },
+          "minItems": 1
+        },
+        "protected": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^/[^\\n\\r]*$"
+          },
+          "minItems": 1
+        },
+        "output": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^/[^\\n\\r]*$"
+        },
+        "registry": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^/[^\\n\\r]*$"
+        },
+        "state": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^/[^\\n\\r]*$"
+        },
+        "lock": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^/[^\\n\\r]*$"
+        }
+      },
+      "required": [
+        "source",
+        "protected",
+        "output",
+        "registry",
+        "state",
+        "lock"
+      ],
+      "additionalProperties": false
+    },
+    "queue": {
+      "const": "all.q"
+    },
+    "pe": {
+      "const": "mpi_32"
+    },
+    "slots": {
+      "const": 32
+    },
+    "user_quota_slots": {
+      "const": 320
+    },
+    "vasp": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "const": "5.4.4"
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^/[^\\n\\r]*$"
+        },
+        "binary_name": {
+          "const": "vasp_ncl"
+        }
+      },
+      "required": [
+        "version",
+        "path",
+        "binary_name"
+      ],
+      "additionalProperties": false
+    },
+    "launcher": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^/[^\\n\\r]*$"
+        },
+        "args": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "token": {
+                    "type": "string",
+                    "minLength": 1,
+                    "enum": [
+                      "NSLOTS",
+                      "EXECUTABLE"
+                    ]
+                  }
+                },
+                "required": [
+                  "token"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "path",
+        "args"
+      ],
+      "additionalProperties": false
+    },
+    "environment": {
+      "type": "object",
+      "properties": {
+        "fragments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+              },
+              "path": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "^/[^\\n\\r]*$"
+              },
+              "sha256": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            },
+            "required": [
+              "id",
+              "path",
+              "sha256"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        },
+        "library_dirs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^/[^\\n\\r]*$"
+          },
+          "minItems": 1
+        },
+        "thread_vars": {
+          "type": "object",
+          "properties": {
+            "OMP_NUM_THREADS": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "MKL_NUM_THREADS": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "OMP_NUM_THREADS",
+            "MKL_NUM_THREADS"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "fragments",
+        "library_dirs",
+        "thread_vars"
+      ],
+      "additionalProperties": false
+    },
+    "runtime": {
+      "type": "object",
+      "properties": {
+        "python_path": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^/[^\\n\\r]*$"
+        },
+        "bash_path": {
+          "const": "/bin/bash"
+        },
+        "walltime": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9]{1,4}:[0-5][0-9]:[0-5][0-9]$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "python_path",
+        "bash_path",
+        "walltime"
+      ],
+      "additionalProperties": false
+    },
+    "preparation": {
+      "type": "object",
+      "properties": {
+        "max_requests": {
+          "const": 1
+        },
+        "budget_seconds": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "copy_chunk_bytes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "max_source_bytes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "min_free_bytes": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "max_requests",
+        "budget_seconds",
+        "copy_chunk_bytes",
+        "max_source_bytes",
+        "min_free_bytes"
+      ],
+      "additionalProperties": false
+    },
+    "discovery": {
+      "type": "object",
+      "properties": {
+        "max_depth": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "max_candidates": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100
+        },
+        "recursive": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "max_depth",
+        "max_candidates",
+        "recursive"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "revision",
+    "approval",
+    "roots",
+    "queue",
+    "pe",
+    "slots",
+    "user_quota_slots",
+    "vasp",
+    "launcher",
+    "environment",
+    "runtime",
+    "preparation",
+    "discovery"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ai-chem-v1-profile"
+}

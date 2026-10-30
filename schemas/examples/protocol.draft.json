@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "id": null,
+  "revision": null,
+  "approval": {
+    "reviewer": null,
+    "approved_at": null,
+    "note": null
+  },
+  "shell_class": null,
+  "recipe": null
+}

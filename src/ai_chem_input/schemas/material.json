@@ -1,0 +1,336 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "approval": {
+      "type": "object",
+      "properties": {
+        "reviewer": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+        },
+        "approved_at": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^\\d{4}-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$"
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "reviewer",
+        "approved_at",
+        "note"
+      ],
+      "additionalProperties": false
+    },
+    "formula": {
+      "type": "string",
+      "minLength": 1
+    },
+    "species_blocks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "block_id": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+          },
+          "element": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[A-Z][a-z]?$"
+          },
+          "count": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "potential_variant": {
+            "type": "string",
+            "minLength": 1
+          },
+          "dataset_sha256": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        },
+        "required": [
+          "block_id",
+          "element",
+          "count",
+          "potential_variant",
+          "dataset_sha256"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "structures": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "structure_id": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+          },
+          "sha256": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        },
+        "required": [
+          "structure_id",
+          "sha256"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "configurations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "configuration_id": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+          },
+          "structure_id": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+          },
+          "structure_sha256": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "spin_mode": {
+            "type": "string",
+            "minLength": 1,
+            "enum": [
+              "collinear",
+              "noncollinear"
+            ]
+          },
+          "soc": {
+            "type": "boolean"
+          },
+          "saxis": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]*[1-9])?$",
+                  "format": "canonical-decimal"
+                },
+                "minItems": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "magmom_by_atom": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "atom_index": {
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    "moment": {
+                      "type": "string",
+                      "minLength": 1,
+                      "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]*[1-9])?$",
+                      "format": "canonical-decimal"
+                    }
+                  },
+                  "required": [
+                    "atom_index",
+                    "moment"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "atom_index": {
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    "vector": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "minLength": 1,
+                        "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]*[1-9])?$",
+                        "format": "canonical-decimal"
+                      },
+                      "minItems": 1
+                    }
+                  },
+                  "required": [
+                    "atom_index",
+                    "vector"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "configuration_id",
+          "structure_id",
+          "structure_sha256",
+          "spin_mode",
+          "soc",
+          "saxis",
+          "magmom_by_atom"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "u_sets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "u_set_id": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+          },
+          "ldau": {
+            "type": "boolean"
+          },
+          "ldautype": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "by_block": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "properties": {
+                "l": {
+                  "type": "integer",
+                  "minimum": -1,
+                  "maximum": 3
+                },
+                "u_eV": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]*[1-9])?$",
+                  "format": "canonical-decimal"
+                },
+                "j_eV": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]*[1-9])?$",
+                  "format": "canonical-decimal"
+                }
+              },
+              "required": [
+                "l",
+                "u_eV",
+                "j_eV"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "u_set_id",
+          "ldau",
+          "ldautype",
+          "by_block"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "method": {
+      "type": "object",
+      "properties": {
+        "incar_tags": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "kpoints_sha256": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "potcar_sha256": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "approved_u_set_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "incar_tags",
+        "kpoints_sha256",
+        "potcar_sha256",
+        "approved_u_set_ids"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "revision",
+    "approval",
+    "formula",
+    "species_blocks",
+    "structures",
+    "configurations",
+    "u_sets",
+    "method"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ai-chem-v1-material"
+}

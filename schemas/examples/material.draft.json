@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": null,
+  "revision": null,
+  "approval": {
+    "reviewer": null,
+    "approved_at": null,
+    "note": null
+  },
+  "formula": null,
+  "species_blocks": [],
+  "structures": [],
+  "configurations": [],
+  "u_sets": [],
+  "method": {
+    "incar_tags": {},
+    "kpoints_sha256": null,
+    "potcar_sha256": null,
+    "approved_u_set_ids": []
+  }
+}

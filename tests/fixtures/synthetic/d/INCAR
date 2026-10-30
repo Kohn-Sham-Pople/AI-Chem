@@ -1,0 +1,15 @@
+# SYNTHETIC TEST ONLY
+SYSTEM = synthetic
+ISPIN = 2
+ENCUT = 400
+NSW = 0
+IBRION = -1
+EDIFF = 1d-4 ; NELM = 450 ! old template value
+ICHARG = 1
+AMIX = 0.2
+MAGMOM = 2*1
+LDAU = .TRUE.
+LDAUTYPE = 2
+LDAUL = 2 -1
+LDAUU = 1 2
+LDAUJ = 0 0

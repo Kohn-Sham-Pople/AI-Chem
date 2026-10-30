@@ -1,0 +1,18 @@
+#!/bin/bash
+#$ -S /bin/bash
+#$ -cwd
+#$ -q all.q
+#$ -pe mpi_32 32
+#$ -N ac_@DIGEST24@
+#$ -j y
+#$ -o vasp.stdout
+set -e
+set -o pipefail
+umask 077
+test -n "${JOB_ID:-}" || exit 90
+test "${NSLOTS:-0}" = 32 || exit 91
+cd -- @ROOT@/output/calc/s01_e4
+export LD_LIBRARY_PATH=@ROOT@/lib
+export MKL_NUM_THREADS=1
+export OMP_NUM_THREADS=1
+exec @ROOT@/bin/mpi -np "$NSLOTS" @ROOT@/bin/vasp_ncl
