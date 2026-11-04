@@ -34,7 +34,8 @@
     "thread_vars": {
       "OMP_NUM_THREADS": null,
       "MKL_NUM_THREADS": null
-    }
+    },
+    "ld_library_path_policy": null
   },
   "runtime": {
     "python_path": null,
@@ -52,5 +53,16 @@
     "max_depth": null,
     "max_candidates": null,
     "recursive": null
+  },
+  "execution_review": {
+    "source_run_sha256": null,
+    "source_node_selection": null,
+    "target_node_selection": "all_q",
+    "approved_changes": [],
+    "approval": {
+      "reviewer": null,
+      "approved_at": null,
+      "note": null
+    }
   }
 }

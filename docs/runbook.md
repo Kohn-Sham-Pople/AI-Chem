@@ -38,7 +38,7 @@ Copy `schemas/examples/*.draft.json` outside the code checkout into private
 configuration storage. Drafts are incomplete documents and are never prepare
 inputs. Complete profile fields using the source run.sh and local inventory:
 VASP 5.4.4 `vasp_ncl`, absolute approved MPI launcher, literal argument tokens
-and the `NSLOTS`/`EXECUTABLE` token objects; ordered library directories;
+and the `NSLOTS`/`EXECUTABLE`/`SGE_MACHINEFILE` token objects; explicitly approved library policy and ordered directories;
 hash-pinned approved initialization fragments; thread settings; Python and bash
 paths; explicit walltime or null. There is no free-form environment map or
 executable hook. Queue/PE/slots/quota are all.q/mpi_32/32/320; quota is static.
@@ -68,7 +68,8 @@ PYTHONPATH=src python3.9 -B -m ai_chem_input registry register --registry /priva
 ```
 
 Use actual local arguments; REVIEWED_DIGEST is not accepted as an approval hash.
-An existing revision cannot be replaced. Operator config is strict JSON:
+An existing revision cannot be replaced. Use separate exact f/d profile references and operator configs; see the
+[AC13 registration supplement](ac13-registration.md). Operator config is strict JSON:
 `{"schema_version":1,"registry":"/private/registry","profile":{"id":"cluster_local","revision":1}}`.
 Keep this file and all active registry content private.
 
@@ -193,3 +194,19 @@ before selecting an item; the cap bounds scanning as well as max_requests=1.
 Move archived records using a separate operator maintenance policy, never delete
 pending requests to evade a limit. Discovery extras inventory is capped at 1000
 names per candidate and fails explicitly rather than truncating.
+
+
+## 8. AC13 execution-profile compatibility update
+
+The operator reports AC12 **164/164 PASS on actual CentOS 6.9 HPC**, plus actual
+f/d Input parsing PASS after the ZVAL correction. This is operator-reported local
+evidence; the historical cloud evidence files are retained unchanged. Run the
+expanded suite on HPC again after deploying this execution-profile update.
+
+Follow [the exact AC13 registration supplement](ac13-registration.md) for the
+new explicit library policy, source-script-bound execution review, independent
+f/d profiles, machinefile token and registration commands. No active profile or
+scientific values are generated or approved in cloud. Old revisions stay immutable;
+historical profile snapshots remain schema-readable, but a new preparation must
+use an explicitly reviewed profile and matching template revision. A missing
+policy/review fails with PROFILE_APPROVAL_REQUIRED; there is no implicit default.

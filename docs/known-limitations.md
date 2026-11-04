@@ -1,5 +1,12 @@
 # Local blockers and scope limits
 
+Update: the operator reports actual-HPC AC12 164/164 and actual f/d Input parsing
+PASS. The AC12 description below records the earlier cloud-only handoff status;
+it does not supersede that local report. This execution-profile update adds new
+regressions that still require a fresh local target run and AC13 approval. See
+[AC13 registration](ac13-registration.md). No new cloud scientific/HPC validation
+is claimed and historical evidence artifacts are not rewritten.
+
 No real template bytes, actual registry, research paths, source run.sh/library
 recipe or HPC access were supplied or used. There are no inferred live values.
 All checked-in POTCAR files are hand-authored `SYNTHETIC TEST ONLY` mocks; they

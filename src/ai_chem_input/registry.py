@@ -22,20 +22,31 @@ class Registry:
         require(sha256(canonical(value))==approved_sha256,'APPROVAL_HASH')
         datetime.datetime.strptime(value['approval']['approved_at'],'%Y-%m-%dT%H:%M:%SZ')
         if kind=='profile':
-            from .paths import guard_roots
-            guard_roots(value['roots'])
+            from .script import validate_profile
+            validate_profile(value)
+            require(Path(value['roots']['registry'])==self.root,'REGISTRY_LINK')
         if kind=='template':
             from .paths import overlaps
             require(not overlaps(self.root,safe_path(value['source_dir'])),'PATH_UNSAFE')
+            profile,_=self.resolve('profile',value['profile'])
+            validate_template_profile(value,profile)
             from .discovery import inventory
             require(inventory(Path(value['source_dir']))['files']==value['files'],'SOURCE_CHANGED')
         path=self.path(kind,value); private_dir(path.parent); write_new(path,canonical(value)); return path
+
+def validate_template_profile(template,profile):
+    from .script import validate_execution_review
+    validate_execution_review(profile)
+    require(profile['execution_review']['source_run_sha256']==template['files']['run.sh']['sha256'],
+            'PROFILE_SOURCE_MISMATCH')
+
 
 def resolve_request(request,registry):
     checked(request,'request'); entities={}; pins=[]
     for kind,field in [('template','template'),('material','material'),('profile','cluster_profile'),('protocol','protocol')]:
         entities[kind],pin=registry.resolve(kind,request[field]); pins.append(pin)
     t,m,p,protocol=(entities[x] for x in KINDS)
+    validate_template_profile(t,p)
     require(t['material_id']==m['id'],'TEMPLATE_MATERIAL_MISMATCH')
     require(t['profile']==request['cluster_profile'] and t['protocol']==request['protocol'],'REGISTRY_LINK')
     require((t['shell_class'],m['formula'],protocol['recipe']) in [('f','Eu2BaCuO5','open_f_v1'),('d','CaCu(SeO3)2','open_d_v1')],'TEMPLATE_MATERIAL_MISMATCH')

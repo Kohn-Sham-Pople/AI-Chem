@@ -62,3 +62,11 @@ Discovery stdout and locally generated provenance are private HPC artifacts.
 
 See [operator runbook](docs/runbook.md), [blockers and limitations](docs/known-limitations.md),
 [implementation/evidence](docs/implementation.md), and the v1 contracts in `schemas/`.
+
+
+Execution profiles now require an explicit LD_LIBRARY_PATH policy and an
+execution review pinned to the source run.sh hash. Empty library lists are valid
+for approved preserve/unset policies. SGE_MACHINEFILE expands only to the quoted
+runtime ${TMPDIR}/machines path, with guards. Use independent exact profile refs
+for f/d. See [AC13 local registration](docs/ac13-registration.md) for migration,
+node127-to-all.q approval and complete private JSON/registration instructions.

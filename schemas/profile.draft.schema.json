@@ -331,7 +331,8 @@
                                     "minLength": 1,
                                     "enum": [
                                       "NSLOTS",
-                                      "EXECUTABLE"
+                                      "EXECUTABLE",
+                                      "SGE_MACHINEFILE"
                                     ]
                                   }
                                 },
@@ -452,7 +453,7 @@
                           }
                         ]
                       },
-                      "minItems": 1
+                      "minItems": 0
                     },
                     {
                       "type": "null"
@@ -492,6 +493,23 @@
                         "MKL_NUM_THREADS"
                       ],
                       "additionalProperties": false
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "ld_library_path_policy": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "minLength": 1,
+                      "enum": [
+                        "replace",
+                        "prepend",
+                        "preserve",
+                        "unset"
+                      ]
                     },
                     {
                       "type": "null"
@@ -688,6 +706,146 @@
                 "max_depth",
                 "max_candidates",
                 "recursive"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "execution_review": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "source_run_sha256": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "minLength": 1,
+                      "pattern": "^[0-9a-f]{64}$"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "source_node_selection": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "minLength": 1,
+                      "enum": [
+                        "all_q",
+                        "node127"
+                      ]
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "target_node_selection": {
+                  "anyOf": [
+                    {
+                      "const": "all_q"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "approved_changes": {
+                  "anyOf": [
+                    {
+                      "type": "array",
+                      "items": {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "minLength": 1,
+                            "enum": [
+                              "sge_machinefile",
+                              "ld_library_path_replace",
+                              "ld_library_path_prepend",
+                              "ld_library_path_preserve",
+                              "ld_library_path_unset",
+                              "node127_to_all_q"
+                            ]
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "minItems": 1
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "approval": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "reviewer": {
+                          "anyOf": [
+                            {
+                              "type": "string",
+                              "minLength": 1,
+                              "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "approved_at": {
+                          "anyOf": [
+                            {
+                              "type": "string",
+                              "minLength": 1,
+                              "pattern": "^\\d{4}-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "note": {
+                          "anyOf": [
+                            {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "reviewer",
+                        "approved_at",
+                        "note"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "source_run_sha256",
+                "source_node_selection",
+                "target_node_selection",
+                "approved_changes",
+                "approval"
               ],
               "additionalProperties": false
             },

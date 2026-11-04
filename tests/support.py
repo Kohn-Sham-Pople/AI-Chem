@@ -22,10 +22,13 @@ def setup(root,shell='f'):
     profile=entity('cluster',roots=roots,queue='all.q',pe='mpi_32',slots=32,user_quota_slots=320,
       vasp=dict(version='5.4.4',path=str(bins/'vasp_ncl'),binary_name='vasp_ncl'),
       launcher=dict(path=str(bins/'mpi'),args=['-np',{'token':'NSLOTS'},{'token':'EXECUTABLE'}]),
-      environment=dict(fragments=[],library_dirs=[str(lib)],thread_vars=dict(OMP_NUM_THREADS=1,MKL_NUM_THREADS=1)),
+      environment=dict(fragments=[],library_dirs=[str(lib)],ld_library_path_policy='replace',thread_vars=dict(OMP_NUM_THREADS=1,MKL_NUM_THREADS=1)),
       runtime=dict(python_path=str(bins/'python'),bash_path='/bin/bash',walltime=None),
       preparation=dict(max_requests=1,budget_seconds=45,copy_chunk_bytes=128,max_source_bytes=1024*1024,min_free_bytes=1),
       discovery=dict(max_depth=3,max_candidates=100,recursive=False))
+    profile['execution_review']=dict(source_run_sha256=inspect(src/'run.sh')['sha256'],
+      source_node_selection='all_q',target_node_selection='all_q',
+      approved_changes=['ld_library_path_replace'],approval=approval)
     # /bin is a symlink on some cloud hosts; target CentOS /bin is a directory.
     profile['runtime']['bash_path']='/bin/bash'
     with (src/'POTCAR').open('rb') as f: potentials=inspect_potcar(f)

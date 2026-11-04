@@ -148,7 +148,8 @@
                     "minLength": 1,
                     "enum": [
                       "NSLOTS",
-                      "EXECUTABLE"
+                      "EXECUTABLE",
+                      "SGE_MACHINEFILE"
                     ]
                   }
                 },
@@ -208,7 +209,7 @@
             "minLength": 1,
             "pattern": "^/[^\\n\\r]*$"
           },
-          "minItems": 1
+          "minItems": 0
         },
         "thread_vars": {
           "type": "object",
@@ -227,6 +228,16 @@
             "MKL_NUM_THREADS"
           ],
           "additionalProperties": false
+        },
+        "ld_library_path_policy": {
+          "type": "string",
+          "minLength": 1,
+          "enum": [
+            "replace",
+            "prepend",
+            "preserve",
+            "unset"
+          ]
         }
       },
       "required": [
@@ -320,6 +331,76 @@
         "max_depth",
         "max_candidates",
         "recursive"
+      ],
+      "additionalProperties": false
+    },
+    "execution_review": {
+      "type": "object",
+      "properties": {
+        "source_run_sha256": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "source_node_selection": {
+          "type": "string",
+          "minLength": 1,
+          "enum": [
+            "all_q",
+            "node127"
+          ]
+        },
+        "target_node_selection": {
+          "const": "all_q"
+        },
+        "approved_changes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "enum": [
+              "sge_machinefile",
+              "ld_library_path_replace",
+              "ld_library_path_prepend",
+              "ld_library_path_preserve",
+              "ld_library_path_unset",
+              "node127_to_all_q"
+            ]
+          },
+          "minItems": 1
+        },
+        "approval": {
+          "type": "object",
+          "properties": {
+            "reviewer": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+            },
+            "approved_at": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^\\d{4}-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$"
+            },
+            "note": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "reviewer",
+            "approved_at",
+            "note"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "source_run_sha256",
+        "source_node_selection",
+        "target_node_selection",
+        "approved_changes",
+        "approval"
       ],
       "additionalProperties": false
     }
