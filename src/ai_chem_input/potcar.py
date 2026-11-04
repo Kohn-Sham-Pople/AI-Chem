@@ -34,8 +34,12 @@ def inspect_potcar(source,deadline=None):
             title=metadata['TITEL'].split(); require(len(title)>=2,'POTCAR_METADATA')
             element=metadata['VRHFIN'].split(':')[0].strip(); variant=title[1]
             require(re.fullmatch(r'[A-Z][a-z]?',element) and re.fullmatch(r'[A-Za-z0-9_]+',variant),'POTCAR_METADATA')
-            number(metadata['ZVAL'])
-            result.append(PotentialDataset(element,variant,h.hexdigest(),metadata['LEXCH'],metadata['ZVAL']))
+            # Permit only the numeric token and VASP's optional descriptive suffix.
+            zval_match=re.fullmatch(r'(\S+)(?:[ \t]+mass[ \t]+and[ \t]+valenz)?',metadata['ZVAL'])
+            require(zval_match is not None,'POTCAR_METADATA')
+            zval=zval_match.group(1)
+            number(zval)
+            result.append(PotentialDataset(element,variant,h.hexdigest(),metadata['LEXCH'],zval))
             h=hashlib.sha256(); metadata={}; size=0
     require(size==0 and result,'POTCAR_TRUNCATED')
     return tuple(result)
