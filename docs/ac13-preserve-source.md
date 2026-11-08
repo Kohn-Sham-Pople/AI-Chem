@@ -219,3 +219,37 @@ new profile/template refs, all unchanged scientific mappings, and independently
 expected actual Golden outputs. Run the expanded regression suite on the target
 HPC runtime and retain actual private Golden evidence there. Cloud tests are
 synthetic only and do not establish that the reported d hash matches local bytes.
+
+## VASP 5.4.4 MAGMOM serialization
+
+MAGMOM output now run-length encodes **adjacent numerically equal scalar
+components** as N*value. Atom indices are still resolved in POSCAR order; for
+noncollinear input the existing per-atom XYZ flattening order is unchanged,
+including runs that cross vector/atom boundaries. Exact Decimal comparison is
+used, without float conversion, rounding, sign-pattern changes, sorting or padding.
+The encoded value is expanded and checked against the complete original N/3N
+array before it can be used. This changes formatting only, not registered moments,
+U/J, spin/SOC, protocol or the preserve_source run.sh bytes.
+
+A synthetic 144-scalar formatting example (not actual Eu2BaCuO5 approval) is
+32*6 16*0 16*1 80*0. Real values must still come exclusively from approved local
+configuration. Do not copy this example into a material registration.
+
+For this VASP 5.4.4 path the policy is **at most 255 UTF-8 bytes**, excluding CR/LF,
+for the full MAGMOM physical line, not merely the value. The generated canonical
+`MAGMOM = ` prefix counts toward the limit. Preserved indentation, adjacent
+semicolon assignments and inline comments count too. The normalized logical
+assignment must also fit; continuation lines are not used to bypass the bound.
+Compression does not split an unsupported assignment, trim comments, truncate an
+array or reduce numeric precision. If either bound is exceeded, planning fails
+with MAGMOM_LINE_TOO_LONG. CLI prepare (including dry-run) never reaches output,
+DB or lock creation; strict dry-run also leaves inbox untouched. A worker may
+still claim/archive a rejected request through its existing bookkeeping.
+Other INCAR tags are not reformatted or given a new length policy by this change.
+
+During local Golden Review, independently compare the expanded N/3N sequence and
+review the new exact INCAR hash/text diff. Existing registered scientific JSON and
+source bytes are not edited. Use a new calculation identity if an existing bundle
+belongs to an earlier preparation; never overwrite a completed package to update
+formatting. Actual HPC Golden validation remains local; this serialization check
+is not a VASP execution or convergence test.

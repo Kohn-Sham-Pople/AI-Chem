@@ -68,7 +68,7 @@ def test_noncollinear_soc_positive_and_scalar_rejection(tmp_path):
     c=m['configurations'][0]; c.update(spin_mode='noncollinear',soc=True,saxis=['0','0','1'],magmom_by_atom=[dict(atom_index=1,vector=['0','0','1']),dict(atom_index=2,vector=['0','0','-1'])])
     revise(reg,req,'material',m)
     t=copy.deepcopy(e['template']); t['files']=inventory(source)['files']; revise(reg,req,'template',t)
-    plan=build_plan((req,reg)); assert parse_incar(dict(plan.generated)['INCAR']).tags['MAGMOM']=='0 0 1 0 0 -1'
+    plan=build_plan((req,reg)); assert parse_incar(dict(plan.generated)['INCAR']).tags['MAGMOM']=='2*0 1 2*0 -1'
     inputs=dict(plan.generated); inputs['INCAR']=patch_incar(parse_incar(inputs['INCAR']),[Patch('MAGMOM','1 -1')])
     with (source/'POTCAR').open('rb') as f: potentials=inspect_potcar(f)
     with pytest.raises(InputError) as exc: validate_inputs(dict(e,material=m,template=t,request=req,potentials=potentials),inputs)

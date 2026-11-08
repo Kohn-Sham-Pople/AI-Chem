@@ -1,7 +1,46 @@
+import re
+
 from .errors import require
 from .incar import array, boolean, number, parse_incar, Patch
 from .protocols import CONTROLLED, MATERIAL_TAGS, stage_values
 from .provenance import sha256
+
+MAGMOM_MAX_LINE_BYTES = 255
+
+
+def compress_magmom(moments):
+    """Run-length encode adjacent equal scalar components, without float rounding."""
+    require(moments,'MAGMOM_COUNT')
+    expected=tuple(number(value) for value in moments)
+    tokens=[]; start=0
+    while start<len(expected):
+        end=start+1
+        while end<len(expected) and expected[end]==expected[start]:
+            end+=1
+        count=end-start
+        tokens.append(str(count)+'*'+moments[start] if count>1 else moments[start])
+        start=end
+    value=' '.join(tokens)
+    require(array(value)==expected,'MAGMOM_MAPPING')
+    require(len(('MAGMOM = '+value).encode('utf-8'))<=MAGMOM_MAX_LINE_BYTES,
+            'MAGMOM_LINE_TOO_LONG','MAGMOM')
+    return value
+
+
+def validate_magmom_line_lengths(doc):
+    """Bound the logical assignment and every actual physical line it touches."""
+    assignment=next((a for a in doc.assignments if a.tag=='MAGMOM'),None)
+    if assignment is None:
+        return  # The existing mapping validation reports a missing MAGMOM.
+    text=doc.data.decode('utf-8')
+    start=max(text.rfind('\n',0,assignment.start),text.rfind('\r',0,assignment.start))+1
+    endings=[text.find(separator,assignment.end) for separator in ('\r','\n')]
+    end=min([pos for pos in endings if pos>=0]+[len(text)])
+    lines=re.split(r'\r\n|\r|\n',text[start:end])
+    logical='MAGMOM = '+' '.join(doc.tags['MAGMOM'].split())
+    require(all(len(line.encode('utf-8'))<=MAGMOM_MAX_LINE_BYTES for line in lines)
+            and len(logical.encode('utf-8'))<=MAGMOM_MAX_LINE_BYTES,
+            'MAGMOM_LINE_TOO_LONG','MAGMOM')
 
 
 def one(items,key,value,code):
@@ -39,7 +78,7 @@ def material_mapping(material,request,structure,potentials):
             require(set(atom)=={'atom_index','moment'},'MAGMOM_COUNT'); moments.append(atom['moment'])
         else:
             require(set(atom)=={'atom_index','vector'} and len(atom['vector'])==3,'MAGMOM_COUNT'); moments.extend(atom['vector'])
-    patches.append(Patch('MAGMOM',' '.join(moments)))
+    patches.append(Patch('MAGMOM',compress_magmom(moments)))
     return config,uset,patches
 
 
@@ -83,7 +122,8 @@ def validate_inputs(context,inputs):
     config,uset,patches=material_mapping(material,request,structure,potentials)
     require(sha256(inputs['POSCAR'])==config['structure_sha256'],'STRUCTURE_INVALID')
     require(sha256(inputs['KPOINTS'])==material['method']['kpoints_sha256'],'KPOINTS_MISMATCH'); validate_kpoints(inputs['KPOINTS'])
-    tags=parse_incar(inputs['INCAR']).tags; check_method(material,tags); check_spin(config,tags)
+    doc=parse_incar(inputs['INCAR']); validate_magmom_line_lengths(doc)
+    tags=doc.tags; check_method(material,tags); check_spin(config,tags)
     for patch in patches:
         require(patch.tag in tags,'MAGMOM_COUNT' if patch.tag=='MAGMOM' else 'LDAU_MAPPING_INVALID')
         actual=array(tags[patch.tag]) if patch.tag!='LDAU' else boolean(tags[patch.tag])
