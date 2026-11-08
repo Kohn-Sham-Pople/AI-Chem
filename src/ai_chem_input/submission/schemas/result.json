@@ -1,0 +1,178 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "operation": {
+      "type": "string",
+      "minLength": 1
+    },
+    "request_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "calculation_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "calculation_key": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "stage_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "intent_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "run_instance_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "state": {
+      "type": "string",
+      "minLength": 1
+    },
+    "committed": {
+      "type": "boolean",
+      "default": false
+    },
+    "dispatched_this_call": {
+      "type": "boolean",
+      "default": false
+    },
+    "dispatch_allowed": {
+      "type": "boolean",
+      "default": false
+    },
+    "scheduler_job_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[1-9][0-9]*$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "live_admission": {
+      "type": "string",
+      "minLength": 1
+    },
+    "issue_codes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+      },
+      "minItems": 0,
+      "maxItems": 1000
+    },
+    "review_required": {
+      "type": "boolean",
+      "default": false
+    },
+    "planned_argv": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0,
+      "maxItems": 1000
+    },
+    "execution_blockers": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+      },
+      "minItems": 0,
+      "maxItems": 1000
+    },
+    "execution_changes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+      },
+      "minItems": 0,
+      "maxItems": 1000
+    }
+  },
+  "required": [
+    "schema_version",
+    "operation",
+    "request_id",
+    "calculation_id",
+    "calculation_key",
+    "stage_id",
+    "intent_id",
+    "run_instance_id",
+    "state",
+    "committed",
+    "dispatched_this_call",
+    "dispatch_allowed",
+    "scheduler_job_id",
+    "live_admission",
+    "issue_codes",
+    "review_required"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

@@ -1,0 +1,276 @@
+[
+  {
+    "id": "S13-01",
+    "title": "One dispatch and strict binding",
+    "status": "PASS",
+    "automated_status": "PASS",
+    "test_ids": [
+      "tests/integration/submission/test_service.py::test_s13_01_submit_once"
+    ],
+    "local_blocker": null
+  },
+  {
+    "id": "S13-02",
+    "title": "Request redelivery and stable identity",
+    "status": "PASS",
+    "automated_status": "PASS",
+    "test_ids": [
+      "tests/integration/submission/test_safety.py::test_restarted_client_object_uses_only_durable_server_state",
+      "tests/integration/submission/test_service.py::test_s13_02_03_aliases_and_conflicts",
+      "tests/unit/submission/test_contracts.py::test_s13_02_science_and_transport_keys"
+    ],
+    "local_blocker": null
+  },
+  {
+    "id": "S13-03",
+    "title": "Labels and physical/scientific aliases",
+    "status": "PASS",
+    "automated_status": "PASS",
+    "test_ids": [
+      "tests/integration/submission/test_safety.py::test_s13_03_same_physical_bundle_cannot_get_a_new_manifest_run",
+      "tests/integration/submission/test_safety.py::test_s13_03_scientific_duplicate_in_new_physical_bundle_is_blocked",
+      "tests/integration/submission/test_service.py::test_s13_02_03_aliases_and_conflicts"
+    ],
+    "local_blocker": null
+  },
+  {
+    "id": "S13-04",
+    "title": "Bundle integrity and source immutability",
+    "status": "PASS",
+    "automated_status": "PASS",
+    "test_ids": [
+      "tests/integration/submission/test_safety.py::test_preparation_rows_never_change",
+      "tests/integration/submission/test_safety.py::test_s13_04_integrity_used_directory_no_dispatch[manifest]",
+      "tests/integration/submission/test_safety.py::test_s13_04_integrity_used_directory_no_dispatch[symlink]",
+      "tests/integration/submission/test_safety.py::test_s13_04_integrity_used_directory_no_dispatch[tamper]",
+      "tests/integration/submission/test_safety.py::test_s13_04_integrity_used_directory_no_dispatch[unmanifested_chgcar]",
+      "tests/integration/submission/test_safety.py::test_s13_04_integrity_used_directory_no_dispatch[used]",
+      "tests/integration/submission/test_service.py::test_s13_01_submit_once"
+    ],
+    "local_blocker": null
+  },
+  {
+    "id": "S13-05",
+    "title": "Accepted timeout/crash recovery",
+    "status": "PASS",
+    "automated_status": "PASS",
+    "test_ids": [
+      "tests/integration/submission/test_safety.py::test_restarted_client_object_uses_only_durable_server_state",
+      "tests/integration/submission/test_service.py::test_s13_05_08_timeout_acceptance_recovery[False]",
+      "tests/integration/submission/test_service.py::test_s13_05_08_timeout_acceptance_recovery[True]",
+      "tests/integration/submission/test_service.py::test_s13_05_server_accept_then_controller_crash"
+    ],
+    "local_blocker": null
+  },
+  {
+    "id": "S13-06",
+    "title": "Fence-before-spawn crash",
+    "status": "PASS",
+    "automated_status": "PASS",
+    "test_ids": [
+      "tests/integration/submission/test_safety.py::test_s13_13_fence_commit_unknown_never_returns_second_permit",
+      "tests/integration/submission/test_service.py::test_s13_06_07_fault_windows[fence]",
+      "tests/integration/submission/test_service.py::test_s13_06_07_fault_windows[fence_receipt]"
+    ],
+    "local_blocker": null
+  },
+  {
+    "id": "S13-07",
+    "title": "Immutable receipt and DB crash recovery",
+    "status": "PASS",
+    "automated_status": "PASS",
+    "test_ids": [
+      "tests/integration/submission/test_safety.py::test_receipt_exclusive_same_content_and_conflict",
+      "tests/integration/submission/test_safety.py::test_receipt_tampering_requires_review_not_loose_job_id_recovery",
+      "tests/integration/submission/test_safety.py::test_s13_07_parent_fsync_failure_after_receipt_publish_is_recoverable",
+      "tests/integration/submission/test_safety.py::test_s13_07_receipt_recovers_after_db_bind_failure",
+      "tests/integration/submission/test_safety.py::test_s13_07_receipt_write_failure_still_never_resubmits",
+      "tests/integration/submission/test_service.py::test_s13_06_07_fault_windows[before_pending]",
+      "tests/integration/submission/test_service.py::test_s13_06_07_fault_windows[bound]",
+      "tests/integration/submission/test_service.py::test_s13_06_07_fault_windows[fence]",
+      "tests/integration/submission/test_service.py::test_s13_06_07_fault_windows[fence_receipt]",
+      "tests/integration/submission/test_service.py::test_s13_06_07_fault_windows[intent_files]",
+      "tests/integration/submission/test_service.py::test_s13_06_07_fault_windows[outcome]",
+      "tests/integration/submission/test_service.py::test_s13_06_07_fault_windows[pending]",
+      "tests/integration/submission/test_service.py::test_s13_06_07_fault_windows[receipt]",
+      "tests/integration/submission/test_service.py::test_s13_07_repeated_reconciliation_keeps_receipt_and_observation_hashes_separate[False]",
+      "tests/integration/submission/test_service.py::test_s13_07_repeated_reconciliation_keeps_receipt_and_observation_hashes_separate[True]"
+    ],
+    "local_blocker": null
+  },
+  {
+    "id": "S13-08",
+    "title": "Unknown/delayed observation never retries",
+    "status": "PASS",
+    "automated_status": "PASS",
+    "test_ids": [
+      "tests/integration/submission/test_safety.py::test_s13_08_grace_expiry_is_not_nonacceptance",
+      "tests/integration/submission/test_service.py::test_s13_05_08_timeout_acceptance_recovery[False]",
+      "tests/integration/submission/test_service.py::test_s13_05_08_timeout_acceptance_recovery[True]",
+      "tests/integration/submission/test_service.py::test_s13_08_09_observation_no_resubmission[delay-SUBMISSION_UNCERTAIN]",
+      "tests/integration/submission/test_service.py::test_s13_08_09_observation_no_resubmission[fail-SUBMISSION_UNCERTAIN]",
+      "tests/integration/submission/test_service.py::test_s13_08_09_observation_no_resubmission[multiple-IDENTITY_CONFLICT]",
+      "tests/integration/submission/test_service.py::test_s13_08_09_observation_no_resubmission[weak-REVIEW_REQUIRED]",
+      "tests/integration/submission/test_service.py::test_s13_08_09_observation_no_resubmission[wrong_manifest-REVIEW_REQUIRED]"
+    ],
+    "local_blocker": null
+  },
+  {
+    "id": "S13-09",
+    "title": "Weak/multiple identity evidence",
+    "status": "PASS",
+    "automated_status": "PASS",
+    "test_ids": [
+      "tests/integration/submission/test_service.py::test_s13_08_09_observation_no_resubmission[delay-SUBMISSION_UNCERTAIN]",
+      "tests/integration/submission/test_service.py::test_s13_08_09_observation_no_resubmission[fail-SUBMISSION_UNCERTAIN]",
+      "tests/integration/submission/test_service.py::test_s13_08_09_observation_no_resubmission[multiple-IDENTITY_CONFLICT]",
+      "tests/integration/submission/test_service.py::test_s13_08_09_observation_no_resubmission[weak-REVIEW_REQUIRED]",
+      "tests/integration/submission/test_service.py::test_s13_08_09_observation_no_resubmission[wrong_manifest-REVIEW_REQUIRED]",
+      "tests/unit/submission/test_contracts.py::test_accounting_timestamp_and_live_env_mismatch_cannot_bind"
+    ],
+    "local_blocker": null
+  },
+  {
+    "id": "S13-10",
+    "title": "Malformed acknowledgment and bounded clients",
+    "status": "PASS",
+    "automated_status": "PASS",
+    "test_ids": [
+      "tests/integration/submission/test_runner.py::test_bounded_synthetic_process_and_protocol[import os,signal\\nos.kill(os.getpid(),signal.SIGTERM)\\n-None]",
+      "tests/integration/submission/test_runner.py::test_bounded_synthetic_process_and_protocol[import sys\\nsys.stdout.buffer.write(b'12345\\\\n')\\nsys.stderr.buffer.write(b'warning')\\n-12345]",
+      "tests/integration/submission/test_runner.py::test_bounded_synthetic_process_and_protocol[import sys\\nsys.stdout.buffer.write(b'\\\\xff')\\n-None]",
+      "tests/integration/submission/test_runner.py::test_definite_missing_exec_and_query_cannot_dispatch",
+      "tests/integration/submission/test_runner.py::test_independent_output_caps_do_not_deadlock_or_buffer_without_limit[both]",
+      "tests/integration/submission/test_runner.py::test_independent_output_caps_do_not_deadlock_or_buffer_without_limit[stderr]",
+      "tests/integration/submission/test_runner.py::test_independent_output_caps_do_not_deadlock_or_buffer_without_limit[stdout]",
+      "tests/integration/submission/test_runner.py::test_timeout_and_no_shell_interpolation",
+      "tests/integration/submission/test_service.py::test_definite_spawn_failure_is_never_retried",
+      "tests/integration/submission/test_service.py::test_s13_10_malformed_ack[0--12]",
+      "tests/integration/submission/test_service.py::test_s13_10_malformed_ack[0-0]",
+      "tests/integration/submission/test_service.py::test_s13_10_malformed_ack[0-123.1-5:1]",
+      "tests/integration/submission/test_service.py::test_s13_10_malformed_ack[0-1\\n2\\n]",
+      "tests/integration/submission/test_service.py::test_s13_10_malformed_ack[0-Job 12345 submitted]",
+      "tests/integration/submission/test_service.py::test_s13_10_malformed_ack[0-\\xff]",
+      "tests/integration/submission/test_service.py::test_s13_10_malformed_ack[0-]",
+      "tests/integration/submission/test_service.py::test_s13_10_malformed_ack[1-1001\\n]",
+      "tests/unit/submission/test_contracts.py::test_s13_10_strict_terse_parser[ \\t12345\\r\\n-0-12345]",
+      "tests/unit/submission/test_contracts.py::test_s13_10_strict_terse_parser[-0-None]",
+      "tests/unit/submission/test_contracts.py::test_s13_10_strict_terse_parser[-12-0-None]",
+      "tests/unit/submission/test_contracts.py::test_s13_10_strict_terse_parser[0-0-None]",
+      "tests/unit/submission/test_contracts.py::test_s13_10_strict_terse_parser[12345-1-None]",
+      "tests/unit/submission/test_contracts.py::test_s13_10_strict_terse_parser[12345.1-10:1-0-None]",
+      "tests/unit/submission/test_contracts.py::test_s13_10_strict_terse_parser[12345\\n-0-12345]",
+      "tests/unit/submission/test_contracts.py::test_s13_10_strict_terse_parser[12345\\x00-0-None]",
+      "tests/unit/submission/test_contracts.py::test_s13_10_strict_terse_parser[1\\n2-0-None]",
+      "tests/unit/submission/test_contracts.py::test_s13_10_strict_terse_parser[Job 12345 submitted-0-None]",
+      "tests/unit/submission/test_contracts.py::test_s13_10_strict_terse_parser[\\xef\\xbb\\xbf12345-0-None]",
+      "tests/unit/submission/test_contracts.py::test_s13_10_strict_terse_parser[\\xff-0-None]"
+    ],
+    "local_blocker": null
+  },
+  {
+    "id": "S13-11",
+    "title": "User-wide 320-slot admission",
+    "status": "PASS",
+    "automated_status": "PASS",
+    "test_ids": [
+      "tests/integration/submission/test_safety.py::test_live_gates_are_fail_closed[authorization]",
+      "tests/integration/submission/test_safety.py::test_live_gates_are_fail_closed[dialect]",
+      "tests/integration/submission/test_safety.py::test_live_gates_are_fail_closed[effective]",
+      "tests/integration/submission/test_safety.py::test_live_gates_are_fail_closed[owner]",
+      "tests/integration/submission/test_safety.py::test_live_gates_are_fail_closed[paused]",
+      "tests/integration/submission/test_safety.py::test_live_gates_are_fail_closed[restore]",
+      "tests/integration/submission/test_safety.py::test_live_gates_are_fail_closed[rqs]",
+      "tests/unit/submission/test_contracts.py::test_s13_11_incomplete_or_alternate_encoding_xml_is_never_zero_usage[<job_info/>]",
+      "tests/unit/submission/test_contracts.py::test_s13_11_incomplete_or_alternate_encoding_xml_is_never_zero_usage[<job_info><error>permission denied</error></job_info>]",
+      "tests/unit/submission/test_contracts.py::test_s13_11_incomplete_or_alternate_encoding_xml_is_never_zero_usage[<job_info><queue_info><error>partial result</error></queue_info></job_info>]",
+      "tests/unit/submission/test_contracts.py::test_s13_11_incomplete_or_alternate_encoding_xml_is_never_zero_usage[\\xff\\xfe<\\x00!\\x00D\\x00O\\x00C\\x00T\\x00Y\\x00P\\x00E\\x00 \\x00j\\x00o\\x00b\\x00_\\x00i\\x00n\\x00f\\x00o\\x00 \\x00[\\x00<\\x00!\\x00E\\x00N\\x00T\\x00I\\x00T\\x00Y\\x00 \\x00x\\x00 \\x00\"\\x00e\\x00x\\x00p\\x00a\\x00n\\x00d\\x00e\\x00d\\x00\"\\x00>\\x00]\\x00>\\x00<\\x00j\\x00o\\x00b\\x00_\\x00i\\x00n\\x00f\\x00o\\x00>\\x00<\\x00q\\x00u\\x00e\\x00u\\x00e\\x00_\\x00i\\x00n\\x00f\\x00o\\x00>\\x00&\\x00x\\x00;\\x00<\\x00/\\x00q\\x00u\\x00e\\x00u\\x00e\\x00_\\x00i\\x00n\\x00f\\x00o\\x00>\\x00<\\x00/\\x00j\\x00o\\x00b\\x00_\\x00i\\x00n\\x00f\\x00o\\x00>\\x00]",
+      "tests/unit/submission/test_contracts.py::test_s13_11_partial_stale_or_future_snapshot_blocks[False-0]",
+      "tests/unit/submission/test_contracts.py::test_s13_11_partial_stale_or_future_snapshot_blocks[True--1]",
+      "tests/unit/submission/test_contracts.py::test_s13_11_partial_stale_or_future_snapshot_blocks[True-6]",
+      "tests/unit/submission/test_contracts.py::test_s13_11_user_wide_slot_boundary[288-True]",
+      "tests/unit/submission/test_contracts.py::test_s13_11_user_wide_slot_boundary[289-False]",
+      "tests/unit/submission/test_contracts.py::test_s13_11_user_wide_slot_boundary[320-False]",
+      "tests/unit/submission/test_contracts.py::test_s13_11_xml_element_count_is_bounded_during_parse"
+    ],
+    "local_blocker": null
+  },
+  {
+    "id": "S13-12",
+    "title": "Reservation/PE row deduplication",
+    "status": "PASS",
+    "automated_status": "PASS",
+    "test_ids": [
+      "tests/unit/submission/test_contracts.py::test_hand_authored_sge_fixtures",
+      "tests/unit/submission/test_contracts.py::test_s13_12_accounting_pe_rows_group_one_job",
+      "tests/unit/submission/test_contracts.py::test_s13_12_reservation_dedup_and_candidate_once"
+    ],
+    "local_blocker": null
+  },
+  {
+    "id": "S13-13",
+    "title": "Concurrent writers and CAS/DB failures",
+    "status": "PASS",
+    "automated_status": "PASS",
+    "test_ids": [
+      "tests/integration/submission/test_safety.py::test_s13_13_cas_rollback_and_command_bound_permit",
+      "tests/integration/submission/test_safety.py::test_s13_13_fence_commit_unknown_never_returns_second_permit",
+      "tests/integration/submission/test_safety.py::test_s13_13_two_process_writers_and_common_lock"
+    ],
+    "local_blocker": null
+  },
+  {
+    "id": "S13-14",
+    "title": "Strict dry-run and side-effect-free help",
+    "status": "PASS",
+    "automated_status": "PASS",
+    "test_ids": [
+      "tests/integration/submission/test_safety.py::test_help_is_process_and_state_free",
+      "tests/integration/submission/test_safety.py::test_s13_14_strict_dry_run_no_writes_queries_tokens_or_lock"
+    ],
+    "local_blocker": null
+  },
+  {
+    "id": "S13-15",
+    "title": "Actual SGE defaults/environment/CLI precedence",
+    "status": "NOT_RUN",
+    "automated_status": "PASS",
+    "test_ids": [
+      "tests/integration/submission/test_safety.py::test_qmaster_change_blocks_client_execution[reconcile]",
+      "tests/integration/submission/test_safety.py::test_qmaster_change_blocks_client_execution[submit]",
+      "tests/unit/submission/test_contracts.py::test_default_live_false_and_exact_command",
+      "tests/unit/submission/test_contracts.py::test_s13_15_effective_precedence_needs_explicit_local_approval[d-export_all_removed]",
+      "tests/unit/submission/test_contracts.py::test_s13_15_effective_precedence_needs_explicit_local_approval[f-node_selection_removed]"
+    ],
+    "local_blocker": "Actual SGE defaults/JSV, -V inheritance, f node127 selection and Intel/MKL environment equivalence require private local evidence and explicit change approval."
+  },
+  {
+    "id": "S13-16",
+    "title": "Exact target runtime and benign local SGE pilot",
+    "status": "NOT_RUN",
+    "automated_status": "NOT_RUN",
+    "test_ids": [],
+    "local_blocker": "Exact CentOS 6.9 / Python 3.9.19 / linked SQLite 3.46.1 and local SGE/RQS/dialect/storage are unverified; benign pilot requires separate user approval."
+  },
+  {
+    "id": "S13-17",
+    "title": "Actual approved verified-bundle submission",
+    "status": "NOT_RUN",
+    "automated_status": "NOT_RUN",
+    "test_ids": [],
+    "local_blocker": "No actual private Input/POTCAR was accessed; actual single-job d/f pilot and Cron require separate authorization."
+  },
+  {
+    "id": "S13-18",
+    "title": "Restore/epoch/orphan evidence blocking",
+    "status": "PASS",
+    "automated_status": "PASS",
+    "test_ids": [
+      "tests/integration/submission/test_safety.py::test_restore_pause_allows_explicit_reconcile_but_never_new_dispatch",
+      "tests/integration/submission/test_safety.py::test_s13_18_db_removed_with_external_anchor_cannot_reinitialize",
+      "tests/integration/submission/test_safety.py::test_s13_18_profile_revision_drift_does_not_silently_redefine_intent",
+      "tests/integration/submission/test_safety.py::test_s13_18_restore_orphan_and_epoch_block"
+    ],
+    "local_blocker": null
+  }
+]

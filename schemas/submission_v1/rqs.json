@@ -1,0 +1,68 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "cluster_id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+    },
+    "cluster_epoch": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+    },
+    "owner": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+    },
+    "approval": {
+      "type": "object",
+      "properties": {
+        "reviewer": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+        },
+        "approved_at": {
+          "type": "string",
+          "minLength": 1
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "reviewer",
+        "approved_at",
+        "note"
+      ],
+      "additionalProperties": false
+    },
+    "kind": {
+      "const": "rqs"
+    },
+    "hard_cap": {
+      "const": 320
+    },
+    "pending_included": {
+      "const": true
+    }
+  },
+  "required": [
+    "schema_version",
+    "cluster_id",
+    "cluster_epoch",
+    "owner",
+    "approval",
+    "kind",
+    "hard_cap",
+    "pending_included"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

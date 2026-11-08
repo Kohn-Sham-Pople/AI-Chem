@@ -1,0 +1,9 @@
+<job_info version="sge_xml_v1"><queue_info>
+<job_list><JB_job_number>1</JB_job_number><JB_name>manual_queued</JB_name><JB_owner>synthetic_owner</JB_owner><state>qw</state><slots>1</slots><pe_range>1-32</pe_range></job_list>
+<job_list><JB_job_number>2</JB_job_number><JB_name>ac_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</JB_name><JB_owner>synthetic_owner</JB_owner><state>r</state><slots>8</slots></job_list>
+<job_list><JB_job_number>2</JB_job_number><JB_name>ac_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</JB_name><JB_owner>synthetic_owner</JB_owner><state>r</state><slots>24</slots></job_list>
+<job_list><JB_job_number>3</JB_job_number><JB_name>manual_held</JB_name><JB_owner>synthetic_owner</JB_owner><state>hqw</state><slots>32</slots></job_list>
+<job_list><JB_job_number>4</JB_job_number><JB_name>manual_error</JB_name><JB_owner>synthetic_owner</JB_owner><state>Eqw</state><slots>32</slots></job_list>
+<job_list><JB_job_number>5</JB_job_number><JB_name>manual_deleting</JB_name><JB_owner>synthetic_owner</JB_owner><state>dr</state><slots>32</slots></job_list>
+<job_list><JB_job_number>6</JB_job_number><JB_name>manual_transfer</JB_name><JB_owner>synthetic_owner</JB_owner><state>t</state><slots>32</slots></job_list>
+</queue_info></job_info>

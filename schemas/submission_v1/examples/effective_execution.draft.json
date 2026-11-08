@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "cluster_id": null,
+  "cluster_epoch": null,
+  "owner": null,
+  "approval": {
+    "reviewer": null,
+    "approved_at": null,
+    "note": null
+  },
+  "kind": "effective_execution",
+  "script_sha256": null,
+  "command_policy_sha256": null,
+  "client_env_sha256": null,
+  "defaults_reviewed": null,
+  "local_precedence_pilot": null,
+  "runtime_environment_equivalent": null,
+  "approved_changes": [],
+  "evidence_digest": null
+}

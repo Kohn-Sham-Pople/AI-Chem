@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "cluster_id": null,
+  "cluster_epoch": null,
+  "owner": null,
+  "approval": {
+    "reviewer": null,
+    "approved_at": null,
+    "note": null
+  },
+  "kind": "live_authorization",
+  "mode": "single_job_pilot",
+  "profile_sha256": null
+}

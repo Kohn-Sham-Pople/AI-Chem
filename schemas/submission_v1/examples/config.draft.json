@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "profile": {
+    "schema_version": 1,
+    "id": null,
+    "revision": null,
+    "approval": {
+      "reviewer": null,
+      "approved_at": null,
+      "note": null
+    },
+    "cluster_id": null,
+    "cluster_epoch": null,
+    "state_epoch": null,
+    "expected_owner": {
+      "uid": null,
+      "name": null
+    },
+    "qmaster_aliases": [],
+    "cluster_timezone": null,
+    "qsub_path": null,
+    "qstat_path": null,
+    "qacct_path": null,
+    "dialect": "sge_xml_v1",
+    "sge_client_env": {
+      "SGE_ROOT": null,
+      "SGE_CELL": null,
+      "PATH": null,
+      "HOME": null,
+      "SGE_QMASTER_PORT": null,
+      "SGE_EXECD_PORT": null
+    },
+    "queue": "all.q",
+    "pe": "mpi_32",
+    "slots": 32,
+    "user_quota_slots": 320,
+    "scheduler_rqs_evidence": null,
+    "dialect_evidence": null,
+    "effective_execution_evidence": null,
+    "live_authorization": null,
+    "queue_pending_policy": null,
+    "max_outstanding_controller_runs": 1,
+    "live_enabled": false,
+    "snapshot_max_age_seconds": null,
+    "qsub_timeout_seconds": null,
+    "query_timeout_seconds": null,
+    "reconcile_grace_seconds": null,
+    "reconcile_max_observations": null,
+    "worker_budget_seconds": null,
+    "max_new_submissions": 1,
+    "max_queries": null,
+    "paused": true,
+    "paused_restore": true,
+    "roots": {
+      "source": [],
+      "protected": [],
+      "output": null,
+      "registry": null,
+      "state": null,
+      "lock": null
+    },
+    "site_options": {
+      "project": null,
+      "account": null,
+      "walltime": null
+    }
+  },
+  "bundle_refs": {}
+}

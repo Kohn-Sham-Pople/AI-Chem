@@ -1,0 +1,2032 @@
+{
+  "schema_version": 1,
+  "scope": "CLOUD_SYNTHETIC_ONLY",
+  "base_commit": "b510177725075ce549ef5d5fca8bcf050ab8ed03",
+  "started_at": "2026-11-08T13:42:30.643580+00:00",
+  "python": "3.9.19",
+  "linked_sqlite": "3.46.0",
+  "system": "Linux",
+  "machine": "x86_64",
+  "implementation_tree_sha256": "d8c52f4cc281040b7167470c46db40297fff5417dafdd0de3c0b00c096df8a8a",
+  "pytest_exit_code": 0,
+  "test_count": 402,
+  "step_1_2_count": 267,
+  "step_1_3_count": 135,
+  "outcomes": {
+    "PASS": 402,
+    "FAIL": 0,
+    "NOT_RUN": 0
+  },
+  "tests": [
+    {
+      "test_id": "tests/integration/submission/test_runner.py::test_bounded_synthetic_process_and_protocol[import os,signal\\nos.kill(os.getpid(),signal.SIGTERM)\\n-None]",
+      "outcome": "PASS",
+      "duration_seconds": 0.011697
+    },
+    {
+      "test_id": "tests/integration/submission/test_runner.py::test_bounded_synthetic_process_and_protocol[import sys\\nsys.stdout.buffer.write(b'12345\\\\n')\\nsys.stderr.buffer.write(b'warning')\\n-12345]",
+      "outcome": "PASS",
+      "duration_seconds": 0.018983
+    },
+    {
+      "test_id": "tests/integration/submission/test_runner.py::test_bounded_synthetic_process_and_protocol[import sys\\nsys.stdout.buffer.write(b'\\\\xff')\\n-None]",
+      "outcome": "PASS",
+      "duration_seconds": 0.011895
+    },
+    {
+      "test_id": "tests/integration/submission/test_runner.py::test_definite_missing_exec_and_query_cannot_dispatch",
+      "outcome": "PASS",
+      "duration_seconds": 0.002448
+    },
+    {
+      "test_id": "tests/integration/submission/test_runner.py::test_independent_output_caps_do_not_deadlock_or_buffer_without_limit[both]",
+      "outcome": "PASS",
+      "duration_seconds": 0.011635
+    },
+    {
+      "test_id": "tests/integration/submission/test_runner.py::test_independent_output_caps_do_not_deadlock_or_buffer_without_limit[stderr]",
+      "outcome": "PASS",
+      "duration_seconds": 0.011877
+    },
+    {
+      "test_id": "tests/integration/submission/test_runner.py::test_independent_output_caps_do_not_deadlock_or_buffer_without_limit[stdout]",
+      "outcome": "PASS",
+      "duration_seconds": 0.01147
+    },
+    {
+      "test_id": "tests/integration/submission/test_runner.py::test_timeout_and_no_shell_interpolation",
+      "outcome": "PASS",
+      "duration_seconds": 0.114775
+    },
+    {
+      "test_id": "tests/integration/submission/test_safety.py::test_help_is_process_and_state_free",
+      "outcome": "PASS",
+      "duration_seconds": 0.002865
+    },
+    {
+      "test_id": "tests/integration/submission/test_safety.py::test_live_gates_are_fail_closed[authorization]",
+      "outcome": "PASS",
+      "duration_seconds": 0.061354
+    },
+    {
+      "test_id": "tests/integration/submission/test_safety.py::test_live_gates_are_fail_closed[dialect]",
+      "outcome": "PASS",
+      "duration_seconds": 0.062129
+    },
+    {
+      "test_id": "tests/integration/submission/test_safety.py::test_live_gates_are_fail_closed[effective]",
+      "outcome": "PASS",
+      "duration_seconds": 0.061309
+    },
+    {
+      "test_id": "tests/integration/submission/test_safety.py::test_live_gates_are_fail_closed[owner]",
+      "outcome": "PASS",
+      "duration_seconds": 0.065284
+    },
+    {
+      "test_id": "tests/integration/submission/test_safety.py::test_live_gates_are_fail_closed[paused]",
+      "outcome": "PASS",
+      "duration_seconds": 0.061568
+    },
+    {
+      "test_id": "tests/integration/submission/test_safety.py::test_live_gates_are_fail_closed[restore]",
+      "outcome": "PASS",
+      "duration_seconds": 0.061157
+    },
+    {
+      "test_id": "tests/integration/submission/test_safety.py::test_live_gates_are_fail_closed[rqs]",
+      "outcome": "PASS",
+      "duration_seconds": 0.061357
+    },
+    {
+      "test_id": "tests/integration/submission/test_safety.py::test_preparation_rows_never_change",
+      "outcome": "PASS",
+      "duration_seconds": 0.08918
+    },
+    {
+      "test_id": "tests/integration/submission/test_safety.py::test_qmaster_change_blocks_client_execution[reconcile]",
+      "outcome": "PASS",
+      "duration_seconds": 0.100268
+    },
+    {
+      "test_id": "tests/integration/submission/test_safety.py::test_qmaster_change_blocks_client_execution[submit]",
+      "outcome": "PASS",
+      "duration_seconds": 0.062166
+    },
+    {
+      "test_id": "tests/integration/submission/test_safety.py::test_receipt_exclusive_same_content_and_conflict",
+      "outcome": "PASS",
+      "duration_seconds": 0.001622
+    },
+    {
+      "test_id": "tests/integration/submission/test_safety.py::test_receipt_tampering_requires_review_not_loose_job_id_recovery",
+      "outcome": "PASS",
+      "duration_seconds": 0.096081
+    },
+    {
+      "test_id": "tests/integration/submission/test_safety.py::test_restarted_client_object_uses_only_durable_server_state",
+      "outcome": "PASS",
+      "duration_seconds": 0.098853
+    },
+    {
+      "test_id": "tests/integration/submission/test_safety.py::test_restore_pause_allows_explicit_reconcile_but_never_new_dispatch",
+      "outcome": "PASS",
+      "duration_seconds": 0.101668
+    },
+    {
+      "test_id": "tests/integration/submission/test_safety.py::test_s13_03_same_physical_bundle_cannot_get_a_new_manifest_run",
+      "outcome": "PASS",
+      "duration_seconds": 0.097614
+    },
+    {
+      "test_id": "tests/integration/submission/test_safety.py::test_s13_03_scientific_duplicate_in_new_physical_bundle_is_blocked",
+      "outcome": "PASS",
+      "duration_seconds": 0.129698
+    },
+    {
+      "test_id": "tests/integration/submission/test_safety.py::test_s13_04_integrity_used_directory_no_dispatch[manifest]",
+      "outcome": "PASS",
+      "duration_seconds": 0.055285
+    },
+    {
+      "test_id": "tests/integration/submission/test_safety.py::test_s13_04_integrity_used_directory_no_dispatch[symlink]",
+      "outcome": "PASS",
+      "duration_seconds": 0.058646
+    },
+    {
+      "test_id": "tests/integration/submission/test_safety.py::test_s13_04_integrity_used_directory_no_dispatch[tamper]",
+      "outcome": "PASS",
+      "duration_seconds": 0.054157
+    },
+    {
+      "test_id": "tests/integration/submission/test_safety.py::test_s13_04_integrity_used_directory_no_dispatch[unmanifested_chgcar]",
+      "outcome": "PASS",
+      "duration_seconds": 0.058556
+    },
+    {
+      "test_id": "tests/integration/submission/test_safety.py::test_s13_04_integrity_used_directory_no_dispatch[used]",
+      "outcome": "PASS",
+      "duration_seconds": 0.059318
+    },
+    {
+      "test_id": "tests/integration/submission/test_safety.py::test_s13_07_parent_fsync_failure_after_receipt_publish_is_recoverable",
+      "outcome": "PASS",
+      "duration_seconds": 0.110576
+    },
+    {
+      "test_id": "tests/integration/submission/test_safety.py::test_s13_07_receipt_recovers_after_db_bind_failure",
+      "outcome": "PASS",
+      "duration_seconds": 0.100165
+    },
+    {
+      "test_id": "tests/integration/submission/test_safety.py::test_s13_07_receipt_write_failure_still_never_resubmits",
+      "outcome": "PASS",
+      "duration_seconds": 0.102854
+    },
+    {
+      "test_id": "tests/integration/submission/test_safety.py::test_s13_08_grace_expiry_is_not_nonacceptance",
+      "outcome": "PASS",
+      "duration_seconds": 0.10312
+    },
+    {
+      "test_id": "tests/integration/submission/test_safety.py::test_s13_13_cas_rollback_and_command_bound_permit",
+      "outcome": "PASS",
+      "duration_seconds": 0.061491
+    },
+    {
+      "test_id": "tests/integration/submission/test_safety.py::test_s13_13_fence_commit_unknown_never_returns_second_permit",
+      "outcome": "PASS",
+      "duration_seconds": 0.104824
+    },
+    {
+      "test_id": "tests/integration/submission/test_safety.py::test_s13_13_two_process_writers_and_common_lock",
+      "outcome": "PASS",
+      "duration_seconds": 0.116984
+    },
+    {
+      "test_id": "tests/integration/submission/test_safety.py::test_s13_14_strict_dry_run_no_writes_queries_tokens_or_lock",
+      "outcome": "PASS",
+      "duration_seconds": 0.083395
+    },
+    {
+      "test_id": "tests/integration/submission/test_safety.py::test_s13_18_db_removed_with_external_anchor_cannot_reinitialize",
+      "outcome": "PASS",
+      "duration_seconds": 0.098482
+    },
+    {
+      "test_id": "tests/integration/submission/test_safety.py::test_s13_18_profile_revision_drift_does_not_silently_redefine_intent",
+      "outcome": "PASS",
+      "duration_seconds": 0.096821
+    },
+    {
+      "test_id": "tests/integration/submission/test_safety.py::test_s13_18_restore_orphan_and_epoch_block",
+      "outcome": "PASS",
+      "duration_seconds": 0.125506
+    },
+    {
+      "test_id": "tests/integration/submission/test_safety.py::test_token_collision_is_a_blocker_not_a_token_retry",
+      "outcome": "PASS",
+      "duration_seconds": 0.063098
+    },
+    {
+      "test_id": "tests/integration/submission/test_safety.py::test_worker_recovery_precedes_new_inbox_and_preserves_malformed",
+      "outcome": "PASS",
+      "duration_seconds": 0.094734
+    },
+    {
+      "test_id": "tests/integration/submission/test_safety.py::test_worker_unarmed_pending_resumes_same_token",
+      "outcome": "PASS",
+      "duration_seconds": 0.115214
+    },
+    {
+      "test_id": "tests/integration/submission/test_service.py::test_definite_spawn_failure_is_never_retried",
+      "outcome": "PASS",
+      "duration_seconds": 0.09785
+    },
+    {
+      "test_id": "tests/integration/submission/test_service.py::test_s13_01_submit_once",
+      "outcome": "PASS",
+      "duration_seconds": 0.100837
+    },
+    {
+      "test_id": "tests/integration/submission/test_service.py::test_s13_02_03_aliases_and_conflicts",
+      "outcome": "PASS",
+      "duration_seconds": 0.119005
+    },
+    {
+      "test_id": "tests/integration/submission/test_service.py::test_s13_05_08_timeout_acceptance_recovery[False]",
+      "outcome": "PASS",
+      "duration_seconds": 0.106182
+    },
+    {
+      "test_id": "tests/integration/submission/test_service.py::test_s13_05_08_timeout_acceptance_recovery[True]",
+      "outcome": "PASS",
+      "duration_seconds": 0.107749
+    },
+    {
+      "test_id": "tests/integration/submission/test_service.py::test_s13_05_server_accept_then_controller_crash",
+      "outcome": "PASS",
+      "duration_seconds": 0.107798
+    },
+    {
+      "test_id": "tests/integration/submission/test_service.py::test_s13_06_07_fault_windows[before_pending]",
+      "outcome": "PASS",
+      "duration_seconds": 0.118484
+    },
+    {
+      "test_id": "tests/integration/submission/test_service.py::test_s13_06_07_fault_windows[bound]",
+      "outcome": "PASS",
+      "duration_seconds": 0.097538
+    },
+    {
+      "test_id": "tests/integration/submission/test_service.py::test_s13_06_07_fault_windows[fence]",
+      "outcome": "PASS",
+      "duration_seconds": 0.104638
+    },
+    {
+      "test_id": "tests/integration/submission/test_service.py::test_s13_06_07_fault_windows[fence_receipt]",
+      "outcome": "PASS",
+      "duration_seconds": 0.110988
+    },
+    {
+      "test_id": "tests/integration/submission/test_service.py::test_s13_06_07_fault_windows[intent_files]",
+      "outcome": "PASS",
+      "duration_seconds": 0.118677
+    },
+    {
+      "test_id": "tests/integration/submission/test_service.py::test_s13_06_07_fault_windows[outcome]",
+      "outcome": "PASS",
+      "duration_seconds": 0.115638
+    },
+    {
+      "test_id": "tests/integration/submission/test_service.py::test_s13_06_07_fault_windows[pending]",
+      "outcome": "PASS",
+      "duration_seconds": 0.11569
+    },
+    {
+      "test_id": "tests/integration/submission/test_service.py::test_s13_06_07_fault_windows[receipt]",
+      "outcome": "PASS",
+      "duration_seconds": 0.105352
+    },
+    {
+      "test_id": "tests/integration/submission/test_service.py::test_s13_07_repeated_reconciliation_keeps_receipt_and_observation_hashes_separate[False]",
+      "outcome": "PASS",
+      "duration_seconds": 0.129237
+    },
+    {
+      "test_id": "tests/integration/submission/test_service.py::test_s13_07_repeated_reconciliation_keeps_receipt_and_observation_hashes_separate[True]",
+      "outcome": "PASS",
+      "duration_seconds": 0.120136
+    },
+    {
+      "test_id": "tests/integration/submission/test_service.py::test_s13_08_09_observation_no_resubmission[delay-SUBMISSION_UNCERTAIN]",
+      "outcome": "PASS",
+      "duration_seconds": 0.118189
+    },
+    {
+      "test_id": "tests/integration/submission/test_service.py::test_s13_08_09_observation_no_resubmission[fail-SUBMISSION_UNCERTAIN]",
+      "outcome": "PASS",
+      "duration_seconds": 0.118479
+    },
+    {
+      "test_id": "tests/integration/submission/test_service.py::test_s13_08_09_observation_no_resubmission[multiple-IDENTITY_CONFLICT]",
+      "outcome": "PASS",
+      "duration_seconds": 0.11664
+    },
+    {
+      "test_id": "tests/integration/submission/test_service.py::test_s13_08_09_observation_no_resubmission[weak-REVIEW_REQUIRED]",
+      "outcome": "PASS",
+      "duration_seconds": 0.12239
+    },
+    {
+      "test_id": "tests/integration/submission/test_service.py::test_s13_08_09_observation_no_resubmission[wrong_manifest-REVIEW_REQUIRED]",
+      "outcome": "PASS",
+      "duration_seconds": 0.116405
+    },
+    {
+      "test_id": "tests/integration/submission/test_service.py::test_s13_10_malformed_ack[0--12]",
+      "outcome": "PASS",
+      "duration_seconds": 0.093722
+    },
+    {
+      "test_id": "tests/integration/submission/test_service.py::test_s13_10_malformed_ack[0-0]",
+      "outcome": "PASS",
+      "duration_seconds": 0.092983
+    },
+    {
+      "test_id": "tests/integration/submission/test_service.py::test_s13_10_malformed_ack[0-123.1-5:1]",
+      "outcome": "PASS",
+      "duration_seconds": 0.093689
+    },
+    {
+      "test_id": "tests/integration/submission/test_service.py::test_s13_10_malformed_ack[0-1\\n2\\n]",
+      "outcome": "PASS",
+      "duration_seconds": 0.094936
+    },
+    {
+      "test_id": "tests/integration/submission/test_service.py::test_s13_10_malformed_ack[0-Job 12345 submitted]",
+      "outcome": "PASS",
+      "duration_seconds": 0.093599
+    },
+    {
+      "test_id": "tests/integration/submission/test_service.py::test_s13_10_malformed_ack[0-\\xff]",
+      "outcome": "PASS",
+      "duration_seconds": 0.094306
+    },
+    {
+      "test_id": "tests/integration/submission/test_service.py::test_s13_10_malformed_ack[0-]",
+      "outcome": "PASS",
+      "duration_seconds": 0.101478
+    },
+    {
+      "test_id": "tests/integration/submission/test_service.py::test_s13_10_malformed_ack[1-1001\\n]",
+      "outcome": "PASS",
+      "duration_seconds": 0.093944
+    },
+    {
+      "test_id": "tests/integration/test_cli_worker.py::test_cli_all_commands",
+      "outcome": "PASS",
+      "duration_seconds": 0.050991
+    },
+    {
+      "test_id": "tests/integration/test_cli_worker.py::test_cli_dry",
+      "outcome": "PASS",
+      "duration_seconds": 0.041898
+    },
+    {
+      "test_id": "tests/integration/test_cli_worker.py::test_inbox_limit_and_verify_exit",
+      "outcome": "PASS",
+      "duration_seconds": 0.013992
+    },
+    {
+      "test_id": "tests/integration/test_cli_worker.py::test_worker_minimal_and_archives",
+      "outcome": "PASS",
+      "duration_seconds": 0.061
+    },
+    {
+      "test_id": "tests/integration/test_faults.py::test_changed_config",
+      "outcome": "PASS",
+      "duration_seconds": 0.017135
+    },
+    {
+      "test_id": "tests/integration/test_faults.py::test_copy_fault_preserves_source[input:INCAR]",
+      "outcome": "PASS",
+      "duration_seconds": 0.022232
+    },
+    {
+      "test_id": "tests/integration/test_faults.py::test_copy_fault_preserves_source[input:KPOINTS]",
+      "outcome": "PASS",
+      "duration_seconds": 0.023037
+    },
+    {
+      "test_id": "tests/integration/test_faults.py::test_copy_fault_preserves_source[input:POSCAR]",
+      "outcome": "PASS",
+      "duration_seconds": 0.02243
+    },
+    {
+      "test_id": "tests/integration/test_faults.py::test_copy_fault_preserves_source[input:POTCAR]",
+      "outcome": "PASS",
+      "duration_seconds": 0.022882
+    },
+    {
+      "test_id": "tests/integration/test_faults.py::test_copy_fault_preserves_source[input:run.sh]",
+      "outcome": "PASS",
+      "duration_seconds": 0.022463
+    },
+    {
+      "test_id": "tests/integration/test_faults.py::test_copy_fault_preserves_source[provenance/resolved_config.json]",
+      "outcome": "PASS",
+      "duration_seconds": 0.022875
+    },
+    {
+      "test_id": "tests/integration/test_faults.py::test_copy_fault_preserves_source[provenance/validation.json]",
+      "outcome": "PASS",
+      "duration_seconds": 0.025292
+    },
+    {
+      "test_id": "tests/integration/test_faults.py::test_copy_fault_preserves_source[snapshot:INCAR]",
+      "outcome": "PASS",
+      "duration_seconds": 0.022937
+    },
+    {
+      "test_id": "tests/integration/test_faults.py::test_copy_fault_preserves_source[snapshot:KPOINTS]",
+      "outcome": "PASS",
+      "duration_seconds": 0.02247
+    },
+    {
+      "test_id": "tests/integration/test_faults.py::test_copy_fault_preserves_source[snapshot:POSCAR]",
+      "outcome": "PASS",
+      "duration_seconds": 0.022293
+    },
+    {
+      "test_id": "tests/integration/test_faults.py::test_copy_fault_preserves_source[snapshot:POTCAR]",
+      "outcome": "PASS",
+      "duration_seconds": 0.021701
+    },
+    {
+      "test_id": "tests/integration/test_faults.py::test_copy_fault_preserves_source[snapshot:run.sh]",
+      "outcome": "PASS",
+      "duration_seconds": 0.023956
+    },
+    {
+      "test_id": "tests/integration/test_faults.py::test_deadline_no_writes",
+      "outcome": "PASS",
+      "duration_seconds": 0.012377
+    },
+    {
+      "test_id": "tests/integration/test_faults.py::test_manifest_anchor_cannot_be_silently_replaced",
+      "outcome": "PASS",
+      "duration_seconds": 0.050274
+    },
+    {
+      "test_id": "tests/integration/test_faults.py::test_ready_db_but_missing_final",
+      "outcome": "PASS",
+      "duration_seconds": 0.039516
+    },
+    {
+      "test_id": "tests/integration/test_faults.py::test_real_rename_failure_and_midcopy",
+      "outcome": "PASS",
+      "duration_seconds": 0.039713
+    },
+    {
+      "test_id": "tests/integration/test_faults.py::test_sqlite_foreign_keys",
+      "outcome": "PASS",
+      "duration_seconds": 0.001699
+    },
+    {
+      "test_id": "tests/integration/test_faults.py::test_unexpected_corruption_before_payload",
+      "outcome": "PASS",
+      "duration_seconds": 0.029133
+    },
+    {
+      "test_id": "tests/integration/test_faults.py::test_verify_tampering[manifest_traversal]",
+      "outcome": "PASS",
+      "duration_seconds": 0.036752
+    },
+    {
+      "test_id": "tests/integration/test_faults.py::test_verify_tampering[missing_manifest]",
+      "outcome": "PASS",
+      "duration_seconds": 0.035371
+    },
+    {
+      "test_id": "tests/integration/test_faults.py::test_verify_tampering[missing_potcar]",
+      "outcome": "PASS",
+      "duration_seconds": 0.038
+    },
+    {
+      "test_id": "tests/integration/test_faults.py::test_verify_tampering[missing_ready]",
+      "outcome": "PASS",
+      "duration_seconds": 0.034667
+    },
+    {
+      "test_id": "tests/integration/test_faults.py::test_verify_tampering[modified_snapshot]",
+      "outcome": "PASS",
+      "duration_seconds": 0.0382
+    },
+    {
+      "test_id": "tests/integration/test_faults.py::test_verify_tampering[new_input]",
+      "outcome": "PASS",
+      "duration_seconds": 0.038744
+    },
+    {
+      "test_id": "tests/integration/test_faults.py::test_verify_tampering[omitted_payload]",
+      "outcome": "PASS",
+      "duration_seconds": 0.03805
+    },
+    {
+      "test_id": "tests/integration/test_preparation.py::test_crash_reconciliation[before_manifest]",
+      "outcome": "PASS",
+      "duration_seconds": 0.049752
+    },
+    {
+      "test_id": "tests/integration/test_preparation.py::test_crash_reconciliation[before_ready]",
+      "outcome": "PASS",
+      "duration_seconds": 0.047617
+    },
+    {
+      "test_id": "tests/integration/test_preparation.py::test_crash_reconciliation[before_rename]",
+      "outcome": "PASS",
+      "duration_seconds": 0.056399
+    },
+    {
+      "test_id": "tests/integration/test_preparation.py::test_crash_reconciliation[db_success]",
+      "outcome": "PASS",
+      "duration_seconds": 0.044729
+    },
+    {
+      "test_id": "tests/integration/test_preparation.py::test_crash_reconciliation[intent]",
+      "outcome": "PASS",
+      "duration_seconds": 0.041413
+    },
+    {
+      "test_id": "tests/integration/test_preparation.py::test_crash_reconciliation[ready]",
+      "outcome": "PASS",
+      "duration_seconds": 0.055484
+    },
+    {
+      "test_id": "tests/integration/test_preparation.py::test_crash_reconciliation[renamed]",
+      "outcome": "PASS",
+      "duration_seconds": 0.047727
+    },
+    {
+      "test_id": "tests/integration/test_preparation.py::test_crash_reconciliation[snapshot:POTCAR]",
+      "outcome": "PASS",
+      "duration_seconds": 0.041437
+    },
+    {
+      "test_id": "tests/integration/test_preparation.py::test_end_to_end[d]",
+      "outcome": "PASS",
+      "duration_seconds": 0.065904
+    },
+    {
+      "test_id": "tests/integration/test_preparation.py::test_end_to_end[f]",
+      "outcome": "PASS",
+      "duration_seconds": 0.067309
+    },
+    {
+      "test_id": "tests/integration/test_preparation.py::test_identity_conflict",
+      "outcome": "PASS",
+      "duration_seconds": 0.050042
+    },
+    {
+      "test_id": "tests/integration/test_preparation.py::test_stale_source_config_and_busy",
+      "outcome": "PASS",
+      "duration_seconds": 0.020447
+    },
+    {
+      "test_id": "tests/integration/test_preparation.py::test_two_process_writers",
+      "outcome": "PASS",
+      "duration_seconds": 0.050858
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_accounting_timestamp_and_live_env_mismatch_cannot_bind",
+      "outcome": "PASS",
+      "duration_seconds": 0.05861
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_default_live_false_and_exact_command",
+      "outcome": "PASS",
+      "duration_seconds": 0.057551
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_detail_fields_and_exact_identity_are_not_loose_number_search",
+      "outcome": "PASS",
+      "duration_seconds": 0.000288
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_hand_authored_sge_fixtures",
+      "outcome": "PASS",
+      "duration_seconds": 0.000711
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_identity_includes_versions_revisions_and_potential_structure_inputs[generator]",
+      "outcome": "PASS",
+      "duration_seconds": 0.054683
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_identity_includes_versions_revisions_and_potential_structure_inputs[kpoints]",
+      "outcome": "PASS",
+      "duration_seconds": 0.055227
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_identity_includes_versions_revisions_and_potential_structure_inputs[potcar]",
+      "outcome": "PASS",
+      "duration_seconds": 0.053885
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_identity_includes_versions_revisions_and_potential_structure_inputs[stage]",
+      "outcome": "PASS",
+      "duration_seconds": 0.053588
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_identity_includes_versions_revisions_and_potential_structure_inputs[template]",
+      "outcome": "PASS",
+      "duration_seconds": 0.053299
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_identity_includes_versions_revisions_and_potential_structure_inputs[vasp]",
+      "outcome": "PASS",
+      "duration_seconds": 0.059543
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_json_loader_is_strict[{\"x\":1,\"x\":2}]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000356
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_json_loader_is_strict[{\"x\":Infinity}]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000329
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_json_loader_is_strict[{\"x\":NaN}]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000321
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_partial_deep_or_array_xml_blocks[<job_info><nested><nested><nested><nested><nested><nested><nested><nested><nested><nested><nested><nested><nested><nested><nested><nested><nested></nested></nested></nested></nested></nested></nested></nested></nested></nested></nested></nested></nested></nested></nested></nested></nested></nested></job_info>]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000384
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_partial_deep_or_array_xml_blocks[<job_info><queue_info><job_list><JB_job_number>1</JB_job_number></job_list></queue_info></job_info>]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000352
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_partial_deep_or_array_xml_blocks[<job_info><queue_info><job_list><JB_job_number>1</JB_job_number><JB_name>array</JB_name><JB_owner>owner</JB_owner><state>qw</state><slots>1</slots><tasks>1-10</tasks></job_list></queue_info></job_info>]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000356
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_requested_upper_bound[1-32]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000313
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_requested_upper_bound[32]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000279
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_s13_02_science_and_transport_keys",
+      "outcome": "PASS",
+      "duration_seconds": 0.062372
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_s13_10_strict_terse_parser[ \\t12345\\r\\n-0-12345]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000383
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_s13_10_strict_terse_parser[-0-None]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000342
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_s13_10_strict_terse_parser[-12-0-None]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000324
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_s13_10_strict_terse_parser[0-0-None]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000319
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_s13_10_strict_terse_parser[12345-1-None]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000383
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_s13_10_strict_terse_parser[12345.1-10:1-0-None]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000354
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_s13_10_strict_terse_parser[12345\\n-0-12345]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000618
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_s13_10_strict_terse_parser[12345\\x00-0-None]",
+      "outcome": "PASS",
+      "duration_seconds": 0.00033
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_s13_10_strict_terse_parser[1\\n2-0-None]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000366
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_s13_10_strict_terse_parser[Job 12345 submitted-0-None]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000337
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_s13_10_strict_terse_parser[\\xef\\xbb\\xbf12345-0-None]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000339
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_s13_10_strict_terse_parser[\\xff-0-None]",
+      "outcome": "PASS",
+      "duration_seconds": 0.00037
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_s13_11_incomplete_or_alternate_encoding_xml_is_never_zero_usage[<job_info/>]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000531
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_s13_11_incomplete_or_alternate_encoding_xml_is_never_zero_usage[<job_info><error>permission denied</error></job_info>]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000396
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_s13_11_incomplete_or_alternate_encoding_xml_is_never_zero_usage[<job_info><queue_info><error>partial result</error></queue_info></job_info>]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000338
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_s13_11_incomplete_or_alternate_encoding_xml_is_never_zero_usage[\\xff\\xfe<\\x00!\\x00D\\x00O\\x00C\\x00T\\x00Y\\x00P\\x00E\\x00 \\x00j\\x00o\\x00b\\x00_\\x00i\\x00n\\x00f\\x00o\\x00 \\x00[\\x00<\\x00!\\x00E\\x00N\\x00T\\x00I\\x00T\\x00Y\\x00 \\x00x\\x00 \\x00\"\\x00e\\x00x\\x00p\\x00a\\x00n\\x00d\\x00e\\x00d\\x00\"\\x00>\\x00]\\x00>\\x00<\\x00j\\x00o\\x00b\\x00_\\x00i\\x00n\\x00f\\x00o\\x00>\\x00<\\x00q\\x00u\\x00e\\x00u\\x00e\\x00_\\x00i\\x00n\\x00f\\x00o\\x00>\\x00&\\x00x\\x00;\\x00<\\x00/\\x00q\\x00u\\x00e\\x00u\\x00e\\x00_\\x00i\\x00n\\x00f\\x00o\\x00>\\x00<\\x00/\\x00j\\x00o\\x00b\\x00_\\x00i\\x00n\\x00f\\x00o\\x00>\\x00]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000306
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_s13_11_partial_stale_or_future_snapshot_blocks[False-0]",
+      "outcome": "PASS",
+      "duration_seconds": 0.04864
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_s13_11_partial_stale_or_future_snapshot_blocks[True--1]",
+      "outcome": "PASS",
+      "duration_seconds": 0.046497
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_s13_11_partial_stale_or_future_snapshot_blocks[True-6]",
+      "outcome": "PASS",
+      "duration_seconds": 0.047
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_s13_11_user_wide_slot_boundary[288-True]",
+      "outcome": "PASS",
+      "duration_seconds": 0.047676
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_s13_11_user_wide_slot_boundary[289-False]",
+      "outcome": "PASS",
+      "duration_seconds": 0.047273
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_s13_11_user_wide_slot_boundary[320-False]",
+      "outcome": "PASS",
+      "duration_seconds": 0.047004
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_s13_11_xml_element_count_is_bounded_during_parse",
+      "outcome": "PASS",
+      "duration_seconds": 0.121669
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_s13_12_accounting_pe_rows_group_one_job",
+      "outcome": "PASS",
+      "duration_seconds": 0.000359
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_s13_12_reservation_dedup_and_candidate_once",
+      "outcome": "PASS",
+      "duration_seconds": 0.046706
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_s13_15_effective_precedence_needs_explicit_local_approval[d-export_all_removed]",
+      "outcome": "PASS",
+      "duration_seconds": 0.065843
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_s13_15_effective_precedence_needs_explicit_local_approval[f-node_selection_removed]",
+      "outcome": "PASS",
+      "duration_seconds": 0.065863
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_site_mandatory_options_are_typed_and_unknown_options_cannot_be_injected",
+      "outcome": "PASS",
+      "duration_seconds": 0.046762
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_submit_request_schema_rejects_injection[<lambda>0]",
+      "outcome": "PASS",
+      "duration_seconds": 0.048294
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_submit_request_schema_rejects_injection[<lambda>1]",
+      "outcome": "PASS",
+      "duration_seconds": 0.047685
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_submit_request_schema_rejects_injection[<lambda>2]",
+      "outcome": "PASS",
+      "duration_seconds": 0.048186
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_submit_request_schema_rejects_injection[<lambda>3]",
+      "outcome": "PASS",
+      "duration_seconds": 0.047489
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_submit_request_schema_rejects_injection[<lambda>4]",
+      "outcome": "PASS",
+      "duration_seconds": 0.052742
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_unknown_or_unsafe_xml_is_not_an_empty_snapshot[<!DOCTYPE job_info [<!ENTITY x \"bad\">]><job_info/>]",
+      "outcome": "PASS",
+      "duration_seconds": 0.0003
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_unknown_or_unsafe_xml_is_not_an_empty_snapshot[<job_info version=\"other\"/>]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000531
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_unknown_or_unsafe_xml_is_not_an_empty_snapshot[<job_info xmlns=\"unknown\"/>]",
+      "outcome": "PASS",
+      "duration_seconds": 0.00039
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_unknown_or_unsafe_xml_is_not_an_empty_snapshot[<job_info>]",
+      "outcome": "PASS",
+      "duration_seconds": 0.00037
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_unsupported_slot_ranges_block[0]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000277
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_unsupported_slot_ranges_block[1,4]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000302
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_unsupported_slot_ranges_block[1-32:2]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000282
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_unsupported_slot_ranges_block[1-inf]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000281
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_unsupported_slot_ranges_block[32-1]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000282
+    },
+    {
+      "test_id": "tests/unit/submission/test_contracts.py::test_unsupported_slot_ranges_block[unknown]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000309
+    },
+    {
+      "test_id": "tests/unit/test_execution_profiles.py::test_colon_is_not_a_registered_library_directory",
+      "outcome": "PASS",
+      "duration_seconds": 0.00822
+    },
+    {
+      "test_id": "tests/unit/test_execution_profiles.py::test_execution_review_is_bound_to_exact_source_run_hash",
+      "outcome": "PASS",
+      "duration_seconds": 0.010711
+    },
+    {
+      "test_id": "tests/unit/test_execution_profiles.py::test_explicit_library_policies_and_no_generator_environment_capture[prepend]",
+      "outcome": "PASS",
+      "duration_seconds": 0.012542
+    },
+    {
+      "test_id": "tests/unit/test_execution_profiles.py::test_explicit_library_policies_and_no_generator_environment_capture[preserve]",
+      "outcome": "PASS",
+      "duration_seconds": 0.012267
+    },
+    {
+      "test_id": "tests/unit/test_execution_profiles.py::test_explicit_library_policies_and_no_generator_environment_capture[replace]",
+      "outcome": "PASS",
+      "duration_seconds": 0.012294
+    },
+    {
+      "test_id": "tests/unit/test_execution_profiles.py::test_explicit_library_policies_and_no_generator_environment_capture[unset]",
+      "outcome": "PASS",
+      "duration_seconds": 0.012265
+    },
+    {
+      "test_id": "tests/unit/test_execution_profiles.py::test_f_d_profiles_and_revisions_are_independently_selected",
+      "outcome": "PASS",
+      "duration_seconds": 0.101164
+    },
+    {
+      "test_id": "tests/unit/test_execution_profiles.py::test_legacy_snapshots_decode_but_cannot_silently_prepare",
+      "outcome": "PASS",
+      "duration_seconds": 0.007839
+    },
+    {
+      "test_id": "tests/unit/test_execution_profiles.py::test_library_policy_directory_contradictions_are_not_guessed[prepend-True]",
+      "outcome": "PASS",
+      "duration_seconds": 0.0078
+    },
+    {
+      "test_id": "tests/unit/test_execution_profiles.py::test_library_policy_directory_contradictions_are_not_guessed[preserve-False]",
+      "outcome": "PASS",
+      "duration_seconds": 0.00787
+    },
+    {
+      "test_id": "tests/unit/test_execution_profiles.py::test_library_policy_directory_contradictions_are_not_guessed[replace-True]",
+      "outcome": "PASS",
+      "duration_seconds": 0.008208
+    },
+    {
+      "test_id": "tests/unit/test_execution_profiles.py::test_library_policy_directory_contradictions_are_not_guessed[unset-False]",
+      "outcome": "PASS",
+      "duration_seconds": 0.007793
+    },
+    {
+      "test_id": "tests/unit/test_execution_profiles.py::test_machinefile_rejects_untyped_interpolation_and_injection[$(touch bad)]",
+      "outcome": "PASS",
+      "duration_seconds": 0.00761
+    },
+    {
+      "test_id": "tests/unit/test_execution_profiles.py::test_machinefile_rejects_untyped_interpolation_and_injection[$TMPDIR/machines]",
+      "outcome": "PASS",
+      "duration_seconds": 0.008149
+    },
+    {
+      "test_id": "tests/unit/test_execution_profiles.py::test_machinefile_rejects_untyped_interpolation_and_injection[`id`]",
+      "outcome": "PASS",
+      "duration_seconds": 0.008183
+    },
+    {
+      "test_id": "tests/unit/test_execution_profiles.py::test_machinefile_rejects_untyped_interpolation_and_injection[argument4]",
+      "outcome": "PASS",
+      "duration_seconds": 0.007593
+    },
+    {
+      "test_id": "tests/unit/test_execution_profiles.py::test_machinefile_rejects_untyped_interpolation_and_injection[argument5]",
+      "outcome": "PASS",
+      "duration_seconds": 0.007485
+    },
+    {
+      "test_id": "tests/unit/test_execution_profiles.py::test_machinefile_rejects_untyped_interpolation_and_injection[argument6]",
+      "outcome": "PASS",
+      "duration_seconds": 0.007579
+    },
+    {
+      "test_id": "tests/unit/test_execution_profiles.py::test_machinefile_rejects_untyped_interpolation_and_injection[x\\ny]",
+      "outcome": "PASS",
+      "duration_seconds": 0.0084
+    },
+    {
+      "test_id": "tests/unit/test_execution_profiles.py::test_machinefile_requires_one_paired_flag_and_token[args0]",
+      "outcome": "PASS",
+      "duration_seconds": 0.008316
+    },
+    {
+      "test_id": "tests/unit/test_execution_profiles.py::test_machinefile_requires_one_paired_flag_and_token[args1]",
+      "outcome": "PASS",
+      "duration_seconds": 0.008355
+    },
+    {
+      "test_id": "tests/unit/test_execution_profiles.py::test_machinefile_requires_one_paired_flag_and_token[args2]",
+      "outcome": "PASS",
+      "duration_seconds": 0.008352
+    },
+    {
+      "test_id": "tests/unit/test_execution_profiles.py::test_machinefile_typed_render_and_bash_syntax",
+      "outcome": "PASS",
+      "duration_seconds": 0.011665
+    },
+    {
+      "test_id": "tests/unit/test_execution_profiles.py::test_missing_or_contradictory_review_blocks_new_revision_without_writes[<lambda>0]",
+      "outcome": "PASS",
+      "duration_seconds": 0.00902
+    },
+    {
+      "test_id": "tests/unit/test_execution_profiles.py::test_missing_or_contradictory_review_blocks_new_revision_without_writes[<lambda>1]",
+      "outcome": "PASS",
+      "duration_seconds": 0.009072
+    },
+    {
+      "test_id": "tests/unit/test_execution_profiles.py::test_missing_or_contradictory_review_blocks_new_revision_without_writes[<lambda>2]",
+      "outcome": "PASS",
+      "duration_seconds": 0.008524
+    },
+    {
+      "test_id": "tests/unit/test_execution_profiles.py::test_missing_or_contradictory_review_blocks_new_revision_without_writes[<lambda>3]",
+      "outcome": "PASS",
+      "duration_seconds": 0.008862
+    },
+    {
+      "test_id": "tests/unit/test_execution_profiles.py::test_missing_or_contradictory_review_blocks_new_revision_without_writes[<lambda>4]",
+      "outcome": "PASS",
+      "duration_seconds": 0.00857
+    },
+    {
+      "test_id": "tests/unit/test_execution_profiles.py::test_missing_or_contradictory_review_blocks_new_revision_without_writes[<lambda>5]",
+      "outcome": "PASS",
+      "duration_seconds": 0.008539
+    },
+    {
+      "test_id": "tests/unit/test_execution_profiles.py::test_missing_or_contradictory_review_blocks_new_revision_without_writes[<lambda>6]",
+      "outcome": "PASS",
+      "duration_seconds": 0.008479
+    },
+    {
+      "test_id": "tests/unit/test_execution_profiles.py::test_node127_removal_needs_explicit_approval",
+      "outcome": "PASS",
+      "duration_seconds": 0.009692
+    },
+    {
+      "test_id": "tests/unit/test_execution_profiles.py::test_profile_change_keeps_science_and_dry_run_source_invariants",
+      "outcome": "PASS",
+      "duration_seconds": 0.051151
+    },
+    {
+      "test_id": "tests/unit/test_execution_profiles.py::test_static_check_never_executes_executables_fragments_or_network",
+      "outcome": "PASS",
+      "duration_seconds": 0.016352
+    },
+    {
+      "test_id": "tests/unit/test_execution_profiles.py::test_static_profile_validation_blocks_wrong_resources_and_paths[<lambda>0]",
+      "outcome": "PASS",
+      "duration_seconds": 0.007568
+    },
+    {
+      "test_id": "tests/unit/test_execution_profiles.py::test_static_profile_validation_blocks_wrong_resources_and_paths[<lambda>1]",
+      "outcome": "PASS",
+      "duration_seconds": 0.007648
+    },
+    {
+      "test_id": "tests/unit/test_execution_profiles.py::test_static_profile_validation_blocks_wrong_resources_and_paths[<lambda>2]",
+      "outcome": "PASS",
+      "duration_seconds": 0.007626
+    },
+    {
+      "test_id": "tests/unit/test_execution_profiles.py::test_static_profile_validation_blocks_wrong_resources_and_paths[<lambda>3]",
+      "outcome": "PASS",
+      "duration_seconds": 0.010696
+    },
+    {
+      "test_id": "tests/unit/test_execution_profiles.py::test_static_profile_validation_blocks_wrong_resources_and_paths[<lambda>4]",
+      "outcome": "PASS",
+      "duration_seconds": 0.008276
+    },
+    {
+      "test_id": "tests/unit/test_execution_profiles.py::test_static_profile_validation_blocks_wrong_resources_and_paths[<lambda>5]",
+      "outcome": "PASS",
+      "duration_seconds": 0.007572
+    },
+    {
+      "test_id": "tests/unit/test_magmom_compression.py::test_continuations_do_not_bypass_logical_assignment_limit",
+      "outcome": "PASS",
+      "duration_seconds": 0.000689
+    },
+    {
+      "test_id": "tests/unit/test_magmom_compression.py::test_final_input_validation_checks_actual_line_not_only_expected_compact_value",
+      "outcome": "PASS",
+      "duration_seconds": 0.019167
+    },
+    {
+      "test_id": "tests/unit/test_magmom_compression.py::test_full_assignment_255_byte_boundary[243-True]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000259
+    },
+    {
+      "test_id": "tests/unit/test_magmom_compression.py::test_full_assignment_255_byte_boundary[244-True]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000251
+    },
+    {
+      "test_id": "tests/unit/test_magmom_compression.py::test_full_assignment_255_byte_boundary[245-False]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000259
+    },
+    {
+      "test_id": "tests/unit/test_magmom_compression.py::test_generated_inline_comment_overflow_is_rejected_before_writes",
+      "outcome": "PASS",
+      "duration_seconds": 0.021933
+    },
+    {
+      "test_id": "tests/unit/test_magmom_compression.py::test_invalid_moments_are_never_silently_accepted[moments0]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000301
+    },
+    {
+      "test_id": "tests/unit/test_magmom_compression.py::test_invalid_moments_are_never_silently_accepted[moments1]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000239
+    },
+    {
+      "test_id": "tests/unit/test_magmom_compression.py::test_invalid_moments_are_never_silently_accepted[moments2]",
+      "outcome": "PASS",
+      "duration_seconds": 0.00026
+    },
+    {
+      "test_id": "tests/unit/test_magmom_compression.py::test_invalid_moments_are_never_silently_accepted[moments3]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000229
+    },
+    {
+      "test_id": "tests/unit/test_magmom_compression.py::test_invalid_moments_are_never_silently_accepted[moments4]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000255
+    },
+    {
+      "test_id": "tests/unit/test_magmom_compression.py::test_noncollinear_xyz_order_across_atom_boundaries_is_exact",
+      "outcome": "PASS",
+      "duration_seconds": 0.041723
+    },
+    {
+      "test_id": "tests/unit/test_magmom_compression.py::test_only_adjacent_numerically_equal_components_are_compressed[moments0-32*6 16*0 16*1 80*0]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000558
+    },
+    {
+      "test_id": "tests/unit/test_magmom_compression.py::test_only_adjacent_numerically_equal_components_are_compressed[moments1-1 0 1]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000314
+    },
+    {
+      "test_id": "tests/unit/test_magmom_compression.py::test_only_adjacent_numerically_equal_components_are_compressed[moments2-2*-2 2*2 -2]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000265
+    },
+    {
+      "test_id": "tests/unit/test_magmom_compression.py::test_only_adjacent_numerically_equal_components_are_compressed[moments3-1]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000274
+    },
+    {
+      "test_id": "tests/unit/test_magmom_compression.py::test_only_adjacent_numerically_equal_components_are_compressed[moments4-144*0]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000388
+    },
+    {
+      "test_id": "tests/unit/test_magmom_compression.py::test_only_adjacent_numerically_equal_components_are_compressed[moments5-3*6.0]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000256
+    },
+    {
+      "test_id": "tests/unit/test_magmom_compression.py::test_only_adjacent_numerically_equal_components_are_compressed[moments6-3*-0]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000242
+    },
+    {
+      "test_id": "tests/unit/test_magmom_compression.py::test_only_adjacent_numerically_equal_components_are_compressed[moments7-1.0000000000000000000000000001 1.0000000000000000000000000002]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000573
+    },
+    {
+      "test_id": "tests/unit/test_magmom_compression.py::test_real_physical_line_counts_prefix_neighbors_comments_and_crlf[   - #-\\n]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000334
+    },
+    {
+      "test_id": "tests/unit/test_magmom_compression.py::test_real_physical_line_counts_prefix_neighbors_comments_and_crlf[   - #-\\r\\n]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000351
+    },
+    {
+      "test_id": "tests/unit/test_magmom_compression.py::test_real_physical_line_counts_prefix_neighbors_comments_and_crlf[- !-\\n]",
+      "outcome": "PASS",
+      "duration_seconds": 0.00041
+    },
+    {
+      "test_id": "tests/unit/test_magmom_compression.py::test_real_physical_line_counts_prefix_neighbors_comments_and_crlf[- !-\\r\\n]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000372
+    },
+    {
+      "test_id": "tests/unit/test_magmom_compression.py::test_real_physical_line_counts_prefix_neighbors_comments_and_crlf[-; EDIFF=1E-4 !-\\n]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000394
+    },
+    {
+      "test_id": "tests/unit/test_magmom_compression.py::test_real_physical_line_counts_prefix_neighbors_comments_and_crlf[-; EDIFF=1E-4 !-\\r\\n]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000375
+    },
+    {
+      "test_id": "tests/unit/test_magmom_compression.py::test_real_physical_line_counts_prefix_neighbors_comments_and_crlf[ENCUT=400; - !-\\n]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000638
+    },
+    {
+      "test_id": "tests/unit/test_magmom_compression.py::test_real_physical_line_counts_prefix_neighbors_comments_and_crlf[ENCUT=400; - !-\\r\\n]",
+      "outcome": "PASS",
+      "duration_seconds": 0.00037
+    },
+    {
+      "test_id": "tests/unit/test_magmom_compression.py::test_synthetic_144_atom_preparation_preserves_science_source_and_script",
+      "outcome": "PASS",
+      "duration_seconds": 0.051722
+    },
+    {
+      "test_id": "tests/unit/test_magmom_compression.py::test_uncompressible_144_atom_request_blocks_all_preparation_writes",
+      "outcome": "PASS",
+      "duration_seconds": 0.029461
+    },
+    {
+      "test_id": "tests/unit/test_magmom_compression.py::test_utf8_comments_use_byte_limit_and_fake_commented_tags_do_not_count",
+      "outcome": "PASS",
+      "duration_seconds": 0.000214
+    },
+    {
+      "test_id": "tests/unit/test_potcar_zval.py::test_official_zval_does_not_relax_metadata_checks[<lambda>0]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000281
+    },
+    {
+      "test_id": "tests/unit/test_potcar_zval.py::test_official_zval_does_not_relax_metadata_checks[<lambda>1]",
+      "outcome": "PASS",
+      "duration_seconds": 0.00025
+    },
+    {
+      "test_id": "tests/unit/test_potcar_zval.py::test_official_zval_does_not_relax_metadata_checks[<lambda>2]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000261
+    },
+    {
+      "test_id": "tests/unit/test_potcar_zval.py::test_official_zval_does_not_relax_metadata_checks[<lambda>3]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000245
+    },
+    {
+      "test_id": "tests/unit/test_potcar_zval.py::test_official_zval_does_not_relax_metadata_checks[<lambda>4]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000499
+    },
+    {
+      "test_id": "tests/unit/test_potcar_zval.py::test_zval_keeps_dataset_boundaries_and_exact_hashes",
+      "outcome": "PASS",
+      "duration_seconds": 0.000333
+    },
+    {
+      "test_id": "tests/unit/test_potcar_zval.py::test_zval_numeric_token_and_official_suffix[  10.000   mass and valenz  -10.000]",
+      "outcome": "PASS",
+      "duration_seconds": 0.00028
+    },
+    {
+      "test_id": "tests/unit/test_potcar_zval.py::test_zval_numeric_token_and_official_suffix[+10.000 mass and valenz-+10.000]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000287
+    },
+    {
+      "test_id": "tests/unit/test_potcar_zval.py::test_zval_numeric_token_and_official_suffix[.5 mass and valenz-.5]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000293
+    },
+    {
+      "test_id": "tests/unit/test_potcar_zval.py::test_zval_numeric_token_and_official_suffix[1.000D+01 mass and valenz-1.000D+01]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000322
+    },
+    {
+      "test_id": "tests/unit/test_potcar_zval.py::test_zval_numeric_token_and_official_suffix[10.000 mass and valenz-10.000]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000372
+    },
+    {
+      "test_id": "tests/unit/test_potcar_zval.py::test_zval_numeric_token_and_official_suffix[10.000-10.000]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000485
+    },
+    {
+      "test_id": "tests/unit/test_potcar_zval.py::test_zval_numeric_token_and_official_suffix[10.000\\tmass\\tand\\tvalenz-10.000]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000306
+    },
+    {
+      "test_id": "tests/unit/test_potcar_zval.py::test_zval_numeric_token_and_official_suffix[1e1 mass and valenz-1e1]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000307
+    },
+    {
+      "test_id": "tests/unit/test_potcar_zval.py::test_zval_on_shared_pomass_line_and_crlf",
+      "outcome": "PASS",
+      "duration_seconds": 0.000233
+    },
+    {
+      "test_id": "tests/unit/test_potcar_zval.py::test_zval_rejects_malformed_numbers_and_unknown_suffixes[--10.000 mass and valenz]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000285
+    },
+    {
+      "test_id": "tests/unit/test_potcar_zval.py::test_zval_rejects_malformed_numbers_and_unknown_suffixes[1.2.3 mass and valenz]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000314
+    },
+    {
+      "test_id": "tests/unit/test_potcar_zval.py::test_zval_rejects_malformed_numbers_and_unknown_suffixes[10.000 20.000 mass and valenz]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000271
+    },
+    {
+      "test_id": "tests/unit/test_potcar_zval.py::test_zval_rejects_malformed_numbers_and_unknown_suffixes[10.000 20.000]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000245
+    },
+    {
+      "test_id": "tests/unit/test_potcar_zval.py::test_zval_rejects_malformed_numbers_and_unknown_suffixes[10.000 arbitrary]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000286
+    },
+    {
+      "test_id": "tests/unit/test_potcar_zval.py::test_zval_rejects_malformed_numbers_and_unknown_suffixes[10.000 mass AND valenz]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000312
+    },
+    {
+      "test_id": "tests/unit/test_potcar_zval.py::test_zval_rejects_malformed_numbers_and_unknown_suffixes[10.000 mass and valence]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000253
+    },
+    {
+      "test_id": "tests/unit/test_potcar_zval.py::test_zval_rejects_malformed_numbers_and_unknown_suffixes[10.000 mass and valenz #comment]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000257
+    },
+    {
+      "test_id": "tests/unit/test_potcar_zval.py::test_zval_rejects_malformed_numbers_and_unknown_suffixes[10.000 mass and valenz extra]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000261
+    },
+    {
+      "test_id": "tests/unit/test_potcar_zval.py::test_zval_rejects_malformed_numbers_and_unknown_suffixes[10.000 mass and valenzfoo]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000253
+    },
+    {
+      "test_id": "tests/unit/test_potcar_zval.py::test_zval_rejects_malformed_numbers_and_unknown_suffixes[10.000foo mass and valenz]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000251
+    },
+    {
+      "test_id": "tests/unit/test_potcar_zval.py::test_zval_rejects_malformed_numbers_and_unknown_suffixes[10.000mass and valenz]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000291
+    },
+    {
+      "test_id": "tests/unit/test_potcar_zval.py::test_zval_rejects_malformed_numbers_and_unknown_suffixes[1D+ mass and valenz]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000257
+    },
+    {
+      "test_id": "tests/unit/test_potcar_zval.py::test_zval_rejects_malformed_numbers_and_unknown_suffixes[Infinity mass and valenz]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000246
+    },
+    {
+      "test_id": "tests/unit/test_potcar_zval.py::test_zval_rejects_malformed_numbers_and_unknown_suffixes[NaN mass and valenz]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000278
+    },
+    {
+      "test_id": "tests/unit/test_potcar_zval.py::test_zval_rejects_malformed_numbers_and_unknown_suffixes[NaN]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000249
+    },
+    {
+      "test_id": "tests/unit/test_potcar_zval.py::test_zval_rejects_malformed_numbers_and_unknown_suffixes[]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000307
+    },
+    {
+      "test_id": "tests/unit/test_potcar_zval.py::test_zval_rejects_malformed_numbers_and_unknown_suffixes[mass and valenz]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000263
+    },
+    {
+      "test_id": "tests/unit/test_preserve_source.py::test_concurrent_private_directory_creation_keeps_safety_checks[private]",
+      "outcome": "PASS",
+      "duration_seconds": 0.001007
+    },
+    {
+      "test_id": "tests/unit/test_preserve_source.py::test_concurrent_private_directory_creation_keeps_safety_checks[public]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000821
+    },
+    {
+      "test_id": "tests/unit/test_preserve_source.py::test_concurrent_private_directory_creation_keeps_safety_checks[symlink]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000726
+    },
+    {
+      "test_id": "tests/unit/test_preserve_source.py::test_exact_source_bytes_snapshots_manifest_and_dry_run[False-\\n-d]",
+      "outcome": "PASS",
+      "duration_seconds": 0.051544
+    },
+    {
+      "test_id": "tests/unit/test_preserve_source.py::test_exact_source_bytes_snapshots_manifest_and_dry_run[False-\\n-f]",
+      "outcome": "PASS",
+      "duration_seconds": 0.051307
+    },
+    {
+      "test_id": "tests/unit/test_preserve_source.py::test_exact_source_bytes_snapshots_manifest_and_dry_run[False-\\r\\n-d]",
+      "outcome": "PASS",
+      "duration_seconds": 0.051302
+    },
+    {
+      "test_id": "tests/unit/test_preserve_source.py::test_exact_source_bytes_snapshots_manifest_and_dry_run[False-\\r\\n-f]",
+      "outcome": "PASS",
+      "duration_seconds": 0.051576
+    },
+    {
+      "test_id": "tests/unit/test_preserve_source.py::test_exact_source_bytes_snapshots_manifest_and_dry_run[True-\\n-d]",
+      "outcome": "PASS",
+      "duration_seconds": 0.052175
+    },
+    {
+      "test_id": "tests/unit/test_preserve_source.py::test_exact_source_bytes_snapshots_manifest_and_dry_run[True-\\n-f]",
+      "outcome": "PASS",
+      "duration_seconds": 0.052391
+    },
+    {
+      "test_id": "tests/unit/test_preserve_source.py::test_exact_source_bytes_snapshots_manifest_and_dry_run[True-\\r\\n-d]",
+      "outcome": "PASS",
+      "duration_seconds": 0.05125
+    },
+    {
+      "test_id": "tests/unit/test_preserve_source.py::test_exact_source_bytes_snapshots_manifest_and_dry_run[True-\\r\\n-f]",
+      "outcome": "PASS",
+      "duration_seconds": 0.052296
+    },
+    {
+      "test_id": "tests/unit/test_preserve_source.py::test_golden_mode_routing_and_evidence[preserve_source]",
+      "outcome": "PASS",
+      "duration_seconds": 0.049996
+    },
+    {
+      "test_id": "tests/unit/test_preserve_source.py::test_golden_mode_routing_and_evidence[typed_renderer]",
+      "outcome": "PASS",
+      "duration_seconds": 0.049935
+    },
+    {
+      "test_id": "tests/unit/test_preserve_source.py::test_initial_golden_rejects_typed_profile_by_default_without_writes",
+      "outcome": "PASS",
+      "duration_seconds": 0.010756
+    },
+    {
+      "test_id": "tests/unit/test_preserve_source.py::test_legacy_typed_manifest_stays_readable_and_renderer_is_not_repurposed",
+      "outcome": "PASS",
+      "duration_seconds": 0.056954
+    },
+    {
+      "test_id": "tests/unit/test_preserve_source.py::test_missing_approval_or_unknown_mode_is_not_auto_approved[<lambda>0]",
+      "outcome": "PASS",
+      "duration_seconds": 0.01331
+    },
+    {
+      "test_id": "tests/unit/test_preserve_source.py::test_missing_approval_or_unknown_mode_is_not_auto_approved[<lambda>1]",
+      "outcome": "PASS",
+      "duration_seconds": 0.013286
+    },
+    {
+      "test_id": "tests/unit/test_preserve_source.py::test_missing_approval_or_unknown_mode_is_not_auto_approved[<lambda>2]",
+      "outcome": "PASS",
+      "duration_seconds": 0.013744
+    },
+    {
+      "test_id": "tests/unit/test_preserve_source.py::test_missing_approval_or_unknown_mode_is_not_auto_approved[<lambda>3]",
+      "outcome": "PASS",
+      "duration_seconds": 0.013293
+    },
+    {
+      "test_id": "tests/unit/test_preserve_source.py::test_opaque_non_utf8_comment_and_no_new_thread_or_host_settings",
+      "outcome": "PASS",
+      "duration_seconds": 0.040346
+    },
+    {
+      "test_id": "tests/unit/test_preserve_source.py::test_preservation_needs_no_new_library_thread_or_launcher_paths",
+      "outcome": "PASS",
+      "duration_seconds": 0.019242
+    },
+    {
+      "test_id": "tests/unit/test_preserve_source.py::test_preserve_dry_run_cli_is_zero_write",
+      "outcome": "PASS",
+      "duration_seconds": 0.02295
+    },
+    {
+      "test_id": "tests/unit/test_preserve_source.py::test_renderer_fields_are_rejected_in_preserve_profile[environment]",
+      "outcome": "PASS",
+      "duration_seconds": 0.022241
+    },
+    {
+      "test_id": "tests/unit/test_preserve_source.py::test_renderer_fields_are_rejected_in_preserve_profile[execution_review]",
+      "outcome": "PASS",
+      "duration_seconds": 0.022565
+    },
+    {
+      "test_id": "tests/unit/test_preserve_source.py::test_renderer_fields_are_rejected_in_preserve_profile[launcher]",
+      "outcome": "PASS",
+      "duration_seconds": 0.022326
+    },
+    {
+      "test_id": "tests/unit/test_preserve_source.py::test_stale_pins_and_symlinks_block_before_output_or_lock[config]",
+      "outcome": "PASS",
+      "duration_seconds": 0.019233
+    },
+    {
+      "test_id": "tests/unit/test_preserve_source.py::test_stale_pins_and_symlinks_block_before_output_or_lock[source]",
+      "outcome": "PASS",
+      "duration_seconds": 0.019952
+    },
+    {
+      "test_id": "tests/unit/test_preserve_source.py::test_stale_pins_and_symlinks_block_before_output_or_lock[symlink]",
+      "outcome": "PASS",
+      "duration_seconds": 0.01964
+    },
+    {
+      "test_id": "tests/unit/test_preserve_source.py::test_verify_rejects_script_bytes_and_resealed_mode_inconsistency[metadata]",
+      "outcome": "PASS",
+      "duration_seconds": 0.039542
+    },
+    {
+      "test_id": "tests/unit/test_preserve_source.py::test_verify_rejects_script_bytes_and_resealed_mode_inconsistency[missing_mode]",
+      "outcome": "PASS",
+      "duration_seconds": 0.038823
+    },
+    {
+      "test_id": "tests/unit/test_preserve_source.py::test_verify_rejects_script_bytes_and_resealed_mode_inconsistency[rehashed_changed_run]",
+      "outcome": "PASS",
+      "duration_seconds": 0.039578
+    },
+    {
+      "test_id": "tests/unit/test_preserve_source.py::test_verify_rejects_script_bytes_and_resealed_mode_inconsistency[run_bytes]",
+      "outcome": "PASS",
+      "duration_seconds": 0.037982
+    },
+    {
+      "test_id": "tests/unit/test_preserve_source.py::test_wrong_approved_hash_cannot_register_template_or_copy",
+      "outcome": "PASS",
+      "duration_seconds": 0.01565
+    },
+    {
+      "test_id": "tests/unit/test_t01.py::test_parent_symlink_hardlink_and_traversal",
+      "outcome": "PASS",
+      "duration_seconds": 0.000724
+    },
+    {
+      "test_id": "tests/unit/test_t01.py::test_paths",
+      "outcome": "PASS",
+      "duration_seconds": 0.002405
+    },
+    {
+      "test_id": "tests/unit/test_t01.py::test_schema[value0]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000253
+    },
+    {
+      "test_id": "tests/unit/test_t01.py::test_schema[value1]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000222
+    },
+    {
+      "test_id": "tests/unit/test_t01.py::test_schema[value2]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000215
+    },
+    {
+      "test_id": "tests/unit/test_t01.py::test_strict_json[{\"a\":1,\"a\":2}]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000261
+    },
+    {
+      "test_id": "tests/unit/test_t01.py::test_strict_json[{\"x\":Infinity}]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000234
+    },
+    {
+      "test_id": "tests/unit/test_t01.py::test_strict_json[{\"x\":NaN}]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000271
+    },
+    {
+      "test_id": "tests/unit/test_t02.py::test_bounded_discovery_and_drift",
+      "outcome": "PASS",
+      "duration_seconds": 0.017665
+    },
+    {
+      "test_id": "tests/unit/test_t02.py::test_discovery",
+      "outcome": "PASS",
+      "duration_seconds": 0.000615
+    },
+    {
+      "test_id": "tests/unit/test_t02.py::test_immutable",
+      "outcome": "PASS",
+      "duration_seconds": 0.001601
+    },
+    {
+      "test_id": "tests/unit/test_t03.py::test_bad[A=1; a=1]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000335
+    },
+    {
+      "test_id": "tests/unit/test_t03.py::test_bad[EDIFF=1 \\\\]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000223
+    },
+    {
+      "test_id": "tests/unit/test_t03.py::test_bad[EDIFF==1]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000216
+    },
+    {
+      "test_id": "tests/unit/test_t03.py::test_bad[EDIFF=nan]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000251
+    },
+    {
+      "test_id": "tests/unit/test_t03.py::test_bad[MAGMOM=1000000000*0]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000286
+    },
+    {
+      "test_id": "tests/unit/test_t03.py::test_bad[SYSTEM=\"bad]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000218
+    },
+    {
+      "test_id": "tests/unit/test_t03.py::test_bad[X={x}]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000225
+    },
+    {
+      "test_id": "tests/unit/test_t03.py::test_remove_semicolon_edges[ICHARG=1; NELM=300 ! hi\\n]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000282
+    },
+    {
+      "test_id": "tests/unit/test_t03.py::test_remove_semicolon_edges[ICHARG=1; NELM=300; ENCUT=400\\n]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000292
+    },
+    {
+      "test_id": "tests/unit/test_t03.py::test_remove_semicolon_edges[NELM=300; ICHARG=1 ! hi\\n]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000322
+    },
+    {
+      "test_id": "tests/unit/test_t03.py::test_spans",
+      "outcome": "PASS",
+      "duration_seconds": 0.000498
+    },
+    {
+      "test_id": "tests/unit/test_t04.py::test_bad_kpoints[fake\\n0\\nGamma\\n0 1 1\\n]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000218
+    },
+    {
+      "test_id": "tests/unit/test_t04.py::test_bad_kpoints[fake\\n0\\nGamma\\n1 1 1\\nNaN 0 0\\n]",
+      "outcome": "PASS",
+      "duration_seconds": 0.00021
+    },
+    {
+      "test_id": "tests/unit/test_t04.py::test_bad_kpoints[fake\\n0\\nLine-mode\\n1 1 1\\n]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000219
+    },
+    {
+      "test_id": "tests/unit/test_t04.py::test_bad_kpoints[fake\\n2\\nReciprocal\\n0 0 0 1\\n]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000211
+    },
+    {
+      "test_id": "tests/unit/test_t04.py::test_bad_pos[SYNTHETIC TEST ONLY\\n1 1 1\\n1 0 0\\n0 1 0\\n0 0 1\\nCu Cu\\n1 1\\nDirect\\n2 0 0\\n0 0 0\\n]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000212
+    },
+    {
+      "test_id": "tests/unit/test_t04.py::test_bad_pos[SYNTHETIC TEST ONLY\\n1\\n0 0 0\\n0 1 0\\n0 0 1\\nCu Cu\\n1 1\\nDirect\\n2 0 0\\n0 0 0\\n]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000243
+    },
+    {
+      "test_id": "tests/unit/test_t04.py::test_bad_pos[SYNTHETIC TEST ONLY\\n1\\n1 0 0\\n0 1 0\\n0 0 1\\nCu Cu\\n1 1\\nDirect\\n2 0 0\\n0 0 0\\n0 0 0\\n]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000264
+    },
+    {
+      "test_id": "tests/unit/test_t04.py::test_bad_pos[SYNTHETIC TEST ONLY\\n1\\n1 0 0\\n0 1 0\\n0 0 1\\nCu Cu\\n1 1\\nDirect\\n2 0 ]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000238
+    },
+    {
+      "test_id": "tests/unit/test_t04.py::test_bad_pot[SYNTHETIC TEST ONLY\\nTITEL = PAW Cu_fake\\nVRHFIN = Cu: fake\\nLEXCH = PE\\nZVAL = 1\\nFAKE DATA\\nEnd o]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000254
+    },
+    {
+      "test_id": "tests/unit/test_t04.py::test_bad_pot[SYNTHETIC TEST ONLY\\nTITEL = PAW Cu_fake\\nVRHFIN = Cu: fake\\nLEXCH = PE\\nZVAL = nan\\nFAKE DATA\\nEnd of Dataset\\n]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000263
+    },
+    {
+      "test_id": "tests/unit/test_t04.py::test_bad_pot[SYNTHETIC TEST ONLY\\nTITEL = PAW Cu_fake\\nVRHFIN = Cu: fake\\nOTHER = PE\\nZVAL = 1\\nFAKE DATA\\nEnd of Dataset\\n]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000273
+    },
+    {
+      "test_id": "tests/unit/test_t04.py::test_parse",
+      "outcome": "PASS",
+      "duration_seconds": 0.000368
+    },
+    {
+      "test_id": "tests/unit/test_t04.py::test_selective_and_scale_geometry",
+      "outcome": "PASS",
+      "duration_seconds": 0.000347
+    },
+    {
+      "test_id": "tests/unit/test_t05_t07.py::test_profile[<lambda>0]",
+      "outcome": "PASS",
+      "duration_seconds": 0.007734
+    },
+    {
+      "test_id": "tests/unit/test_t05_t07.py::test_profile[<lambda>1]",
+      "outcome": "PASS",
+      "duration_seconds": 0.00755
+    },
+    {
+      "test_id": "tests/unit/test_t05_t07.py::test_profile[<lambda>2]",
+      "outcome": "PASS",
+      "duration_seconds": 0.00852
+    },
+    {
+      "test_id": "tests/unit/test_t05_t07.py::test_profile[<lambda>3]",
+      "outcome": "PASS",
+      "duration_seconds": 0.008169
+    },
+    {
+      "test_id": "tests/unit/test_t05_t07.py::test_protocol[d]",
+      "outcome": "PASS",
+      "duration_seconds": 0.015575
+    },
+    {
+      "test_id": "tests/unit/test_t05_t07.py::test_protocol[f]",
+      "outcome": "PASS",
+      "duration_seconds": 0.015591
+    },
+    {
+      "test_id": "tests/unit/test_t05_t07.py::test_restart_closed[s02_e5]",
+      "outcome": "PASS",
+      "duration_seconds": 0.012667
+    },
+    {
+      "test_id": "tests/unit/test_t05_t07.py::test_restart_closed[s03_e6]",
+      "outcome": "PASS",
+      "duration_seconds": 0.01263
+    },
+    {
+      "test_id": "tests/unit/test_t05_t07.py::test_script_injection[$(id)]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000291
+    },
+    {
+      "test_id": "tests/unit/test_t05_t07.py::test_script_injection[]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000211
+    },
+    {
+      "test_id": "tests/unit/test_t05_t07.py::test_script_injection[`id`]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000252
+    },
+    {
+      "test_id": "tests/unit/test_t05_t07.py::test_script_injection[a'b]",
+      "outcome": "PASS",
+      "duration_seconds": 0.00022
+    },
+    {
+      "test_id": "tests/unit/test_t05_t07.py::test_script_injection[x\\ny]",
+      "outcome": "PASS",
+      "duration_seconds": 0.000291
+    },
+    {
+      "test_id": "tests/unit/test_t05_t07.py::test_unapproved_malicious_source_blocked",
+      "outcome": "PASS",
+      "duration_seconds": 0.010969
+    },
+    {
+      "test_id": "tests/unit/test_t06.py::test_restart_negative[<lambda>0]",
+      "outcome": "PASS",
+      "duration_seconds": 0.020765
+    },
+    {
+      "test_id": "tests/unit/test_t06.py::test_restart_negative[<lambda>10]",
+      "outcome": "PASS",
+      "duration_seconds": 0.020626
+    },
+    {
+      "test_id": "tests/unit/test_t06.py::test_restart_negative[<lambda>1]",
+      "outcome": "PASS",
+      "duration_seconds": 0.021695
+    },
+    {
+      "test_id": "tests/unit/test_t06.py::test_restart_negative[<lambda>2]",
+      "outcome": "PASS",
+      "duration_seconds": 0.020431
+    },
+    {
+      "test_id": "tests/unit/test_t06.py::test_restart_negative[<lambda>3]",
+      "outcome": "PASS",
+      "duration_seconds": 0.020974
+    },
+    {
+      "test_id": "tests/unit/test_t06.py::test_restart_negative[<lambda>4]",
+      "outcome": "PASS",
+      "duration_seconds": 0.020628
+    },
+    {
+      "test_id": "tests/unit/test_t06.py::test_restart_negative[<lambda>5]",
+      "outcome": "PASS",
+      "duration_seconds": 0.021336
+    },
+    {
+      "test_id": "tests/unit/test_t06.py::test_restart_negative[<lambda>6]",
+      "outcome": "PASS",
+      "duration_seconds": 0.020999
+    },
+    {
+      "test_id": "tests/unit/test_t06.py::test_restart_negative[<lambda>7]",
+      "outcome": "PASS",
+      "duration_seconds": 0.021088
+    },
+    {
+      "test_id": "tests/unit/test_t06.py::test_restart_negative[<lambda>8]",
+      "outcome": "PASS",
+      "duration_seconds": 0.020815
+    },
+    {
+      "test_id": "tests/unit/test_t06.py::test_restart_negative[<lambda>9]",
+      "outcome": "PASS",
+      "duration_seconds": 0.020937
+    },
+    {
+      "test_id": "tests/unit/test_t06.py::test_restart_positive[s02_e5]",
+      "outcome": "PASS",
+      "duration_seconds": 0.048241
+    },
+    {
+      "test_id": "tests/unit/test_t06.py::test_restart_positive[s03_e6]",
+      "outcome": "PASS",
+      "duration_seconds": 0.047476
+    },
+    {
+      "test_id": "tests/unit/test_t06.py::test_revocation_and_header",
+      "outcome": "PASS",
+      "duration_seconds": 0.032053
+    },
+    {
+      "test_id": "tests/unit/test_t06.py::test_store_untrusted",
+      "outcome": "PASS",
+      "duration_seconds": 0.000644
+    },
+    {
+      "test_id": "tests/unit/test_t12.py::test_hash_domains_and_volatile_roots",
+      "outcome": "PASS",
+      "duration_seconds": 0.04121
+    },
+    {
+      "test_id": "tests/unit/test_t12.py::test_independent_goldens",
+      "outcome": "PASS",
+      "duration_seconds": 0.015393
+    },
+    {
+      "test_id": "tests/unit/test_t12.py::test_raw_hash_distinct",
+      "outcome": "PASS",
+      "duration_seconds": 0.000229
+    },
+    {
+      "test_id": "tests/unit/test_t12.py::test_repo_synthetic_only",
+      "outcome": "PASS",
+      "duration_seconds": 0.050566
+    },
+    {
+      "test_id": "tests/unit/test_validation_matrix.py::test_generated_magmom[-1 1-MAGMOM_MAPPING]",
+      "outcome": "PASS",
+      "duration_seconds": 0.016053
+    },
+    {
+      "test_id": "tests/unit/test_validation_matrix.py::test_generated_magmom[1 -1 0-MAGMOM_COUNT]",
+      "outcome": "PASS",
+      "duration_seconds": 0.016364
+    },
+    {
+      "test_id": "tests/unit/test_validation_matrix.py::test_generated_magmom[1-MAGMOM_COUNT]",
+      "outcome": "PASS",
+      "duration_seconds": 0.016582
+    },
+    {
+      "test_id": "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-KPOINTS_MISMATCH]",
+      "outcome": "PASS",
+      "duration_seconds": 0.013542
+    },
+    {
+      "test_id": "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-LDAU_MAPPING_INVALID0]",
+      "outcome": "PASS",
+      "duration_seconds": 0.012992
+    },
+    {
+      "test_id": "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-LDAU_MAPPING_INVALID1]",
+      "outcome": "PASS",
+      "duration_seconds": 0.013598
+    },
+    {
+      "test_id": "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-LDAU_MAPPING_INVALID2]",
+      "outcome": "PASS",
+      "duration_seconds": 0.013144
+    },
+    {
+      "test_id": "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-LDAU_MAPPING_INVALID3]",
+      "outcome": "PASS",
+      "duration_seconds": 0.012839
+    },
+    {
+      "test_id": "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-MAGMOM_COUNT0]",
+      "outcome": "PASS",
+      "duration_seconds": 0.012879
+    },
+    {
+      "test_id": "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-MAGMOM_COUNT1]",
+      "outcome": "PASS",
+      "duration_seconds": 0.013186
+    },
+    {
+      "test_id": "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-MAGMOM_COUNT2]",
+      "outcome": "PASS",
+      "duration_seconds": 0.012721
+    },
+    {
+      "test_id": "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-POTENTIAL_MISMATCH0]",
+      "outcome": "PASS",
+      "duration_seconds": 0.012745
+    },
+    {
+      "test_id": "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-POTENTIAL_MISMATCH1]",
+      "outcome": "PASS",
+      "duration_seconds": 0.012744
+    },
+    {
+      "test_id": "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-SPECIES_MISMATCH0]",
+      "outcome": "PASS",
+      "duration_seconds": 0.012366
+    },
+    {
+      "test_id": "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-SPECIES_MISMATCH1]",
+      "outcome": "PASS",
+      "duration_seconds": 0.013169
+    },
+    {
+      "test_id": "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-SPECIES_MISMATCH2]",
+      "outcome": "PASS",
+      "duration_seconds": 0.013201
+    },
+    {
+      "test_id": "tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-SPIN_MODE_CONFLICT]",
+      "outcome": "PASS",
+      "duration_seconds": 0.01361
+    },
+    {
+      "test_id": "tests/unit/test_validation_matrix.py::test_noncollinear_soc_positive_and_scalar_rejection",
+      "outcome": "PASS",
+      "duration_seconds": 0.02129
+    },
+    {
+      "test_id": "tests/unit/test_validation_matrix.py::test_schema_and_runtime_identical",
+      "outcome": "PASS",
+      "duration_seconds": 0.025385
+    },
+    {
+      "test_id": "tests/unit/test_validation_matrix.py::test_static_calculation_not_silently_repaired",
+      "outcome": "PASS",
+      "duration_seconds": 0.018105
+    }
+  ]
+}

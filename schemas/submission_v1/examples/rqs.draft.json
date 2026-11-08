@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "cluster_id": null,
+  "cluster_epoch": null,
+  "owner": null,
+  "approval": {
+    "reviewer": null,
+    "approved_at": null,
+    "note": null
+  },
+  "kind": "rqs",
+  "hard_cap": 320,
+  "pending_included": null
+}

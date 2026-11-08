@@ -1,0 +1,108 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "cluster_id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+    },
+    "cluster_epoch": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+    },
+    "owner": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+    },
+    "approval": {
+      "type": "object",
+      "properties": {
+        "reviewer": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+        },
+        "approved_at": {
+          "type": "string",
+          "minLength": 1
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "reviewer",
+        "approved_at",
+        "note"
+      ],
+      "additionalProperties": false
+    },
+    "kind": {
+      "const": "dialect"
+    },
+    "dialect": {
+      "const": "sge_xml_v1"
+    },
+    "client_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "job_name_max_length": {
+      "type": "integer",
+      "minimum": 35,
+      "maximum": 1024
+    },
+    "all_active_states": {
+      "const": true
+    },
+    "requested_upper_slots": {
+      "const": true
+    },
+    "full_name_accounting": {
+      "const": true
+    },
+    "cli_clear_supported": {
+      "const": true
+    },
+    "client_paths_sha256": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "qmaster_aliases": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9.-]{0,252}$"
+      },
+      "minItems": 1,
+      "maxItems": 1000
+    }
+  },
+  "required": [
+    "schema_version",
+    "cluster_id",
+    "cluster_epoch",
+    "owner",
+    "approval",
+    "kind",
+    "dialect",
+    "client_version",
+    "job_name_max_length",
+    "all_active_states",
+    "requested_upper_slots",
+    "full_name_accounting",
+    "cli_clear_supported",
+    "client_paths_sha256",
+    "qmaster_aliases"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

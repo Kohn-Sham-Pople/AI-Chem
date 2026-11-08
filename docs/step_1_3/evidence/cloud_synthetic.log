@@ -1,0 +1,403 @@
+CLOUD_SYNTHETIC_ONLY
+PASS tests/integration/submission/test_runner.py::test_bounded_synthetic_process_and_protocol[import os,signal\nos.kill(os.getpid(),signal.SIGTERM)\n-None]
+PASS tests/integration/submission/test_runner.py::test_bounded_synthetic_process_and_protocol[import sys\nsys.stdout.buffer.write(b'12345\\n')\nsys.stderr.buffer.write(b'warning')\n-12345]
+PASS tests/integration/submission/test_runner.py::test_bounded_synthetic_process_and_protocol[import sys\nsys.stdout.buffer.write(b'\\xff')\n-None]
+PASS tests/integration/submission/test_runner.py::test_definite_missing_exec_and_query_cannot_dispatch
+PASS tests/integration/submission/test_runner.py::test_independent_output_caps_do_not_deadlock_or_buffer_without_limit[both]
+PASS tests/integration/submission/test_runner.py::test_independent_output_caps_do_not_deadlock_or_buffer_without_limit[stderr]
+PASS tests/integration/submission/test_runner.py::test_independent_output_caps_do_not_deadlock_or_buffer_without_limit[stdout]
+PASS tests/integration/submission/test_runner.py::test_timeout_and_no_shell_interpolation
+PASS tests/integration/submission/test_safety.py::test_help_is_process_and_state_free
+PASS tests/integration/submission/test_safety.py::test_live_gates_are_fail_closed[authorization]
+PASS tests/integration/submission/test_safety.py::test_live_gates_are_fail_closed[dialect]
+PASS tests/integration/submission/test_safety.py::test_live_gates_are_fail_closed[effective]
+PASS tests/integration/submission/test_safety.py::test_live_gates_are_fail_closed[owner]
+PASS tests/integration/submission/test_safety.py::test_live_gates_are_fail_closed[paused]
+PASS tests/integration/submission/test_safety.py::test_live_gates_are_fail_closed[restore]
+PASS tests/integration/submission/test_safety.py::test_live_gates_are_fail_closed[rqs]
+PASS tests/integration/submission/test_safety.py::test_preparation_rows_never_change
+PASS tests/integration/submission/test_safety.py::test_qmaster_change_blocks_client_execution[reconcile]
+PASS tests/integration/submission/test_safety.py::test_qmaster_change_blocks_client_execution[submit]
+PASS tests/integration/submission/test_safety.py::test_receipt_exclusive_same_content_and_conflict
+PASS tests/integration/submission/test_safety.py::test_receipt_tampering_requires_review_not_loose_job_id_recovery
+PASS tests/integration/submission/test_safety.py::test_restarted_client_object_uses_only_durable_server_state
+PASS tests/integration/submission/test_safety.py::test_restore_pause_allows_explicit_reconcile_but_never_new_dispatch
+PASS tests/integration/submission/test_safety.py::test_s13_03_same_physical_bundle_cannot_get_a_new_manifest_run
+PASS tests/integration/submission/test_safety.py::test_s13_03_scientific_duplicate_in_new_physical_bundle_is_blocked
+PASS tests/integration/submission/test_safety.py::test_s13_04_integrity_used_directory_no_dispatch[manifest]
+PASS tests/integration/submission/test_safety.py::test_s13_04_integrity_used_directory_no_dispatch[symlink]
+PASS tests/integration/submission/test_safety.py::test_s13_04_integrity_used_directory_no_dispatch[tamper]
+PASS tests/integration/submission/test_safety.py::test_s13_04_integrity_used_directory_no_dispatch[unmanifested_chgcar]
+PASS tests/integration/submission/test_safety.py::test_s13_04_integrity_used_directory_no_dispatch[used]
+PASS tests/integration/submission/test_safety.py::test_s13_07_parent_fsync_failure_after_receipt_publish_is_recoverable
+PASS tests/integration/submission/test_safety.py::test_s13_07_receipt_recovers_after_db_bind_failure
+PASS tests/integration/submission/test_safety.py::test_s13_07_receipt_write_failure_still_never_resubmits
+PASS tests/integration/submission/test_safety.py::test_s13_08_grace_expiry_is_not_nonacceptance
+PASS tests/integration/submission/test_safety.py::test_s13_13_cas_rollback_and_command_bound_permit
+PASS tests/integration/submission/test_safety.py::test_s13_13_fence_commit_unknown_never_returns_second_permit
+PASS tests/integration/submission/test_safety.py::test_s13_13_two_process_writers_and_common_lock
+PASS tests/integration/submission/test_safety.py::test_s13_14_strict_dry_run_no_writes_queries_tokens_or_lock
+PASS tests/integration/submission/test_safety.py::test_s13_18_db_removed_with_external_anchor_cannot_reinitialize
+PASS tests/integration/submission/test_safety.py::test_s13_18_profile_revision_drift_does_not_silently_redefine_intent
+PASS tests/integration/submission/test_safety.py::test_s13_18_restore_orphan_and_epoch_block
+PASS tests/integration/submission/test_safety.py::test_token_collision_is_a_blocker_not_a_token_retry
+PASS tests/integration/submission/test_safety.py::test_worker_recovery_precedes_new_inbox_and_preserves_malformed
+PASS tests/integration/submission/test_safety.py::test_worker_unarmed_pending_resumes_same_token
+PASS tests/integration/submission/test_service.py::test_definite_spawn_failure_is_never_retried
+PASS tests/integration/submission/test_service.py::test_s13_01_submit_once
+PASS tests/integration/submission/test_service.py::test_s13_02_03_aliases_and_conflicts
+PASS tests/integration/submission/test_service.py::test_s13_05_08_timeout_acceptance_recovery[False]
+PASS tests/integration/submission/test_service.py::test_s13_05_08_timeout_acceptance_recovery[True]
+PASS tests/integration/submission/test_service.py::test_s13_05_server_accept_then_controller_crash
+PASS tests/integration/submission/test_service.py::test_s13_06_07_fault_windows[before_pending]
+PASS tests/integration/submission/test_service.py::test_s13_06_07_fault_windows[bound]
+PASS tests/integration/submission/test_service.py::test_s13_06_07_fault_windows[fence]
+PASS tests/integration/submission/test_service.py::test_s13_06_07_fault_windows[fence_receipt]
+PASS tests/integration/submission/test_service.py::test_s13_06_07_fault_windows[intent_files]
+PASS tests/integration/submission/test_service.py::test_s13_06_07_fault_windows[outcome]
+PASS tests/integration/submission/test_service.py::test_s13_06_07_fault_windows[pending]
+PASS tests/integration/submission/test_service.py::test_s13_06_07_fault_windows[receipt]
+PASS tests/integration/submission/test_service.py::test_s13_07_repeated_reconciliation_keeps_receipt_and_observation_hashes_separate[False]
+PASS tests/integration/submission/test_service.py::test_s13_07_repeated_reconciliation_keeps_receipt_and_observation_hashes_separate[True]
+PASS tests/integration/submission/test_service.py::test_s13_08_09_observation_no_resubmission[delay-SUBMISSION_UNCERTAIN]
+PASS tests/integration/submission/test_service.py::test_s13_08_09_observation_no_resubmission[fail-SUBMISSION_UNCERTAIN]
+PASS tests/integration/submission/test_service.py::test_s13_08_09_observation_no_resubmission[multiple-IDENTITY_CONFLICT]
+PASS tests/integration/submission/test_service.py::test_s13_08_09_observation_no_resubmission[weak-REVIEW_REQUIRED]
+PASS tests/integration/submission/test_service.py::test_s13_08_09_observation_no_resubmission[wrong_manifest-REVIEW_REQUIRED]
+PASS tests/integration/submission/test_service.py::test_s13_10_malformed_ack[0--12]
+PASS tests/integration/submission/test_service.py::test_s13_10_malformed_ack[0-0]
+PASS tests/integration/submission/test_service.py::test_s13_10_malformed_ack[0-123.1-5:1]
+PASS tests/integration/submission/test_service.py::test_s13_10_malformed_ack[0-1\n2\n]
+PASS tests/integration/submission/test_service.py::test_s13_10_malformed_ack[0-Job 12345 submitted]
+PASS tests/integration/submission/test_service.py::test_s13_10_malformed_ack[0-\xff]
+PASS tests/integration/submission/test_service.py::test_s13_10_malformed_ack[0-]
+PASS tests/integration/submission/test_service.py::test_s13_10_malformed_ack[1-1001\n]
+PASS tests/integration/test_cli_worker.py::test_cli_all_commands
+PASS tests/integration/test_cli_worker.py::test_cli_dry
+PASS tests/integration/test_cli_worker.py::test_inbox_limit_and_verify_exit
+PASS tests/integration/test_cli_worker.py::test_worker_minimal_and_archives
+PASS tests/integration/test_faults.py::test_changed_config
+PASS tests/integration/test_faults.py::test_copy_fault_preserves_source[input:INCAR]
+PASS tests/integration/test_faults.py::test_copy_fault_preserves_source[input:KPOINTS]
+PASS tests/integration/test_faults.py::test_copy_fault_preserves_source[input:POSCAR]
+PASS tests/integration/test_faults.py::test_copy_fault_preserves_source[input:POTCAR]
+PASS tests/integration/test_faults.py::test_copy_fault_preserves_source[input:run.sh]
+PASS tests/integration/test_faults.py::test_copy_fault_preserves_source[provenance/resolved_config.json]
+PASS tests/integration/test_faults.py::test_copy_fault_preserves_source[provenance/validation.json]
+PASS tests/integration/test_faults.py::test_copy_fault_preserves_source[snapshot:INCAR]
+PASS tests/integration/test_faults.py::test_copy_fault_preserves_source[snapshot:KPOINTS]
+PASS tests/integration/test_faults.py::test_copy_fault_preserves_source[snapshot:POSCAR]
+PASS tests/integration/test_faults.py::test_copy_fault_preserves_source[snapshot:POTCAR]
+PASS tests/integration/test_faults.py::test_copy_fault_preserves_source[snapshot:run.sh]
+PASS tests/integration/test_faults.py::test_deadline_no_writes
+PASS tests/integration/test_faults.py::test_manifest_anchor_cannot_be_silently_replaced
+PASS tests/integration/test_faults.py::test_ready_db_but_missing_final
+PASS tests/integration/test_faults.py::test_real_rename_failure_and_midcopy
+PASS tests/integration/test_faults.py::test_sqlite_foreign_keys
+PASS tests/integration/test_faults.py::test_unexpected_corruption_before_payload
+PASS tests/integration/test_faults.py::test_verify_tampering[manifest_traversal]
+PASS tests/integration/test_faults.py::test_verify_tampering[missing_manifest]
+PASS tests/integration/test_faults.py::test_verify_tampering[missing_potcar]
+PASS tests/integration/test_faults.py::test_verify_tampering[missing_ready]
+PASS tests/integration/test_faults.py::test_verify_tampering[modified_snapshot]
+PASS tests/integration/test_faults.py::test_verify_tampering[new_input]
+PASS tests/integration/test_faults.py::test_verify_tampering[omitted_payload]
+PASS tests/integration/test_preparation.py::test_crash_reconciliation[before_manifest]
+PASS tests/integration/test_preparation.py::test_crash_reconciliation[before_ready]
+PASS tests/integration/test_preparation.py::test_crash_reconciliation[before_rename]
+PASS tests/integration/test_preparation.py::test_crash_reconciliation[db_success]
+PASS tests/integration/test_preparation.py::test_crash_reconciliation[intent]
+PASS tests/integration/test_preparation.py::test_crash_reconciliation[ready]
+PASS tests/integration/test_preparation.py::test_crash_reconciliation[renamed]
+PASS tests/integration/test_preparation.py::test_crash_reconciliation[snapshot:POTCAR]
+PASS tests/integration/test_preparation.py::test_end_to_end[d]
+PASS tests/integration/test_preparation.py::test_end_to_end[f]
+PASS tests/integration/test_preparation.py::test_identity_conflict
+PASS tests/integration/test_preparation.py::test_stale_source_config_and_busy
+PASS tests/integration/test_preparation.py::test_two_process_writers
+PASS tests/unit/submission/test_contracts.py::test_accounting_timestamp_and_live_env_mismatch_cannot_bind
+PASS tests/unit/submission/test_contracts.py::test_default_live_false_and_exact_command
+PASS tests/unit/submission/test_contracts.py::test_detail_fields_and_exact_identity_are_not_loose_number_search
+PASS tests/unit/submission/test_contracts.py::test_hand_authored_sge_fixtures
+PASS tests/unit/submission/test_contracts.py::test_identity_includes_versions_revisions_and_potential_structure_inputs[generator]
+PASS tests/unit/submission/test_contracts.py::test_identity_includes_versions_revisions_and_potential_structure_inputs[kpoints]
+PASS tests/unit/submission/test_contracts.py::test_identity_includes_versions_revisions_and_potential_structure_inputs[potcar]
+PASS tests/unit/submission/test_contracts.py::test_identity_includes_versions_revisions_and_potential_structure_inputs[stage]
+PASS tests/unit/submission/test_contracts.py::test_identity_includes_versions_revisions_and_potential_structure_inputs[template]
+PASS tests/unit/submission/test_contracts.py::test_identity_includes_versions_revisions_and_potential_structure_inputs[vasp]
+PASS tests/unit/submission/test_contracts.py::test_json_loader_is_strict[{"x":1,"x":2}]
+PASS tests/unit/submission/test_contracts.py::test_json_loader_is_strict[{"x":Infinity}]
+PASS tests/unit/submission/test_contracts.py::test_json_loader_is_strict[{"x":NaN}]
+PASS tests/unit/submission/test_contracts.py::test_partial_deep_or_array_xml_blocks[<job_info><nested><nested><nested><nested><nested><nested><nested><nested><nested><nested><nested><nested><nested><nested><nested><nested><nested></nested></nested></nested></nested></nested></nested></nested></nested></nested></nested></nested></nested></nested></nested></nested></nested></nested></job_info>]
+PASS tests/unit/submission/test_contracts.py::test_partial_deep_or_array_xml_blocks[<job_info><queue_info><job_list><JB_job_number>1</JB_job_number></job_list></queue_info></job_info>]
+PASS tests/unit/submission/test_contracts.py::test_partial_deep_or_array_xml_blocks[<job_info><queue_info><job_list><JB_job_number>1</JB_job_number><JB_name>array</JB_name><JB_owner>owner</JB_owner><state>qw</state><slots>1</slots><tasks>1-10</tasks></job_list></queue_info></job_info>]
+PASS tests/unit/submission/test_contracts.py::test_requested_upper_bound[1-32]
+PASS tests/unit/submission/test_contracts.py::test_requested_upper_bound[32]
+PASS tests/unit/submission/test_contracts.py::test_s13_02_science_and_transport_keys
+PASS tests/unit/submission/test_contracts.py::test_s13_10_strict_terse_parser[ \t12345\r\n-0-12345]
+PASS tests/unit/submission/test_contracts.py::test_s13_10_strict_terse_parser[-0-None]
+PASS tests/unit/submission/test_contracts.py::test_s13_10_strict_terse_parser[-12-0-None]
+PASS tests/unit/submission/test_contracts.py::test_s13_10_strict_terse_parser[0-0-None]
+PASS tests/unit/submission/test_contracts.py::test_s13_10_strict_terse_parser[12345-1-None]
+PASS tests/unit/submission/test_contracts.py::test_s13_10_strict_terse_parser[12345.1-10:1-0-None]
+PASS tests/unit/submission/test_contracts.py::test_s13_10_strict_terse_parser[12345\n-0-12345]
+PASS tests/unit/submission/test_contracts.py::test_s13_10_strict_terse_parser[12345\x00-0-None]
+PASS tests/unit/submission/test_contracts.py::test_s13_10_strict_terse_parser[1\n2-0-None]
+PASS tests/unit/submission/test_contracts.py::test_s13_10_strict_terse_parser[Job 12345 submitted-0-None]
+PASS tests/unit/submission/test_contracts.py::test_s13_10_strict_terse_parser[\xef\xbb\xbf12345-0-None]
+PASS tests/unit/submission/test_contracts.py::test_s13_10_strict_terse_parser[\xff-0-None]
+PASS tests/unit/submission/test_contracts.py::test_s13_11_incomplete_or_alternate_encoding_xml_is_never_zero_usage[<job_info/>]
+PASS tests/unit/submission/test_contracts.py::test_s13_11_incomplete_or_alternate_encoding_xml_is_never_zero_usage[<job_info><error>permission denied</error></job_info>]
+PASS tests/unit/submission/test_contracts.py::test_s13_11_incomplete_or_alternate_encoding_xml_is_never_zero_usage[<job_info><queue_info><error>partial result</error></queue_info></job_info>]
+PASS tests/unit/submission/test_contracts.py::test_s13_11_incomplete_or_alternate_encoding_xml_is_never_zero_usage[\xff\xfe<\x00!\x00D\x00O\x00C\x00T\x00Y\x00P\x00E\x00 \x00j\x00o\x00b\x00_\x00i\x00n\x00f\x00o\x00 \x00[\x00<\x00!\x00E\x00N\x00T\x00I\x00T\x00Y\x00 \x00x\x00 \x00"\x00e\x00x\x00p\x00a\x00n\x00d\x00e\x00d\x00"\x00>\x00]\x00>\x00<\x00j\x00o\x00b\x00_\x00i\x00n\x00f\x00o\x00>\x00<\x00q\x00u\x00e\x00u\x00e\x00_\x00i\x00n\x00f\x00o\x00>\x00&\x00x\x00;\x00<\x00/\x00q\x00u\x00e\x00u\x00e\x00_\x00i\x00n\x00f\x00o\x00>\x00<\x00/\x00j\x00o\x00b\x00_\x00i\x00n\x00f\x00o\x00>\x00]
+PASS tests/unit/submission/test_contracts.py::test_s13_11_partial_stale_or_future_snapshot_blocks[False-0]
+PASS tests/unit/submission/test_contracts.py::test_s13_11_partial_stale_or_future_snapshot_blocks[True--1]
+PASS tests/unit/submission/test_contracts.py::test_s13_11_partial_stale_or_future_snapshot_blocks[True-6]
+PASS tests/unit/submission/test_contracts.py::test_s13_11_user_wide_slot_boundary[288-True]
+PASS tests/unit/submission/test_contracts.py::test_s13_11_user_wide_slot_boundary[289-False]
+PASS tests/unit/submission/test_contracts.py::test_s13_11_user_wide_slot_boundary[320-False]
+PASS tests/unit/submission/test_contracts.py::test_s13_11_xml_element_count_is_bounded_during_parse
+PASS tests/unit/submission/test_contracts.py::test_s13_12_accounting_pe_rows_group_one_job
+PASS tests/unit/submission/test_contracts.py::test_s13_12_reservation_dedup_and_candidate_once
+PASS tests/unit/submission/test_contracts.py::test_s13_15_effective_precedence_needs_explicit_local_approval[d-export_all_removed]
+PASS tests/unit/submission/test_contracts.py::test_s13_15_effective_precedence_needs_explicit_local_approval[f-node_selection_removed]
+PASS tests/unit/submission/test_contracts.py::test_site_mandatory_options_are_typed_and_unknown_options_cannot_be_injected
+PASS tests/unit/submission/test_contracts.py::test_submit_request_schema_rejects_injection[<lambda>0]
+PASS tests/unit/submission/test_contracts.py::test_submit_request_schema_rejects_injection[<lambda>1]
+PASS tests/unit/submission/test_contracts.py::test_submit_request_schema_rejects_injection[<lambda>2]
+PASS tests/unit/submission/test_contracts.py::test_submit_request_schema_rejects_injection[<lambda>3]
+PASS tests/unit/submission/test_contracts.py::test_submit_request_schema_rejects_injection[<lambda>4]
+PASS tests/unit/submission/test_contracts.py::test_unknown_or_unsafe_xml_is_not_an_empty_snapshot[<!DOCTYPE job_info [<!ENTITY x "bad">]><job_info/>]
+PASS tests/unit/submission/test_contracts.py::test_unknown_or_unsafe_xml_is_not_an_empty_snapshot[<job_info version="other"/>]
+PASS tests/unit/submission/test_contracts.py::test_unknown_or_unsafe_xml_is_not_an_empty_snapshot[<job_info xmlns="unknown"/>]
+PASS tests/unit/submission/test_contracts.py::test_unknown_or_unsafe_xml_is_not_an_empty_snapshot[<job_info>]
+PASS tests/unit/submission/test_contracts.py::test_unsupported_slot_ranges_block[0]
+PASS tests/unit/submission/test_contracts.py::test_unsupported_slot_ranges_block[1,4]
+PASS tests/unit/submission/test_contracts.py::test_unsupported_slot_ranges_block[1-32:2]
+PASS tests/unit/submission/test_contracts.py::test_unsupported_slot_ranges_block[1-inf]
+PASS tests/unit/submission/test_contracts.py::test_unsupported_slot_ranges_block[32-1]
+PASS tests/unit/submission/test_contracts.py::test_unsupported_slot_ranges_block[unknown]
+PASS tests/unit/test_execution_profiles.py::test_colon_is_not_a_registered_library_directory
+PASS tests/unit/test_execution_profiles.py::test_execution_review_is_bound_to_exact_source_run_hash
+PASS tests/unit/test_execution_profiles.py::test_explicit_library_policies_and_no_generator_environment_capture[prepend]
+PASS tests/unit/test_execution_profiles.py::test_explicit_library_policies_and_no_generator_environment_capture[preserve]
+PASS tests/unit/test_execution_profiles.py::test_explicit_library_policies_and_no_generator_environment_capture[replace]
+PASS tests/unit/test_execution_profiles.py::test_explicit_library_policies_and_no_generator_environment_capture[unset]
+PASS tests/unit/test_execution_profiles.py::test_f_d_profiles_and_revisions_are_independently_selected
+PASS tests/unit/test_execution_profiles.py::test_legacy_snapshots_decode_but_cannot_silently_prepare
+PASS tests/unit/test_execution_profiles.py::test_library_policy_directory_contradictions_are_not_guessed[prepend-True]
+PASS tests/unit/test_execution_profiles.py::test_library_policy_directory_contradictions_are_not_guessed[preserve-False]
+PASS tests/unit/test_execution_profiles.py::test_library_policy_directory_contradictions_are_not_guessed[replace-True]
+PASS tests/unit/test_execution_profiles.py::test_library_policy_directory_contradictions_are_not_guessed[unset-False]
+PASS tests/unit/test_execution_profiles.py::test_machinefile_rejects_untyped_interpolation_and_injection[$(touch bad)]
+PASS tests/unit/test_execution_profiles.py::test_machinefile_rejects_untyped_interpolation_and_injection[$TMPDIR/machines]
+PASS tests/unit/test_execution_profiles.py::test_machinefile_rejects_untyped_interpolation_and_injection[`id`]
+PASS tests/unit/test_execution_profiles.py::test_machinefile_rejects_untyped_interpolation_and_injection[argument4]
+PASS tests/unit/test_execution_profiles.py::test_machinefile_rejects_untyped_interpolation_and_injection[argument5]
+PASS tests/unit/test_execution_profiles.py::test_machinefile_rejects_untyped_interpolation_and_injection[argument6]
+PASS tests/unit/test_execution_profiles.py::test_machinefile_rejects_untyped_interpolation_and_injection[x\ny]
+PASS tests/unit/test_execution_profiles.py::test_machinefile_requires_one_paired_flag_and_token[args0]
+PASS tests/unit/test_execution_profiles.py::test_machinefile_requires_one_paired_flag_and_token[args1]
+PASS tests/unit/test_execution_profiles.py::test_machinefile_requires_one_paired_flag_and_token[args2]
+PASS tests/unit/test_execution_profiles.py::test_machinefile_typed_render_and_bash_syntax
+PASS tests/unit/test_execution_profiles.py::test_missing_or_contradictory_review_blocks_new_revision_without_writes[<lambda>0]
+PASS tests/unit/test_execution_profiles.py::test_missing_or_contradictory_review_blocks_new_revision_without_writes[<lambda>1]
+PASS tests/unit/test_execution_profiles.py::test_missing_or_contradictory_review_blocks_new_revision_without_writes[<lambda>2]
+PASS tests/unit/test_execution_profiles.py::test_missing_or_contradictory_review_blocks_new_revision_without_writes[<lambda>3]
+PASS tests/unit/test_execution_profiles.py::test_missing_or_contradictory_review_blocks_new_revision_without_writes[<lambda>4]
+PASS tests/unit/test_execution_profiles.py::test_missing_or_contradictory_review_blocks_new_revision_without_writes[<lambda>5]
+PASS tests/unit/test_execution_profiles.py::test_missing_or_contradictory_review_blocks_new_revision_without_writes[<lambda>6]
+PASS tests/unit/test_execution_profiles.py::test_node127_removal_needs_explicit_approval
+PASS tests/unit/test_execution_profiles.py::test_profile_change_keeps_science_and_dry_run_source_invariants
+PASS tests/unit/test_execution_profiles.py::test_static_check_never_executes_executables_fragments_or_network
+PASS tests/unit/test_execution_profiles.py::test_static_profile_validation_blocks_wrong_resources_and_paths[<lambda>0]
+PASS tests/unit/test_execution_profiles.py::test_static_profile_validation_blocks_wrong_resources_and_paths[<lambda>1]
+PASS tests/unit/test_execution_profiles.py::test_static_profile_validation_blocks_wrong_resources_and_paths[<lambda>2]
+PASS tests/unit/test_execution_profiles.py::test_static_profile_validation_blocks_wrong_resources_and_paths[<lambda>3]
+PASS tests/unit/test_execution_profiles.py::test_static_profile_validation_blocks_wrong_resources_and_paths[<lambda>4]
+PASS tests/unit/test_execution_profiles.py::test_static_profile_validation_blocks_wrong_resources_and_paths[<lambda>5]
+PASS tests/unit/test_magmom_compression.py::test_continuations_do_not_bypass_logical_assignment_limit
+PASS tests/unit/test_magmom_compression.py::test_final_input_validation_checks_actual_line_not_only_expected_compact_value
+PASS tests/unit/test_magmom_compression.py::test_full_assignment_255_byte_boundary[243-True]
+PASS tests/unit/test_magmom_compression.py::test_full_assignment_255_byte_boundary[244-True]
+PASS tests/unit/test_magmom_compression.py::test_full_assignment_255_byte_boundary[245-False]
+PASS tests/unit/test_magmom_compression.py::test_generated_inline_comment_overflow_is_rejected_before_writes
+PASS tests/unit/test_magmom_compression.py::test_invalid_moments_are_never_silently_accepted[moments0]
+PASS tests/unit/test_magmom_compression.py::test_invalid_moments_are_never_silently_accepted[moments1]
+PASS tests/unit/test_magmom_compression.py::test_invalid_moments_are_never_silently_accepted[moments2]
+PASS tests/unit/test_magmom_compression.py::test_invalid_moments_are_never_silently_accepted[moments3]
+PASS tests/unit/test_magmom_compression.py::test_invalid_moments_are_never_silently_accepted[moments4]
+PASS tests/unit/test_magmom_compression.py::test_noncollinear_xyz_order_across_atom_boundaries_is_exact
+PASS tests/unit/test_magmom_compression.py::test_only_adjacent_numerically_equal_components_are_compressed[moments0-32*6 16*0 16*1 80*0]
+PASS tests/unit/test_magmom_compression.py::test_only_adjacent_numerically_equal_components_are_compressed[moments1-1 0 1]
+PASS tests/unit/test_magmom_compression.py::test_only_adjacent_numerically_equal_components_are_compressed[moments2-2*-2 2*2 -2]
+PASS tests/unit/test_magmom_compression.py::test_only_adjacent_numerically_equal_components_are_compressed[moments3-1]
+PASS tests/unit/test_magmom_compression.py::test_only_adjacent_numerically_equal_components_are_compressed[moments4-144*0]
+PASS tests/unit/test_magmom_compression.py::test_only_adjacent_numerically_equal_components_are_compressed[moments5-3*6.0]
+PASS tests/unit/test_magmom_compression.py::test_only_adjacent_numerically_equal_components_are_compressed[moments6-3*-0]
+PASS tests/unit/test_magmom_compression.py::test_only_adjacent_numerically_equal_components_are_compressed[moments7-1.0000000000000000000000000001 1.0000000000000000000000000002]
+PASS tests/unit/test_magmom_compression.py::test_real_physical_line_counts_prefix_neighbors_comments_and_crlf[   - #-\n]
+PASS tests/unit/test_magmom_compression.py::test_real_physical_line_counts_prefix_neighbors_comments_and_crlf[   - #-\r\n]
+PASS tests/unit/test_magmom_compression.py::test_real_physical_line_counts_prefix_neighbors_comments_and_crlf[- !-\n]
+PASS tests/unit/test_magmom_compression.py::test_real_physical_line_counts_prefix_neighbors_comments_and_crlf[- !-\r\n]
+PASS tests/unit/test_magmom_compression.py::test_real_physical_line_counts_prefix_neighbors_comments_and_crlf[-; EDIFF=1E-4 !-\n]
+PASS tests/unit/test_magmom_compression.py::test_real_physical_line_counts_prefix_neighbors_comments_and_crlf[-; EDIFF=1E-4 !-\r\n]
+PASS tests/unit/test_magmom_compression.py::test_real_physical_line_counts_prefix_neighbors_comments_and_crlf[ENCUT=400; - !-\n]
+PASS tests/unit/test_magmom_compression.py::test_real_physical_line_counts_prefix_neighbors_comments_and_crlf[ENCUT=400; - !-\r\n]
+PASS tests/unit/test_magmom_compression.py::test_synthetic_144_atom_preparation_preserves_science_source_and_script
+PASS tests/unit/test_magmom_compression.py::test_uncompressible_144_atom_request_blocks_all_preparation_writes
+PASS tests/unit/test_magmom_compression.py::test_utf8_comments_use_byte_limit_and_fake_commented_tags_do_not_count
+PASS tests/unit/test_potcar_zval.py::test_official_zval_does_not_relax_metadata_checks[<lambda>0]
+PASS tests/unit/test_potcar_zval.py::test_official_zval_does_not_relax_metadata_checks[<lambda>1]
+PASS tests/unit/test_potcar_zval.py::test_official_zval_does_not_relax_metadata_checks[<lambda>2]
+PASS tests/unit/test_potcar_zval.py::test_official_zval_does_not_relax_metadata_checks[<lambda>3]
+PASS tests/unit/test_potcar_zval.py::test_official_zval_does_not_relax_metadata_checks[<lambda>4]
+PASS tests/unit/test_potcar_zval.py::test_zval_keeps_dataset_boundaries_and_exact_hashes
+PASS tests/unit/test_potcar_zval.py::test_zval_numeric_token_and_official_suffix[  10.000   mass and valenz  -10.000]
+PASS tests/unit/test_potcar_zval.py::test_zval_numeric_token_and_official_suffix[+10.000 mass and valenz-+10.000]
+PASS tests/unit/test_potcar_zval.py::test_zval_numeric_token_and_official_suffix[.5 mass and valenz-.5]
+PASS tests/unit/test_potcar_zval.py::test_zval_numeric_token_and_official_suffix[1.000D+01 mass and valenz-1.000D+01]
+PASS tests/unit/test_potcar_zval.py::test_zval_numeric_token_and_official_suffix[10.000 mass and valenz-10.000]
+PASS tests/unit/test_potcar_zval.py::test_zval_numeric_token_and_official_suffix[10.000-10.000]
+PASS tests/unit/test_potcar_zval.py::test_zval_numeric_token_and_official_suffix[10.000\tmass\tand\tvalenz-10.000]
+PASS tests/unit/test_potcar_zval.py::test_zval_numeric_token_and_official_suffix[1e1 mass and valenz-1e1]
+PASS tests/unit/test_potcar_zval.py::test_zval_on_shared_pomass_line_and_crlf
+PASS tests/unit/test_potcar_zval.py::test_zval_rejects_malformed_numbers_and_unknown_suffixes[--10.000 mass and valenz]
+PASS tests/unit/test_potcar_zval.py::test_zval_rejects_malformed_numbers_and_unknown_suffixes[1.2.3 mass and valenz]
+PASS tests/unit/test_potcar_zval.py::test_zval_rejects_malformed_numbers_and_unknown_suffixes[10.000 20.000 mass and valenz]
+PASS tests/unit/test_potcar_zval.py::test_zval_rejects_malformed_numbers_and_unknown_suffixes[10.000 20.000]
+PASS tests/unit/test_potcar_zval.py::test_zval_rejects_malformed_numbers_and_unknown_suffixes[10.000 arbitrary]
+PASS tests/unit/test_potcar_zval.py::test_zval_rejects_malformed_numbers_and_unknown_suffixes[10.000 mass AND valenz]
+PASS tests/unit/test_potcar_zval.py::test_zval_rejects_malformed_numbers_and_unknown_suffixes[10.000 mass and valence]
+PASS tests/unit/test_potcar_zval.py::test_zval_rejects_malformed_numbers_and_unknown_suffixes[10.000 mass and valenz #comment]
+PASS tests/unit/test_potcar_zval.py::test_zval_rejects_malformed_numbers_and_unknown_suffixes[10.000 mass and valenz extra]
+PASS tests/unit/test_potcar_zval.py::test_zval_rejects_malformed_numbers_and_unknown_suffixes[10.000 mass and valenzfoo]
+PASS tests/unit/test_potcar_zval.py::test_zval_rejects_malformed_numbers_and_unknown_suffixes[10.000foo mass and valenz]
+PASS tests/unit/test_potcar_zval.py::test_zval_rejects_malformed_numbers_and_unknown_suffixes[10.000mass and valenz]
+PASS tests/unit/test_potcar_zval.py::test_zval_rejects_malformed_numbers_and_unknown_suffixes[1D+ mass and valenz]
+PASS tests/unit/test_potcar_zval.py::test_zval_rejects_malformed_numbers_and_unknown_suffixes[Infinity mass and valenz]
+PASS tests/unit/test_potcar_zval.py::test_zval_rejects_malformed_numbers_and_unknown_suffixes[NaN mass and valenz]
+PASS tests/unit/test_potcar_zval.py::test_zval_rejects_malformed_numbers_and_unknown_suffixes[NaN]
+PASS tests/unit/test_potcar_zval.py::test_zval_rejects_malformed_numbers_and_unknown_suffixes[]
+PASS tests/unit/test_potcar_zval.py::test_zval_rejects_malformed_numbers_and_unknown_suffixes[mass and valenz]
+PASS tests/unit/test_preserve_source.py::test_concurrent_private_directory_creation_keeps_safety_checks[private]
+PASS tests/unit/test_preserve_source.py::test_concurrent_private_directory_creation_keeps_safety_checks[public]
+PASS tests/unit/test_preserve_source.py::test_concurrent_private_directory_creation_keeps_safety_checks[symlink]
+PASS tests/unit/test_preserve_source.py::test_exact_source_bytes_snapshots_manifest_and_dry_run[False-\n-d]
+PASS tests/unit/test_preserve_source.py::test_exact_source_bytes_snapshots_manifest_and_dry_run[False-\n-f]
+PASS tests/unit/test_preserve_source.py::test_exact_source_bytes_snapshots_manifest_and_dry_run[False-\r\n-d]
+PASS tests/unit/test_preserve_source.py::test_exact_source_bytes_snapshots_manifest_and_dry_run[False-\r\n-f]
+PASS tests/unit/test_preserve_source.py::test_exact_source_bytes_snapshots_manifest_and_dry_run[True-\n-d]
+PASS tests/unit/test_preserve_source.py::test_exact_source_bytes_snapshots_manifest_and_dry_run[True-\n-f]
+PASS tests/unit/test_preserve_source.py::test_exact_source_bytes_snapshots_manifest_and_dry_run[True-\r\n-d]
+PASS tests/unit/test_preserve_source.py::test_exact_source_bytes_snapshots_manifest_and_dry_run[True-\r\n-f]
+PASS tests/unit/test_preserve_source.py::test_golden_mode_routing_and_evidence[preserve_source]
+PASS tests/unit/test_preserve_source.py::test_golden_mode_routing_and_evidence[typed_renderer]
+PASS tests/unit/test_preserve_source.py::test_initial_golden_rejects_typed_profile_by_default_without_writes
+PASS tests/unit/test_preserve_source.py::test_legacy_typed_manifest_stays_readable_and_renderer_is_not_repurposed
+PASS tests/unit/test_preserve_source.py::test_missing_approval_or_unknown_mode_is_not_auto_approved[<lambda>0]
+PASS tests/unit/test_preserve_source.py::test_missing_approval_or_unknown_mode_is_not_auto_approved[<lambda>1]
+PASS tests/unit/test_preserve_source.py::test_missing_approval_or_unknown_mode_is_not_auto_approved[<lambda>2]
+PASS tests/unit/test_preserve_source.py::test_missing_approval_or_unknown_mode_is_not_auto_approved[<lambda>3]
+PASS tests/unit/test_preserve_source.py::test_opaque_non_utf8_comment_and_no_new_thread_or_host_settings
+PASS tests/unit/test_preserve_source.py::test_preservation_needs_no_new_library_thread_or_launcher_paths
+PASS tests/unit/test_preserve_source.py::test_preserve_dry_run_cli_is_zero_write
+PASS tests/unit/test_preserve_source.py::test_renderer_fields_are_rejected_in_preserve_profile[environment]
+PASS tests/unit/test_preserve_source.py::test_renderer_fields_are_rejected_in_preserve_profile[execution_review]
+PASS tests/unit/test_preserve_source.py::test_renderer_fields_are_rejected_in_preserve_profile[launcher]
+PASS tests/unit/test_preserve_source.py::test_stale_pins_and_symlinks_block_before_output_or_lock[config]
+PASS tests/unit/test_preserve_source.py::test_stale_pins_and_symlinks_block_before_output_or_lock[source]
+PASS tests/unit/test_preserve_source.py::test_stale_pins_and_symlinks_block_before_output_or_lock[symlink]
+PASS tests/unit/test_preserve_source.py::test_verify_rejects_script_bytes_and_resealed_mode_inconsistency[metadata]
+PASS tests/unit/test_preserve_source.py::test_verify_rejects_script_bytes_and_resealed_mode_inconsistency[missing_mode]
+PASS tests/unit/test_preserve_source.py::test_verify_rejects_script_bytes_and_resealed_mode_inconsistency[rehashed_changed_run]
+PASS tests/unit/test_preserve_source.py::test_verify_rejects_script_bytes_and_resealed_mode_inconsistency[run_bytes]
+PASS tests/unit/test_preserve_source.py::test_wrong_approved_hash_cannot_register_template_or_copy
+PASS tests/unit/test_t01.py::test_parent_symlink_hardlink_and_traversal
+PASS tests/unit/test_t01.py::test_paths
+PASS tests/unit/test_t01.py::test_schema[value0]
+PASS tests/unit/test_t01.py::test_schema[value1]
+PASS tests/unit/test_t01.py::test_schema[value2]
+PASS tests/unit/test_t01.py::test_strict_json[{"a":1,"a":2}]
+PASS tests/unit/test_t01.py::test_strict_json[{"x":Infinity}]
+PASS tests/unit/test_t01.py::test_strict_json[{"x":NaN}]
+PASS tests/unit/test_t02.py::test_bounded_discovery_and_drift
+PASS tests/unit/test_t02.py::test_discovery
+PASS tests/unit/test_t02.py::test_immutable
+PASS tests/unit/test_t03.py::test_bad[A=1; a=1]
+PASS tests/unit/test_t03.py::test_bad[EDIFF=1 \\]
+PASS tests/unit/test_t03.py::test_bad[EDIFF==1]
+PASS tests/unit/test_t03.py::test_bad[EDIFF=nan]
+PASS tests/unit/test_t03.py::test_bad[MAGMOM=1000000000*0]
+PASS tests/unit/test_t03.py::test_bad[SYSTEM="bad]
+PASS tests/unit/test_t03.py::test_bad[X={x}]
+PASS tests/unit/test_t03.py::test_remove_semicolon_edges[ICHARG=1; NELM=300 ! hi\n]
+PASS tests/unit/test_t03.py::test_remove_semicolon_edges[ICHARG=1; NELM=300; ENCUT=400\n]
+PASS tests/unit/test_t03.py::test_remove_semicolon_edges[NELM=300; ICHARG=1 ! hi\n]
+PASS tests/unit/test_t03.py::test_spans
+PASS tests/unit/test_t04.py::test_bad_kpoints[fake\n0\nGamma\n0 1 1\n]
+PASS tests/unit/test_t04.py::test_bad_kpoints[fake\n0\nGamma\n1 1 1\nNaN 0 0\n]
+PASS tests/unit/test_t04.py::test_bad_kpoints[fake\n0\nLine-mode\n1 1 1\n]
+PASS tests/unit/test_t04.py::test_bad_kpoints[fake\n2\nReciprocal\n0 0 0 1\n]
+PASS tests/unit/test_t04.py::test_bad_pos[SYNTHETIC TEST ONLY\n1 1 1\n1 0 0\n0 1 0\n0 0 1\nCu Cu\n1 1\nDirect\n2 0 0\n0 0 0\n]
+PASS tests/unit/test_t04.py::test_bad_pos[SYNTHETIC TEST ONLY\n1\n0 0 0\n0 1 0\n0 0 1\nCu Cu\n1 1\nDirect\n2 0 0\n0 0 0\n]
+PASS tests/unit/test_t04.py::test_bad_pos[SYNTHETIC TEST ONLY\n1\n1 0 0\n0 1 0\n0 0 1\nCu Cu\n1 1\nDirect\n2 0 0\n0 0 0\n0 0 0\n]
+PASS tests/unit/test_t04.py::test_bad_pos[SYNTHETIC TEST ONLY\n1\n1 0 0\n0 1 0\n0 0 1\nCu Cu\n1 1\nDirect\n2 0 ]
+PASS tests/unit/test_t04.py::test_bad_pot[SYNTHETIC TEST ONLY\nTITEL = PAW Cu_fake\nVRHFIN = Cu: fake\nLEXCH = PE\nZVAL = 1\nFAKE DATA\nEnd o]
+PASS tests/unit/test_t04.py::test_bad_pot[SYNTHETIC TEST ONLY\nTITEL = PAW Cu_fake\nVRHFIN = Cu: fake\nLEXCH = PE\nZVAL = nan\nFAKE DATA\nEnd of Dataset\n]
+PASS tests/unit/test_t04.py::test_bad_pot[SYNTHETIC TEST ONLY\nTITEL = PAW Cu_fake\nVRHFIN = Cu: fake\nOTHER = PE\nZVAL = 1\nFAKE DATA\nEnd of Dataset\n]
+PASS tests/unit/test_t04.py::test_parse
+PASS tests/unit/test_t04.py::test_selective_and_scale_geometry
+PASS tests/unit/test_t05_t07.py::test_profile[<lambda>0]
+PASS tests/unit/test_t05_t07.py::test_profile[<lambda>1]
+PASS tests/unit/test_t05_t07.py::test_profile[<lambda>2]
+PASS tests/unit/test_t05_t07.py::test_profile[<lambda>3]
+PASS tests/unit/test_t05_t07.py::test_protocol[d]
+PASS tests/unit/test_t05_t07.py::test_protocol[f]
+PASS tests/unit/test_t05_t07.py::test_restart_closed[s02_e5]
+PASS tests/unit/test_t05_t07.py::test_restart_closed[s03_e6]
+PASS tests/unit/test_t05_t07.py::test_script_injection[$(id)]
+PASS tests/unit/test_t05_t07.py::test_script_injection[]
+PASS tests/unit/test_t05_t07.py::test_script_injection[`id`]
+PASS tests/unit/test_t05_t07.py::test_script_injection[a'b]
+PASS tests/unit/test_t05_t07.py::test_script_injection[x\ny]
+PASS tests/unit/test_t05_t07.py::test_unapproved_malicious_source_blocked
+PASS tests/unit/test_t06.py::test_restart_negative[<lambda>0]
+PASS tests/unit/test_t06.py::test_restart_negative[<lambda>10]
+PASS tests/unit/test_t06.py::test_restart_negative[<lambda>1]
+PASS tests/unit/test_t06.py::test_restart_negative[<lambda>2]
+PASS tests/unit/test_t06.py::test_restart_negative[<lambda>3]
+PASS tests/unit/test_t06.py::test_restart_negative[<lambda>4]
+PASS tests/unit/test_t06.py::test_restart_negative[<lambda>5]
+PASS tests/unit/test_t06.py::test_restart_negative[<lambda>6]
+PASS tests/unit/test_t06.py::test_restart_negative[<lambda>7]
+PASS tests/unit/test_t06.py::test_restart_negative[<lambda>8]
+PASS tests/unit/test_t06.py::test_restart_negative[<lambda>9]
+PASS tests/unit/test_t06.py::test_restart_positive[s02_e5]
+PASS tests/unit/test_t06.py::test_restart_positive[s03_e6]
+PASS tests/unit/test_t06.py::test_revocation_and_header
+PASS tests/unit/test_t06.py::test_store_untrusted
+PASS tests/unit/test_t12.py::test_hash_domains_and_volatile_roots
+PASS tests/unit/test_t12.py::test_independent_goldens
+PASS tests/unit/test_t12.py::test_raw_hash_distinct
+PASS tests/unit/test_t12.py::test_repo_synthetic_only
+PASS tests/unit/test_validation_matrix.py::test_generated_magmom[-1 1-MAGMOM_MAPPING]
+PASS tests/unit/test_validation_matrix.py::test_generated_magmom[1 -1 0-MAGMOM_COUNT]
+PASS tests/unit/test_validation_matrix.py::test_generated_magmom[1-MAGMOM_COUNT]
+PASS tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-KPOINTS_MISMATCH]
+PASS tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-LDAU_MAPPING_INVALID0]
+PASS tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-LDAU_MAPPING_INVALID1]
+PASS tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-LDAU_MAPPING_INVALID2]
+PASS tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-LDAU_MAPPING_INVALID3]
+PASS tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-MAGMOM_COUNT0]
+PASS tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-MAGMOM_COUNT1]
+PASS tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-MAGMOM_COUNT2]
+PASS tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-POTENTIAL_MISMATCH0]
+PASS tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-POTENTIAL_MISMATCH1]
+PASS tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-SPECIES_MISMATCH0]
+PASS tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-SPECIES_MISMATCH1]
+PASS tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-SPECIES_MISMATCH2]
+PASS tests/unit/test_validation_matrix.py::test_mapping_failures[<lambda>-SPIN_MODE_CONFLICT]
+PASS tests/unit/test_validation_matrix.py::test_noncollinear_soc_positive_and_scalar_rejection
+PASS tests/unit/test_validation_matrix.py::test_schema_and_runtime_identical
+PASS tests/unit/test_validation_matrix.py::test_static_calculation_not_silently_repaired

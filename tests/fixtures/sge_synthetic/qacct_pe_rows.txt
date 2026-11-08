@@ -1,0 +1,16 @@
+====
+jobnumber 2
+jobname ac_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+owner synthetic_owner
+qsub_time 1700000000
+granted_pe mpi_32
+slots 32
+pe_taskid NONE
+====
+jobnumber 2
+jobname ac_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+owner synthetic_owner
+qsub_time 1700000000
+granted_pe mpi_32
+slots 1
+pe_taskid 1

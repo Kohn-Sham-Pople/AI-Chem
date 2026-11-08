@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "request_id": null,
+  "calculation_id": null,
+  "stage_id": null,
+  "bundle_ref": null,
+  "expected_manifest_sha256": null,
+  "submission_profile": {
+    "id": null,
+    "revision": null
+  }
+}

@@ -1,0 +1,11 @@
+[
+  {"name":"accepted","returncode":0,"stdout":"12345\n","stderr":"","job_id":"12345"},
+  {"name":"accepted_warning","returncode":0,"stdout":"12345\n","stderr":"synthetic warning","job_id":"12345"},
+  {"name":"empty","returncode":0,"stdout":"","stderr":"","job_id":null},
+  {"name":"banner","returncode":0,"stdout":"Job 12345 submitted","stderr":"","job_id":null},
+  {"name":"multiple","returncode":0,"stdout":"12345\n12346\n","stderr":"","job_id":null},
+  {"name":"array","returncode":0,"stdout":"12345.1-10:1","stderr":"","job_id":null},
+  {"name":"nonzero","returncode":1,"stdout":"12345\n","stderr":"synthetic error","job_id":null},
+  {"name":"negative","returncode":0,"stdout":"-12","stderr":"","job_id":null},
+  {"name":"zero","returncode":0,"stdout":"0","stderr":"","job_id":null}
+]

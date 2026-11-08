@@ -1,0 +1,473 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "approval": {
+      "type": "object",
+      "properties": {
+        "reviewer": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+        },
+        "approved_at": {
+          "type": "string",
+          "minLength": 1
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "reviewer",
+        "approved_at",
+        "note"
+      ],
+      "additionalProperties": false
+    },
+    "cluster_id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+    },
+    "cluster_epoch": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+    },
+    "state_epoch": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "expected_owner": {
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+        }
+      },
+      "required": [
+        "uid",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "qmaster_aliases": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9.-]{0,252}$"
+      },
+      "minItems": 1,
+      "maxItems": 1000
+    },
+    "cluster_timezone": {
+      "type": "string",
+      "minLength": 1,
+      "enum": [
+        "UTC",
+        "Asia/Seoul"
+      ]
+    },
+    "qsub_path": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^/[^\\r\\n]*$"
+    },
+    "qstat_path": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^/[^\\r\\n]*$"
+    },
+    "qacct_path": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^/[^\\r\\n]*$"
+    },
+    "dialect": {
+      "const": "sge_xml_v1"
+    },
+    "sge_client_env": {
+      "type": "object",
+      "properties": {
+        "SGE_ROOT": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^/[^\\r\\n]*$"
+        },
+        "SGE_CELL": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+        },
+        "PATH": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^/[^\\r\\n]*$"
+        },
+        "HOME": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^/[^\\r\\n]*$"
+        },
+        "SGE_QMASTER_PORT": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[0-9]{1,5}$"
+        },
+        "SGE_EXECD_PORT": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[0-9]{1,5}$"
+        }
+      },
+      "required": [
+        "SGE_ROOT",
+        "SGE_CELL",
+        "PATH",
+        "HOME"
+      ],
+      "additionalProperties": false
+    },
+    "queue": {
+      "const": "all.q"
+    },
+    "pe": {
+      "const": "mpi_32"
+    },
+    "slots": {
+      "const": 32
+    },
+    "user_quota_slots": {
+      "const": 320
+    },
+    "scheduler_rqs_evidence": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^/[^\\r\\n]*$"
+            },
+            "sha256": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "path",
+            "sha256"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "dialect_evidence": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^/[^\\r\\n]*$"
+            },
+            "sha256": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "path",
+            "sha256"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "effective_execution_evidence": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^/[^\\r\\n]*$"
+            },
+            "sha256": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "path",
+            "sha256"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "live_authorization": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^/[^\\r\\n]*$"
+            },
+            "sha256": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "path",
+            "sha256"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "queue_pending_policy": {
+      "type": "string",
+      "minLength": 1,
+      "enum": [
+        "single_job_pilot",
+        "unknown"
+      ]
+    },
+    "max_outstanding_controller_runs": {
+      "const": 1
+    },
+    "live_enabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "snapshot_max_age_seconds": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "qsub_timeout_seconds": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 15
+    },
+    "query_timeout_seconds": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "reconcile_grace_seconds": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "reconcile_max_observations": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "worker_budget_seconds": {
+      "type": "integer",
+      "minimum": 20,
+      "maximum": 300
+    },
+    "max_new_submissions": {
+      "const": 1
+    },
+    "max_queries": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1000
+    },
+    "paused": {
+      "type": "boolean",
+      "default": false
+    },
+    "paused_restore": {
+      "type": "boolean",
+      "default": false
+    },
+    "roots": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^/[^\\r\\n]*$"
+          },
+          "minItems": 1,
+          "maxItems": 1000
+        },
+        "protected": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^/[^\\r\\n]*$"
+          },
+          "minItems": 1,
+          "maxItems": 1000
+        },
+        "output": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^/[^\\r\\n]*$"
+        },
+        "registry": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^/[^\\r\\n]*$"
+        },
+        "state": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^/[^\\r\\n]*$"
+        },
+        "lock": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^/[^\\r\\n]*$"
+        }
+      },
+      "required": [
+        "source",
+        "protected",
+        "output",
+        "registry",
+        "state",
+        "lock"
+      ],
+      "additionalProperties": false
+    },
+    "site_options": {
+      "type": "object",
+      "properties": {
+        "project": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "account": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "walltime": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9]{1,4}:[0-5][0-9]:[0-5][0-9]$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "project",
+        "account",
+        "walltime"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "revision",
+    "approval",
+    "cluster_id",
+    "cluster_epoch",
+    "state_epoch",
+    "expected_owner",
+    "qmaster_aliases",
+    "cluster_timezone",
+    "qsub_path",
+    "qstat_path",
+    "qacct_path",
+    "dialect",
+    "sge_client_env",
+    "queue",
+    "pe",
+    "slots",
+    "user_quota_slots",
+    "scheduler_rqs_evidence",
+    "dialect_evidence",
+    "effective_execution_evidence",
+    "live_authorization",
+    "queue_pending_policy",
+    "max_outstanding_controller_runs",
+    "snapshot_max_age_seconds",
+    "qsub_timeout_seconds",
+    "query_timeout_seconds",
+    "reconcile_grace_seconds",
+    "reconcile_max_observations",
+    "worker_budget_seconds",
+    "max_new_submissions",
+    "max_queries",
+    "paused",
+    "paused_restore",
+    "roots"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

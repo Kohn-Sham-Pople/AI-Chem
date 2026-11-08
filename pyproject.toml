@@ -19,3 +19,4 @@ addopts = "-p no:cacheprovider"
 
 [tool.setuptools.package-data]
 ai_chem_input = ["schemas/*.json"]
+"ai_chem_input.submission" = ["schemas/*.json"]

@@ -1,0 +1,188 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "intent_id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+    },
+    "run_instance_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "token": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[0-9a-f]{32}$"
+    },
+    "cluster_id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+    },
+    "cluster_epoch": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+    },
+    "owner": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+    },
+    "request_digest": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "intent_sha256": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "command_digest": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "cwd_digest": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "manifest_sha256": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "started_at": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[0-9]+(?:\\.[0-9]+)?$"
+    },
+    "finished_at": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[0-9]+(?:\\.[0-9]+)?$"
+    },
+    "spawn_status": {
+      "type": "string",
+      "minLength": 1,
+      "enum": [
+        "SPAWN_FAILED",
+        "PROCESS_STARTED",
+        "SPAWN_UNKNOWN"
+      ]
+    },
+    "returncode": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "signal": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "timed_out": {
+      "type": "boolean",
+      "default": false
+    },
+    "output_overflow": {
+      "type": "boolean",
+      "default": false
+    },
+    "stdout": {
+      "type": "object",
+      "properties": {
+        "size_bytes": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1048576
+        },
+        "sha256": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "size_bytes",
+        "sha256"
+      ],
+      "additionalProperties": false
+    },
+    "stderr": {
+      "type": "object",
+      "properties": {
+        "size_bytes": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1048576
+        },
+        "sha256": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "size_bytes",
+        "sha256"
+      ],
+      "additionalProperties": false
+    },
+    "parsed_job_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[1-9][0-9]*$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "intent_id",
+    "run_instance_id",
+    "token",
+    "cluster_id",
+    "cluster_epoch",
+    "owner",
+    "request_digest",
+    "intent_sha256",
+    "command_digest",
+    "cwd_digest",
+    "manifest_sha256",
+    "started_at",
+    "finished_at",
+    "spawn_status",
+    "returncode",
+    "signal",
+    "timed_out",
+    "output_overflow",
+    "stdout",
+    "stderr",
+    "parsed_job_id"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

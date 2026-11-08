@@ -1,0 +1,88 @@
+{
+  "base_commit": "b510177725075ce549ef5d5fca8bcf050ab8ed03",
+  "verification_return_keys": [
+    "manifest",
+    "manifest_sha256",
+    "request_digest",
+    "run_script"
+  ],
+  "manifest_keys": [
+    "generated_files",
+    "generation",
+    "generator_version",
+    "hash_schema_version",
+    "identity",
+    "payload_files",
+    "resolved_refs",
+    "resource_request",
+    "restart",
+    "run_script",
+    "schema_version",
+    "science_identity",
+    "source_files",
+    "validation"
+  ],
+  "source_file_keys": [
+    "sha256",
+    "size_bytes",
+    "snapshot_relative_path",
+    "source_alias"
+  ],
+  "generated_file_keys": [
+    "sha256",
+    "size_bytes"
+  ],
+  "resource_request": {
+    "live_checked": false,
+    "pe": "mpi_32",
+    "queue": "all.q",
+    "quota_static": 320,
+    "slots": 32
+  },
+  "science_fields": [
+    "configuration_hash",
+    "method_hash",
+    "stage_input_hash"
+  ],
+  "resolved_refs_keys": [
+    "cluster_profile",
+    "configuration_id",
+    "material",
+    "protocol",
+    "structure_id",
+    "template",
+    "u_set_id"
+  ],
+  "payload_paths": [
+    "INCAR",
+    "KPOINTS",
+    "POSCAR",
+    "POTCAR",
+    "provenance/input.diff",
+    "provenance/parameter_changes.json",
+    "provenance/resolved_config.json",
+    "provenance/resolved_request.json",
+    "provenance/source/INCAR",
+    "provenance/source/KPOINTS",
+    "provenance/source/POSCAR",
+    "provenance/source/POTCAR",
+    "provenance/source/run.sh",
+    "provenance/validation.json",
+    "run.sh"
+  ],
+  "script_metadata_fields": [
+    "byte_identical",
+    "generated_sha256",
+    "mode",
+    "resource_validation",
+    "source_sha256"
+  ],
+  "ready_fields": [
+    "calculation_id",
+    "manifest_sha256",
+    "request_digest",
+    "schema_version",
+    "stage_id"
+  ],
+  "synthetic_only": true
+}

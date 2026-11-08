@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "cluster_id": null,
+  "cluster_epoch": null,
+  "owner": null,
+  "approval": {
+    "reviewer": null,
+    "approved_at": null,
+    "note": null
+  },
+  "kind": "dialect",
+  "dialect": "sge_xml_v1",
+  "client_version": null,
+  "job_name_max_length": null,
+  "all_active_states": null,
+  "requested_upper_slots": null,
+  "full_name_accounting": null,
+  "cli_clear_supported": null,
+  "client_paths_sha256": null,
+  "qmaster_aliases": []
+}
