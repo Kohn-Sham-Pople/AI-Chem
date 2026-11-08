@@ -853,6 +853,103 @@
               "type": "null"
             }
           ]
+        },
+        "run_script_mode": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "enum": [
+                "typed_renderer",
+                "preserve_source"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source_script_approval": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "source_run_sha256": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "minLength": 1,
+                      "pattern": "^[0-9a-f]{64}$"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "approval": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "reviewer": {
+                          "anyOf": [
+                            {
+                              "type": "string",
+                              "minLength": 1,
+                              "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "approved_at": {
+                          "anyOf": [
+                            {
+                              "type": "string",
+                              "minLength": 1,
+                              "pattern": "^\\d{4}-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "note": {
+                          "anyOf": [
+                            {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "reviewer",
+                        "approved_at",
+                        "note"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "source_run_sha256",
+                "approval"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
         }
       },
       "required": [
@@ -866,8 +963,6 @@
         "slots",
         "user_quota_slots",
         "vasp",
-        "launcher",
-        "environment",
         "runtime",
         "preparation",
         "discovery"

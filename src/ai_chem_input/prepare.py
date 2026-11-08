@@ -18,7 +18,7 @@ from .protocols import protocol_patches, CONTROLLED, MATERIAL_TAGS
 from .validators import material_mapping, validate_inputs, check_method, check_spin, semantic_tag_value
 from .restart import RestartEvidenceProvider, consume
 from .registry import resolve_request
-from .script import render_script, validate_profile
+from .script import prepare_run_script, run_script_mode, validate_profile
 from .state import StateStore, global_lock
 
 
@@ -87,7 +87,7 @@ def build_plan(context,provider=None,deadline=None):
     intent={k:v for k,v in request.items() if k!='request_id'}
     request_digest=digest('request',dict(request=intent,entities=entities,restart=asdict(restart) if restart else None))
     final=Path(p['roots']['output'])/request['calculation_id']/request['stage_id']
-    small['run.sh']=render_script(p,final,request_digest)
+    small['run.sh']=prepare_run_script(p,small['run.sh'],final,request_digest)
     changes=[]
     after=parse_incar(small['INCAR']).tags
     for tag in sorted(set(doc.tags)|set(after)):
@@ -156,6 +156,18 @@ def verify_bundle(bundle_dir,deadline=None):
         require(payload['provenance/source/'+name]=={k:meta[k] for k in ('size_bytes','sha256')},'PACKAGE_TAMPERED')
     for name in ('POSCAR','POTCAR','KPOINTS'):
         require(payload[name]==payload['provenance/source/'+name],'PACKAGE_TAMPERED')
+    script_mode=run_script_mode(entities['profile'])
+    source_sha=payload['provenance/source/run.sh']['sha256']
+    generated_sha=payload['run.sh']['sha256']
+    expected_script=dict(mode=script_mode,source_sha256=source_sha,generated_sha256=generated_sha,
+                         byte_identical=source_sha==generated_sha,
+                         resource_validation='profile_declared_only' if script_mode=='preserve_source' else 'typed_static')
+    if 'run_script' in m:
+        require(m['run_script']==expected_script,'PACKAGE_TAMPERED')
+    if script_mode=='preserve_source':
+        from .registry import validate_template_profile
+        validate_template_profile(entities['template'],entities['profile'])
+        require(m.get('run_script')==expected_script and source_sha==generated_sha,'PACKAGE_TAMPERED')
     require(request['calculation_id']==ready['calculation_id'] and request['stage_id']==ready['stage_id'],'PACKAGE_TAMPERED')
     intent={k:v for k,v in request.items() if k!='request_id'}
     require(digest('request',dict(request=intent,entities=entities,restart=m['restart']))==ready['request_digest'],'PACKAGE_TAMPERED')
@@ -165,7 +177,8 @@ def verify_bundle(bundle_dir,deadline=None):
     # Verify scientific file consistency without dereferencing original source paths.
     with open_read(root/'POTCAR') as f: potentials=inspect_potcar(f,deadline)
     validate_inputs(dict(entities,request=request,potentials=potentials),{n:read_small(root/n) for n in FILES if n!='POTCAR'})
-    return dict(manifest_sha256=ready['manifest_sha256'],request_digest=ready['request_digest'],manifest=m)
+    return dict(manifest_sha256=ready['manifest_sha256'],request_digest=ready['request_digest'],
+                manifest=m,run_script=expected_script)
 
 
 def materialize(plan,state=None,locked=False,fault=None,deadline=None):
@@ -215,7 +228,12 @@ def materialize(plan,state=None,locked=False,fault=None,deadline=None):
         point('input:'+name)
     if plan.restart: write_new(staging/'CHGCAR',source=plan.restart.path,expected=asdict(plan.restart),**copy_kw)
     diff=''
-    for name in ('INCAR','run.sh'): diff+=text_diff(name,read_small(staging/'provenance/source'/name),generated[name])
+    for name in ('INCAR','run.sh'):
+        if name=='run.sh' and run_script_mode(p)=='preserve_source':
+            source=next(s for s in plan.sources if s.name==name)
+            diff+='run.sh SAME=true mode=preserve_source sha256='+source.sha256+'\n'
+        else:
+            diff+=text_diff(name,read_small(staging/'provenance/source'/name),generated[name])
     for name in ('POSCAR','POTCAR','KPOINTS'):
         source=next(s for s in plan.sources if s.name==name); diff+=name+' SAME=true sha256='+source.sha256+'\n'
     metadata={'provenance/resolved_request.json':plan.request_json,'provenance/resolved_config.json':plan.config_json,
@@ -244,6 +262,12 @@ def materialize(plan,state=None,locked=False,fault=None,deadline=None):
                   science_identity=loads(plan.science_json),restart=asdict(plan.restart) if plan.restart else None,
                   validation=dict(result='INPUT_VALIDATED',input_only=True,issues=[]),
                   generation=dict(created_at=time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime()),actor='local',request_digest=plan.request_digest,bundle_payload_hash=digest('payload',payload)))
+    source_sha=payload['provenance/source/run.sh']['sha256']
+    generated_sha=payload['run.sh']['sha256']
+    mode=run_script_mode(p)
+    manifest['run_script']=dict(mode=mode,source_sha256=source_sha,generated_sha256=generated_sha,
+                                byte_identical=source_sha==generated_sha,
+                                resource_validation='profile_declared_only' if mode=='preserve_source' else 'typed_static')
     manifest_bytes=canonical(manifest); mh=sha256(manifest_bytes)
     point('before_manifest'); write_new(staging/'provenance/manifest.json',manifest_bytes)
     point('before_ready'); write_new(staging/'READY.json',canonical(dict(schema_version=1,calculation_id=request['calculation_id'],stage_id=request['stage_id'],request_digest=plan.request_digest,manifest_sha256=mh)))

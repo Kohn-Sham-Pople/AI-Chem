@@ -1,0 +1,11 @@
+#!/bin/bash
+# SYNTHETIC TEST ONLY -- hand-authored, NEVER EXECUTE
+#$ -S /bin/bash
+#$ -V
+#$ -cwd
+#$ -q all.q@node127
+#$ -pe mpi_32 32
+export INTEL_COMPILER=/SYNTHETIC/compiler
+export MKLROOT=/SYNTHETIC/mkl
+export LD_LIBRARY_PATH=/SYNTHETIC/compiler/lib:/SYNTHETIC/mkl/lib:$LD_LIBRARY_PATH
+mpirun -np $NSLOTS -machinefile $TMPDIR/machines /SYNTHETIC/vasp_ncl

@@ -11,4 +11,13 @@ def skeleton(s):
 
 for kind in ('profile','template','material','protocol'):
     schema=json.loads(Path('schemas',kind+'.json').read_text())
-    Path('schemas/examples',kind+'.draft.json').write_text(json.dumps(skeleton(schema),indent=2)+'\n')
+    value=skeleton(schema)
+    if kind=='profile':
+        preserved=dict(value)
+        for key in ('launcher','environment','execution_review'):
+            preserved.pop(key)
+        preserved['run_script_mode']='preserve_source'
+        Path('schemas/examples/profile-preserve-source.draft.json').write_text(json.dumps(preserved,indent=2)+'\n')
+        value.pop('source_script_approval')
+        value['run_script_mode']='typed_renderer'
+    Path('schemas/examples',kind+'.draft.json').write_text(json.dumps(value,indent=2)+'\n')

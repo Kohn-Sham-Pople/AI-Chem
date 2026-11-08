@@ -64,9 +64,15 @@ See [operator runbook](docs/runbook.md), [blockers and limitations](docs/known-l
 [implementation/evidence](docs/implementation.md), and the v1 contracts in `schemas/`.
 
 
-Execution profiles now require an explicit LD_LIBRARY_PATH policy and an
-execution review pinned to the source run.sh hash. Empty library lists are valid
-for approved preserve/unset policies. SGE_MACHINEFILE expands only to the quoted
-runtime ${TMPDIR}/machines path, with guards. Use independent exact profile refs
-for f/d. See [AC13 local registration](docs/ac13-registration.md) for migration,
-node127-to-all.q approval and complete private JSON/registration instructions.
+AC13 initial Golden Review now uses **preserve_source**: copy the approved
+source run.sh byte-for-byte, including `#$ -V`, queue/node selection, MPI
+machinefile and Intel/MKL environment/command text. No thread/library/node
+settings or guards are added. The script is never executed by the generator.
+Choose a new exact profile/template revision with a source-script hash approval;
+do not migrate old revisions implicitly. See [initial AC13 preservation](docs/ac13-preserve-source.md).
+
+The existing **typed_renderer** remains available with its explicit library
+policy, SGE_MACHINEFILE token and source-bound execution review. It is an
+optional later review, not the initial AC13 default. See
+[typed registration](docs/ac13-registration.md). Manifest records script mode,
+source/output hashes and whether resource validation is declarative or typed-static.

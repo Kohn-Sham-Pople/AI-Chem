@@ -11,13 +11,16 @@ from ai_chem_input.prepare import build_plan,materialize,verify_bundle
 from ai_chem_input.provenance import canonical,sha256
 from ai_chem_input.paths import inspect,private_dir,write_new
 from ai_chem_input.errors import require
+from ai_chem_input.script import run_script_mode
 
 
 def main():
     p=argparse.ArgumentParser()
     p.add_argument('--config',required=True); p.add_argument('--request',required=True)
     p.add_argument('--expected',required=True)
+    p.add_argument('--script-mode',choices=('preserve_source','typed_renderer'),default='preserve_source')
     args=p.parse_args(); _,reg,profile=operator(args.config)
+    require(run_script_mode(profile)==args.script_mode,'GOLDEN_SCRIPT_MODE')
     request=checked(load(args.request),'request'); expected=load(args.expected)
     require(set(expected)=={'reviewer','approved_at','source_sha256','generated_sha256','semantic_changes'},'GOLDEN_EXPECTATION')
     require(expected['reviewer'] and expected['approved_at'],'GOLDEN_EXPECTATION')
@@ -33,7 +36,7 @@ def main():
                   species_blocks=loads(plan.config_json)['material']['species_blocks'],
                   configurations=loads(plan.config_json)['material']['configurations'],
                   u_sets=loads(plan.config_json)['material']['u_sets'],
-                  manifest_sha256=verified['manifest_sha256'],result=result['result'])
+                  manifest_sha256=verified['manifest_sha256'],run_script=verified['run_script'],result=result['result'])
     dest=private_dir(Path(profile['roots']['state'])/'golden')/(request['calculation_id']+'_'+request['stage_id']+'.json')
     write_new(dest,canonical(evidence))
     print('LOCAL_GOLDEN_PASSED (private evidence retained locally)')

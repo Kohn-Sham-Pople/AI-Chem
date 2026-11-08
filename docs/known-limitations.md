@@ -46,7 +46,7 @@ Runtime scope:
   to each End of Dataset line. Full-file hash is separately pinned.
 - No qsub/qstat/qacct/mpirun/VASP invocation, HTTP/SSH/upload, automatic parameter
   tuning, stage advance, OUTCAR/rms(c) validation, live quota or compute-node
-  ABI/PE placement checks. run.sh is rendered text for a later execution Step.
+  ABI/PE placement checks. run.sh is preserved or rendered text for a later execution Step.
 - Validation relies on independently approved registry contents and filesystem
   access policy. It is not cryptographic authentication against a malicious same
   Unix user who edits DB, configs and manifests. Hash chains are integrity checks,
@@ -64,3 +64,12 @@ Runtime scope:
   the supplied tools. Both attached v1.0 Markdown contracts were read; the explicit
   current user request governs this implementation. No claim is made to have
   verified inaccessible prior-conversation/PDF requirements.
+
+
+Initial AC13 now preserves approved run.sh bytes. This is not static certification
+of arbitrary shell behavior: -V inheritance, queue/node selection, working-directory
+commands and environment are retained and require local review. Manifest marks
+resource_validation=profile_declared_only for copied scripts; it does not assert
+that declared profile resources were parsed/verified from the source shell.
+Typed renderer remains opt-in, with existing static checks. No new source hash,
+including the operator-reported changed d script, is automatically approved.

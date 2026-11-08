@@ -528,6 +528,48 @@
         "bundle_payload_hash"
       ],
       "additionalProperties": false
+    },
+    "run_script": {
+      "type": "object",
+      "properties": {
+        "mode": {
+          "type": "string",
+          "minLength": 1,
+          "enum": [
+            "typed_renderer",
+            "preserve_source"
+          ]
+        },
+        "source_sha256": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "generated_sha256": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "byte_identical": {
+          "type": "boolean"
+        },
+        "resource_validation": {
+          "type": "string",
+          "minLength": 1,
+          "enum": [
+            "profile_declared_only",
+            "typed_static"
+          ]
+        }
+      },
+      "required": [
+        "mode",
+        "source_sha256",
+        "generated_sha256",
+        "byte_identical",
+        "resource_validation"
+      ],
+      "additionalProperties": false
     }
   },
   "required": [

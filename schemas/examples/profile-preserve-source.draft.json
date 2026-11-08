@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "id": null,
+  "revision": null,
+  "approval": {
+    "reviewer": null,
+    "approved_at": null,
+    "note": null
+  },
+  "roots": {
+    "source": [],
+    "protected": [],
+    "output": null,
+    "registry": null,
+    "state": null,
+    "lock": null
+  },
+  "queue": "all.q",
+  "pe": "mpi_32",
+  "slots": 32,
+  "user_quota_slots": 320,
+  "vasp": {
+    "version": "5.4.4",
+    "path": null,
+    "binary_name": "vasp_ncl"
+  },
+  "runtime": {
+    "python_path": null,
+    "bash_path": "/bin/bash",
+    "walltime": null
+  },
+  "preparation": {
+    "max_requests": 1,
+    "budget_seconds": null,
+    "copy_chunk_bytes": null,
+    "max_source_bytes": null,
+    "min_free_bytes": null
+  },
+  "discovery": {
+    "max_depth": null,
+    "max_candidates": null,
+    "recursive": null
+  },
+  "run_script_mode": "preserve_source",
+  "source_script_approval": {
+    "source_run_sha256": null,
+    "approval": {
+      "reviewer": null,
+      "approved_at": null,
+      "note": null
+    }
+  }
+}

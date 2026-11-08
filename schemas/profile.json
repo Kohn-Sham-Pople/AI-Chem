@@ -403,6 +403,54 @@
         "approval"
       ],
       "additionalProperties": false
+    },
+    "run_script_mode": {
+      "type": "string",
+      "minLength": 1,
+      "enum": [
+        "typed_renderer",
+        "preserve_source"
+      ]
+    },
+    "source_script_approval": {
+      "type": "object",
+      "properties": {
+        "source_run_sha256": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "approval": {
+          "type": "object",
+          "properties": {
+            "reviewer": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+            },
+            "approved_at": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^\\d{4}-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$"
+            },
+            "note": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "reviewer",
+            "approved_at",
+            "note"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "source_run_sha256",
+        "approval"
+      ],
+      "additionalProperties": false
     }
   },
   "required": [
@@ -416,8 +464,6 @@
     "slots",
     "user_quota_slots",
     "vasp",
-    "launcher",
-    "environment",
     "runtime",
     "preparation",
     "discovery"

@@ -110,7 +110,9 @@ def private_dir(path):
     while not current.exists():
         missing.append(current); current=current.parent
     for directory in reversed(missing):
-        directory.mkdir(mode=0o700)
+        # Another cooperating worker may create this directory before flock.
+        directory.mkdir(mode=0o700, exist_ok=True)
+    safe_path(p)
     st = p.stat()
     require(st.st_uid == os.getuid() and st.st_mode & 0o077 == 0, 'PATH_OWNERSHIP')
     return p

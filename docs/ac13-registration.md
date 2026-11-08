@@ -1,4 +1,11 @@
-# AC13: private execution profiles and exact local registration
+# AC13: typed-renderer registration (optional follow-up)
+
+**For initial Golden Review use [preserve_source](ac13-preserve-source.md).**
+This page describes the optional typed_renderer workflow only. Its node127-to-all.q,
+new thread/library policies and machinefile rendering are not applied to preserved
+scripts. Select a reviewed typed profile explicitly; the Golden tool then needs
+--script-mode typed_renderer. No original script is automatically migrated.
+
 
 This supplements the full [runbook](runbook.md). All recipes in this document
 that read actual input are for **authorized HPC local execution only**. They were
@@ -155,7 +162,11 @@ for shell in ('f', 'd'):
     for kind in ('profile', 'material', 'protocol', 'template'):
         path = root / (kind + '_' + shell + '.json')
         with path.open('x') as f:
-            json.dump(draft(schema_for(kind)), f, indent=2)
+            value = draft(schema_for(kind))
+            if kind == 'profile':
+                value.pop('source_script_approval')
+                value['run_script_mode'] = 'typed_renderer'
+            json.dump(value, f, indent=2)
             f.write('\n')
 PY
 ```
@@ -373,8 +384,8 @@ Source snapshots, full resolved profile.execution_review and input.diff remain
 inside the private bundle through the existing provenance implementation.
 
 Author the independent expected hash/diff JSON as described in the main runbook,
-then run tools/local_golden.py separately for f/d with those exact operator/request
-files. Reviewers must independently compare expected script bytes and hashes;
+then run tools/local_golden.py --script-mode typed_renderer separately for f/d
+with those exact operator/request files. Reviewers must independently compare expected script bytes and hashes;
 tests do not authorize a change to the actual source environment. No batch job is
 submitted or run at this step. B/C still require a trusted restart issuer.
 

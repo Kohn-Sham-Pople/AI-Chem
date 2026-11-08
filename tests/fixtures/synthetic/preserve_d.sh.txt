@@ -1,0 +1,7 @@
+#!/bin/bash
+# SYNTHETIC TEST ONLY -- hand-authored, NEVER EXECUTE
+#$ -V
+#$ -cwd
+#$ -q all.q
+#$ -pe mpi_32 32
+mpirun -np $NSLOTS -machinefile $TMPDIR/machines /SYNTHETIC/vasp_ncl

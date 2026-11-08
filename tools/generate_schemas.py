@@ -16,6 +16,12 @@ profile=entity(roots=roots,queue={'const':'all.q'},pe={'const':'mpi_32'},slots={
 # New registration/preparation requires both fields via validate_profile.
 profile['properties']['environment']['properties']['ld_library_path_policy']=enum('replace','prepend','preserve','unset')
 profile['properties']['execution_review']=obj(source_run_sha256=H,source_node_selection=enum('all_q','node127'),target_node_selection={'const':'all_q'},approved_changes=arr(enum('sge_machinefile','ld_library_path_replace','ld_library_path_prepend','ld_library_path_preserve','ld_library_path_unset','node127_to_all_q')),approval=approval)
+profile['properties']['run_script_mode']=enum('typed_renderer','preserve_source')
+profile['properties']['source_script_approval']=obj(source_run_sha256=H,approval=approval)
+# Renderer-only fields are optional for historical decoding and preserve_source.
+# Mode-specific active requirements and conflicts are enforced by validate_profile.
+for key in ('launcher','environment'):
+ profile['required'].remove(key)
 block=obj(block_id=ID,element=dict(S,pattern=r'^[A-Z][a-z]?$'),count=I,potential_variant=S,dataset_sha256=H)
 configuration=obj(configuration_id=ID,structure_id=ID,structure_sha256=H,spin_mode=enum('collinear','noncollinear'),soc=B,saxis=nullable(arr(D)),magmom_by_atom=arr({'anyOf':[obj(atom_index=I,moment=D),obj(atom_index=I,vector=arr(D))]}))
 material=entity(formula=S,species_blocks=arr(block),structures=arr(obj(structure_id=ID,sha256=H)),configurations=arr(configuration),u_sets=arr(obj(u_set_id=ID,ldau=B,ldautype=I,by_block=mapping(obj(l={'type':'integer','minimum':-1,'maximum':3},u_eV=D,j_eV=D)))),method=obj(incar_tags=mapping(S),kpoints_sha256=H,potcar_sha256=H,approved_u_set_ids=arr(ID)))
@@ -36,6 +42,7 @@ catalog['manifest']=obj(schema_version={'const':1},hash_schema_version={'const':
  science_identity=obj(method_hash=H,configuration_hash=H,stage_input_hash=H),restart=nullable(restart_ref),
  validation=obj(result={'const':'INPUT_VALIDATED'},input_only={'const':True},issues=arr(obj(code=ID),0)),
  generation=obj(created_at=S,actor=ID,request_digest=H,bundle_payload_hash=H))
+catalog['manifest']['properties']['run_script']=obj(mode=enum('typed_renderer','preserve_source'),source_sha256=H,generated_sha256=H,byte_identical=B,resource_validation=enum('profile_declared_only','typed_static'))
 catalog['result']=obj(schema_version={'const':1},request_id=nullable(ID),calculation_id=nullable(ID),stage_id=nullable(ID),result=S,committed=B,issue_codes=arr(ID,0),request_digest=nullable(H),bundle_path=nullable(P))
 for folder in [Path('schemas'),Path('src/ai_chem_input/schemas')]:
  folder.mkdir(exist_ok=True)

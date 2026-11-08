@@ -64,5 +64,6 @@
       "approved_at": null,
       "note": null
     }
-  }
+  },
+  "run_script_mode": "typed_renderer"
 }

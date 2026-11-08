@@ -35,9 +35,10 @@ class Registry:
         path=self.path(kind,value); private_dir(path.parent); write_new(path,canonical(value)); return path
 
 def validate_template_profile(template,profile):
-    from .script import validate_execution_review
+    from .script import validate_execution_review,run_script_mode
     validate_execution_review(profile)
-    require(profile['execution_review']['source_run_sha256']==template['files']['run.sh']['sha256'],
+    review_key='source_script_approval' if run_script_mode(profile)=='preserve_source' else 'execution_review'
+    require(profile[review_key]['source_run_sha256']==template['files']['run.sh']['sha256'],
             'PROFILE_SOURCE_MISMATCH')
 
 

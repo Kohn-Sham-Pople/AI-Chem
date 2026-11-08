@@ -7,6 +7,7 @@ from pathlib import Path
 from .errors import require
 from .paths import safe_path, inspect
 from .config import checked
+from .provenance import sha256
 
 
 def safe_token(value):
@@ -14,7 +15,21 @@ def safe_token(value):
     return shlex.quote(value)
 
 
+def run_script_mode(profile):
+    # Omission preserves the meaning of previously registered typed revisions.
+    return profile.get('run_script_mode','typed_renderer')
+
+
 def validate_execution_review(profile):
+    if run_script_mode(profile)=='preserve_source':
+        require('source_script_approval' in profile,'PROFILE_APPROVAL_REQUIRED')
+        require(not any(k in profile for k in ('launcher','environment','execution_review')),
+                'SCRIPT_MODE_CONFLICT')
+        review=profile['source_script_approval']['approval']
+        datetime.datetime.strptime(review['approved_at'],'%Y-%m-%dT%H:%M:%SZ')
+        return
+    require('source_script_approval' not in profile,'SCRIPT_MODE_CONFLICT')
+    require('launcher' in profile and 'environment' in profile,'SCRIPT_PROFILE_INVALID')
     environment=profile['environment']
     require('ld_library_path_policy' in environment and 'execution_review' in profile,
             'PROFILE_APPROVAL_REQUIRED')
@@ -40,6 +55,10 @@ def validate_profile(profile):
     from .paths import guard_roots
     guard_roots(profile['roots'])
     require(profile['slots']<=profile['user_quota_slots'],'SCRIPT_PROFILE_INVALID')
+    if run_script_mode(profile)=='preserve_source':
+        # Source bytes are opaque approved executable configuration. Do not infer,
+        # source or rewrite its environment, launcher, thread vars or directives.
+        return
     for field in [profile['vasp']['path'],profile['launcher']['path'],profile['runtime']['python_path'],profile['runtime']['bash_path']]:
         safe_token(field); path=Path(field) if field=='/bin/bash' else safe_path(field)
         require(path.is_file() and os.access(str(path),os.R_OK|os.X_OK),'SCRIPT_PROFILE_INVALID')
@@ -85,7 +104,9 @@ def library_lines(environment):
 
 
 def render_script(profile,final_dir,request_digest):
-    validate_profile(profile); safe_token(str(final_dir))
+    validate_profile(profile)
+    require(run_script_mode(profile)=='typed_renderer','SCRIPT_MODE_CONFLICT')
+    safe_token(str(final_dir))
     lines=['#!/bin/bash','#$ -S /bin/bash','#$ -cwd','#$ -q all.q','#$ -pe mpi_32 32','#$ -N ac_'+request_digest[:24],'#$ -j y','#$ -o vasp.stdout']
     if profile['runtime']['walltime']: lines.append('#$ -l h_rt='+profile['runtime']['walltime'])
     lines+=['set -e','set -o pipefail','umask 077','test -n "${JOB_ID:-}" || exit 90','test "${NSLOTS:-0}" = 32 || exit 91','cd -- '+shlex.quote(str(final_dir))]
@@ -104,3 +125,14 @@ def render_script(profile,final_dir,request_digest):
         args.append(expansions[arg['token']] if isinstance(arg,dict) else safe_token(arg))
     lines.append('exec '+' '.join(args))
     return ('\n'.join(lines)+'\n').encode()
+
+
+
+def prepare_run_script(profile,source_bytes,final_dir,request_digest):
+    """Select exact approved byte preservation or the existing typed renderer."""
+    validate_profile(profile)
+    if run_script_mode(profile)=='preserve_source':
+        require(sha256(source_bytes)==profile['source_script_approval']['source_run_sha256'],
+                'PROFILE_SOURCE_MISMATCH')
+        return source_bytes
+    return render_script(profile,final_dir,request_digest)

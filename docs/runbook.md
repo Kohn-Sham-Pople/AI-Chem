@@ -34,6 +34,14 @@ proved portably by this code. No other writer may modify output directories.
 
 ## 2. Fill and approve the profile
 
+**Initial AC13 uses preserve_source.** Follow the [preservation supplement](ac13-preserve-source.md)
+for the new profile/template revisions and source hash approval. Use
+schemas/examples/profile-preserve-source.draft.json: no launcher, environment,
+thread or node-selection override is accepted in this mode. Original run.sh
+bytes are kept exactly, including `#$ -V` and any node pin. The detailed renderer
+fields in the following paragraphs apply only to optional typed_renderer profiles.
+
+
 Copy `schemas/examples/*.draft.json` outside the code checkout into private
 configuration storage. Drafts are incomplete documents and are never prepare
 inputs. Complete profile fields using the source run.sh and local inventory:
@@ -130,14 +138,20 @@ mapping. No initial CHGCAR/WAVECAR is included.
 Author a private independent expected JSON with reviewer, approved_at,
 source_sha256 (five names), generated_sha256 (five names), and exact
 semantic_changes (tag/old/new/action/layer/reason). Do not derive the expectation
-by blindly accepting generator output. run.sh hash must match the reviewed
-profile and final working directory. Then run:
+by blindly accepting generator output. In preserve_source, generated run.sh hash
+must equal the original reviewed run.sh hash and its bytes must be identical.
+Existing working-directory commands/directives remain unchanged; inspect their
+future behavior locally rather than inserting a cd or scheduler directive.
+For an optional typed review, script/profile/final-working-directory consistency
+requires its own explicit approval. Then run:
 
 ```sh
 PYTHONPATH=src python3.9 -B tools/local_golden.py --config ABS_OPERATOR_JSON --request ABS_REQUEST_JSON --expected ABS_EXPECTATION_JSON
 ```
 
-The gate compares exact hashes/diffs, materializes separately, verifies the
+The gate defaults to preserve_source and rejects a typed profile unless the
+operator explicitly selects --script-mode typed_renderer for a separate later review.
+It compares exact hashes/diffs, materializes separately, verifies the
 bundle, rechecks sources and exclusively saves local evidence under state/golden.
 Evidence includes exact species/U/configuration mappings and manifest hash.
 Repeat for f and d. Never commit local-golden-review, input.diff or source snapshots.
@@ -210,3 +224,13 @@ scientific values are generated or approved in cloud. Old revisions stay immutab
 historical profile snapshots remain schema-readable, but a new preparation must
 use an explicitly reviewed profile and matching template revision. A missing
 policy/review fails with PROFILE_APPROVAL_REQUIRED; there is no implicit default.
+
+
+## 9. Initial Golden run.sh preservation (supersedes renderer-first setup)
+
+The [preserve_source supplement](ac13-preserve-source.md) is the current initial
+AC13 workflow. It supersedes node127 removal, new library/thread assignments and
+SGE-machinefile re-rendering as initial requirements. Those transformations remain
+available only through an explicitly selected typed_renderer profile and review.
+No mode silently approves or repairs an original script. New source bytes always
+need a new template/profile hash binding and local reviewer approval.
