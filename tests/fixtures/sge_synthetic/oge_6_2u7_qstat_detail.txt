@@ -1,0 +1,7 @@
+job_number:                 1001
+job_name:                   ac_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+owner:                      synthetic_owner
+sge_o_workdir:              /SYNTHETIC/output/calc/stage
+env_list:                   AI_CHEM_RUN_TOKEN=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,AI_CHEM_MANIFEST_SHA256=bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+submission_time:            Mon Nov  9 00:52:42 2026
+parallel environment:       mpi_32 range: 32

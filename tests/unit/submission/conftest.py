@@ -4,6 +4,9 @@ import pytest
 
 @pytest.fixture(autouse=True)
 def no_real_scheduler(monkeypatch):
+    # Host HPC variables must not collide with the synthetic registered cluster.
+    monkeypatch.delenv('SGE_ROOT',raising=False)
+    monkeypatch.delenv('SGE_CELL',raising=False)
     original=subprocess.Popen
     def guarded(args,*pos,**kw):
         executable=str(args[0] if isinstance(args,(list,tuple)) else args)

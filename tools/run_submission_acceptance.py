@@ -22,14 +22,14 @@ CHECKS = [
     ('S13-02', 'Request redelivery and stable identity', ['test_s13_02_03', 'test_s13_02_science', 'test_restarted_client']),
     ('S13-03', 'Labels and physical/scientific aliases', ['test_s13_02_03', 'test_s13_03_']),
     ('S13-04', 'Bundle integrity and source immutability', ['test_s13_04_', 'test_s13_01_submit_once', 'test_preparation_rows']),
-    ('S13-05', 'Accepted timeout/crash recovery', ['test_s13_05_', 'test_restarted_client']),
+    ('S13-05', 'Accepted timeout/crash recovery', ['test_s13_05_', 'test_restarted_client', 'test_oge_timeout_recovery']),
     ('S13-06', 'Fence-before-spawn crash', ['test_s13_06_07_fault_windows[fence', 'test_s13_13_fence_commit']),
     ('S13-07', 'Immutable receipt and DB crash recovery', ['test_s13_06_07_fault_windows', 'test_s13_07_', 'test_receipt_']),
     ('S13-08', 'Unknown/delayed observation never retries', ['test_s13_08_', 'test_s13_05_08_']),
-    ('S13-09', 'Weak/multiple identity evidence', ['test_s13_08_09_', 'test_accounting_timestamp']),
-    ('S13-10', 'Malformed acknowledgment and bounded clients', ['test_s13_10_', 'test_bounded_synthetic', 'test_independent_output', 'test_timeout_and_no_shell', 'test_definite_']),
-    ('S13-11', 'User-wide 320-slot admission', ['test_s13_11_', 'test_live_gates_are_fail_closed']),
-    ('S13-12', 'Reservation/PE row deduplication', ['test_s13_12_', 'test_hand_authored_sge']),
+    ('S13-09', 'Weak/multiple identity evidence', ['test_s13_08_09_', 'test_accounting_timestamp', 'test_oge_dates_do_not_bypass']),
+    ('S13-10', 'Strict scheduler parsers and bounded clients', ['test_s13_10_', 'test_bounded_synthetic', 'test_independent_output', 'test_timeout_and_no_shell', 'test_definite_', '/test_oge62.py::']),
+    ('S13-11', 'User-wide 320-slot admission', ['test_s13_11_', 'test_live_gates_are_fail_closed', 'test_oge_admission_snapshot', 'test_hpc_variable_isolation']),
+    ('S13-12', 'Reservation/PE row deduplication', ['test_s13_12_', 'test_hand_authored_sge', 'test_oge_pe_task_needs', 'test_oge_conflicting_masters']),
     ('S13-13', 'Concurrent writers and CAS/DB failures', ['test_s13_13_']),
     ('S13-14', 'Strict dry-run and side-effect-free help', ['test_s13_14_', 'test_help_is_']),
     ('S13-15', 'Actual SGE defaults/environment/CLI precedence', ['test_s13_15_', 'test_default_live_false', 'test_qmaster_change']),
@@ -39,7 +39,7 @@ CHECKS = [
 ]
 LOCAL = {
     'S13-15': 'Actual SGE defaults/JSV, -V inheritance, f node127 selection and Intel/MKL environment equivalence require private local evidence and explicit change approval.',
-    'S13-16': 'Exact CentOS 6.9 / Python 3.9.19 / linked SQLite 3.46.1 and local SGE/RQS/dialect/storage are unverified; benign pilot requires separate user approval.',
+    'S13-16': 'User reports the target runtime, OGE 6.2u7, two completed scheduler pilots and original 402 tests passing. This patch still requires local parser/regression and private capability/RQS/storage revalidation; cloud does not certify it or authorize another pilot.',
     'S13-17': 'No actual private Input/POTCAR was accessed; actual single-job d/f pilot and Cron require separate authorization.',
 }
 

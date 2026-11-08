@@ -1,7 +1,9 @@
 """Versioned SGE fixture dialect. Unconfirmed local dialects cannot dispatch."""
 import datetime
+import math
 import re
 import xml.etree.ElementTree as ET
+from zoneinfo import ZoneInfo,ZoneInfoNotFoundError
 from .models import CommandSpec
 from ..errors import require,InputError
 from ..provenance import canonical,digest
@@ -100,8 +102,42 @@ def parse_qstat(data,owner):
     return tuple(jobs.values())
 
 
-def timestamp(raw):
-    if re.fullmatch(r'[0-9]+(?:\.[0-9]+)?',raw): return float(raw)
+def cluster_zone(name):
+    """Only profile-approved names; never the process's implicit local zone."""
+    require(name in ('UTC','Asia/Seoul'),'SGE_TIMEZONE_UNKNOWN',exit_code=4)
+    if name=='UTC': return datetime.timezone.utc
+    try: return ZoneInfo(name)
+    except (ZoneInfoNotFoundError,ValueError,OSError):
+        raise InputError('SGE_TIMEZONE_UNKNOWN',exit_code=4) from None
+
+
+def timestamp(raw,cluster_timezone=None):
+    zone=cluster_zone(cluster_timezone) if cluster_timezone is not None else None
+    if re.fullmatch(r'[0-9]+(?:\.[0-9]+)?',raw):
+        value=float(raw)
+        require(math.isfinite(value),'SGE_TIME_UNKNOWN',exit_code=4)
+        return value
+    # OGE's LC_ALL=C asctime output. Hard-coded English tokens avoid strptime's
+    # process locale, and a weekday check detects inconsistent/corrupt dates.
+    weekdays=('Mon','Tue','Wed','Thu','Fri','Sat','Sun')
+    months=('Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec')
+    match=re.fullmatch(r'(Mon|Tue|Wed|Thu|Fri|Sat|Sun) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) ([ 0-9][0-9]) ([0-9]{2}):([0-9]{2}):([0-9]{2}) ([0-9]{4})',raw)
+    if match:
+        require(zone is not None,'SGE_TIMEZONE_UNKNOWN',exit_code=4)
+        try:
+            naive=datetime.datetime(int(match[7]),months.index(match[2])+1,int(match[3]),int(match[4]),int(match[5]),int(match[6]))
+        except ValueError: raise InputError('SGE_TIME_UNKNOWN',exit_code=4) from None
+        require(weekdays[naive.weekday()]==match[1],'SGE_TIME_UNKNOWN',exit_code=4)
+        # Round-trip both folds. A gap has no valid instant; a fold has two.
+        instants=set()
+        try:
+            for fold in (0,1):
+                aware=naive.replace(tzinfo=zone,fold=fold)
+                utc=aware.astimezone(datetime.timezone.utc)
+                if utc.astimezone(zone).replace(tzinfo=None)==naive: instants.add(utc.timestamp())
+        except (ValueError,OverflowError): raise InputError('SGE_TIME_UNKNOWN',exit_code=4) from None
+        require(len(instants)==1,'SGE_TIME_AMBIGUOUS',exit_code=4)
+        return instants.pop()
     try:
         value=datetime.datetime.fromisoformat(raw.replace('Z','+00:00'))
         require(value.tzinfo is not None,'SGE_TIME_UNKNOWN',exit_code=4)
@@ -113,17 +149,25 @@ def fields(data):
     require(len(data)<=8*1024*1024,'SGE_OUTPUT_LIMIT',exit_code=4)
     try: text=data.decode('utf-8')
     except UnicodeError: raise InputError('SGE_TEXT_INVALID',exit_code=4) from None
+    require(re.search(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]',text) is None,'SGE_TEXT_INVALID',exit_code=4)
     result={}
     for line in text.splitlines():
         if not line.strip() or set(line.strip())=={'='}: continue
-        match=(re.fullmatch(r'([A-Za-z_][A-Za-z0-9_ ]*):\s*(.*)',line.strip())
-               or re.fullmatch(r'([A-Za-z_][A-Za-z0-9_]*)\s+(.*)',line.strip()))
+        # A colon key consists of identifier words, never numeric words such as
+        # a date's day/hour. Keep qstat compound keys (parallel environment,
+        # hard resource_list, scheduling info, ...); dates stay value data.
+        text_line=line.strip()
+        match=re.fullmatch(r'([A-Za-z_][A-Za-z0-9_]*(?: [A-Za-z_][A-Za-z0-9_]*)*):[ \t]*(.*)',text_line)
+        if match is None:
+            # Noncanonical spacing before a key colon is ambiguous.
+            require(re.match(r'[A-Za-z_][A-Za-z0-9_]*(?:[ \t]+[A-Za-z_][A-Za-z0-9_]*)*[ \t]*:',text_line) is None,'SGE_TEXT_INVALID',exit_code=4)
+            match=re.fullmatch(r'([A-Za-z_][A-Za-z0-9_]*)[ \t]+(.*)',text_line)
         require(match is not None,'SGE_TEXT_INVALID',exit_code=4)
         key=match[1].strip(); require(key not in result,'SGE_TEXT_INVALID',exit_code=4); result[key]=match[2].strip()
     return result
 
 
-def parse_detail(data):
+def parse_detail(data,cluster_timezone=None):
     f=fields(data)
     required={'job_number','job_name','owner','sge_o_workdir','env_list','submission_time','parallel environment'}
     require(required<=set(f),'SGE_DETAIL_INCOMPLETE',exit_code=4)
@@ -135,10 +179,10 @@ def parse_detail(data):
         key,value=pair.split('=',1); require(key not in environment,'SGE_DETAIL_INCOMPLETE',exit_code=4); environment[key]=value
     return dict(job_id=f['job_number'],name=f['job_name'],owner=f['owner'],cwd=f['sge_o_workdir'],
         token=environment.get('AI_CHEM_RUN_TOKEN'),manifest=environment.get('AI_CHEM_MANIFEST_SHA256'),
-        pe=pe[1],slots=upper_slots(pe[2]),qsub_time=timestamp(f['submission_time']),terminal=False)
+        pe=pe[1],slots=upper_slots(pe[2]),qsub_time=timestamp(f['submission_time'],cluster_timezone),terminal=False)
 
 
-def parse_accounting(data):
+def parse_accounting(data,cluster_timezone=None):
     if not data.strip(): return ()
     chunks=re.split(rb'(?m)^=+\s*$',data); jobs={}
     for chunk in chunks:
@@ -146,10 +190,12 @@ def parse_accounting(data):
         f=fields(chunk)
         require({'jobnumber','jobname','owner','qsub_time','slots','granted_pe'}<=set(f),'SGE_ACCOUNTING_INCOMPLETE',exit_code=4)
         require(re.fullmatch(r'[1-9][0-9]*',f['jobnumber']),'SGE_ACCOUNTING_INCOMPLETE',exit_code=4)
-        record=dict(job_id=f['jobnumber'],name=f['jobname'],owner=f['owner'],qsub_time=timestamp(f['qsub_time']),
+        record=dict(job_id=f['jobnumber'],name=f['jobname'],owner=f['owner'],qsub_time=timestamp(f['qsub_time'],cluster_timezone),
                     slots=upper_slots(f['slots']),pe=f['granted_pe'],terminal=True)
         key=(record['job_id'],record['name'],record['owner'],record['qsub_time'])
         require(f.get('taskid','undefined') in ('undefined','NONE','0'),'ARRAY_UNSUPPORTED',exit_code=4)
+        # OGE 6.2u7 omits pe_taskid for its single summary/master record.
+        # Absence is not a PE task; explicit task rows still require a master.
         master=f.get('pe_taskid','NONE') in ('NONE','undefined','0')
         if key not in jobs: jobs[key]=[]
         jobs[key].append((master,record))

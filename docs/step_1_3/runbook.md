@@ -1,5 +1,8 @@
 # Step 1-3 local registration, effective execution and single-job pilot
 
+For OGE 6.2u7 date/Accounting compatibility and exact read-only private parser
+checks, see [oge_6_2u7_parser_acceptance.md](oge_6_2u7_parser_acceptance.md).
+
 No command in this document was executed on an actual scheduler by cloud Codex.
 Real HPC pilot and Cron activation require **separate user authorization**. Cloud
 and default suites use synthetic data/fake scheduler only. Do not upload actual
@@ -156,8 +159,9 @@ an actual hard user-wide 320-slot cap including pending jobs; qstat is not that 
 The implemented sge_xml_v1 fixture dialect is a versioned tested contract, not a
 claim that the unknown installed SGE matches it. It accepts known namespace-free
 XML states, complete requested ranges, colon job detail fields and accounting with
-UTC epoch or explicit-offset ISO time. Old textual timestamps, unknown namespaces/
-versions, unrecognized states/arrays or incomplete serial/PE detail **block**; add
+UTC epoch, explicit-offset ISO time or strict C/English OGE dates with an explicit
+approved UTC/Asia/Seoul profile timezone. Missing timezone/IANA data, ambiguous
+dates, unknown namespaces/versions, unrecognized states/arrays or incomplete serial/PE detail **block**; add
 a separately reviewed dialect adapter using approved local fixtures if necessary.
 Never loosen number parsing, drop -clear or guess missing resources to get a pass.
 

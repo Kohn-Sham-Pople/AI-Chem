@@ -19,7 +19,7 @@ def snapshot(profile,runner,cwd,deadline=None):
         detail=runner.query(command(profile,'qstat',cwd,['-j',job['job_id']]),deadline)
         require(successful(detail),'OBSERVATION_UNKNOWN',exit_code=4)
         raw.append(('detail_'+job['job_id'],detail.stdout,detail.stderr))
-        info=parse_detail(detail.stdout)
+        info=parse_detail(detail.stdout,cluster_timezone=profile['cluster_timezone'])
         require(info['job_id']==job['job_id'] and info['owner']==job['owner'] and info['name']==job['name'],'RESOURCE_UNKNOWN',exit_code=4)
         job['slots']=max(job['slots'],info['slots'])
         # Identity dedup uses validated detail, not a truncated display name.

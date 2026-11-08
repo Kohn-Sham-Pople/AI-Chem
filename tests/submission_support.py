@@ -18,7 +18,7 @@ from ai_chem_input.submission.preflight import execution_report,profile_authoriz
 class Crash(BaseException): pass
 
 
-def make_case(root,live=True,shell='d'):
+def make_case(root,live=True,shell='d',cluster_timezone='UTC'):
     request,reg,e=setup(root,shell)
     source=Path(e['template']['source_dir'])
     data=(Path('tests/fixtures/synthetic')/('preserve_'+shell+'.sh.txt')).read_bytes()
@@ -40,7 +40,7 @@ def make_case(root,live=True,shell='d'):
     owner=pwd.getpwuid(os.geteuid()).pw_name
     profile=dict(schema_version=1,id='synthetic_submission',revision=1,approval=copy.deepcopy(p['approval']),
       cluster_id='synthetic_cluster',cluster_epoch='epoch1',state_epoch='a'*64,
-      expected_owner=dict(uid=os.geteuid(),name=owner),qmaster_aliases=['synthetic-master'],cluster_timezone='UTC',
+      expected_owner=dict(uid=os.geteuid(),name=owner),qmaster_aliases=['synthetic-master'],cluster_timezone=cluster_timezone,
       qsub_path=str(clients/'qsub'),qstat_path=str(clients/'qstat'),qacct_path=str(clients/'qacct'),dialect='sge_xml_v1',
       sge_client_env=dict(SGE_ROOT=str(sge_root),SGE_CELL='default',PATH='/usr/bin:/bin',HOME=os.environ['HOME']),
       queue='all.q',pe='mpi_32',slots=32,user_quota_slots=320,scheduler_rqs_evidence=None,dialect_evidence=None,

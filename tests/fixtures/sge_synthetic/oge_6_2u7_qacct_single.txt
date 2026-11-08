@@ -1,0 +1,14 @@
+==============================================================
+qname        all.q
+hostname     synthetic-node
+owner        synthetic_owner
+jobname      ac_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+jobnumber    1001
+qsub_time    Mon Nov  9 00:52:42 2026
+start_time   Mon Nov  9 00:52:45 2026
+end_time     Mon Nov  9 00:52:46 2026
+failed       0
+exit_status  0
+granted_pe   mpi_32
+slots        32
+taskid       undefined

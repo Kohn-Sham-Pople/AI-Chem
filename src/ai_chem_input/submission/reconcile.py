@@ -53,12 +53,12 @@ def reconcile_submission(store,row,runner,deadline=None):
         for job in relevant:
             detail=runner.query(command(p,'qstat',cwd,['-j',job['job_id']]),deadline); raw.append(('detail_'+job['job_id'],detail.stdout,detail.stderr))
             require(successful(detail),'OBSERVATION_UNKNOWN',exit_code=4)
-            candidates.append(parse_detail(detail.stdout))
+            candidates.append(parse_detail(detail.stdout,cluster_timezone=p['cluster_timezone']))
         # Also query accounting: a fast terminal job may never appear in qstat.
         accounted=runner.query(command(p,'qacct',cwd,['-o',row['owner'],'-j',row.get('job_id') or 'ac_'+row['token']]),deadline)
         raw.append(('qacct',accounted.stdout,accounted.stderr))
         require(successful(accounted),'OBSERVATION_UNKNOWN',exit_code=4)
-        candidates.extend(parse_accounting(accounted.stdout))
+        candidates.extend(parse_accounting(accounted.stdout,cluster_timezone=p['cluster_timezone']))
     except (InputError,OSError,ValueError,KeyError): unknown=True
     captured=time.time(); strong={}; weak=False
     for candidate in candidates:

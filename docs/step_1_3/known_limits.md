@@ -2,9 +2,13 @@
 
 - S13-15 actual SGE option/default/-V/node equivalence, S13-16 exact target/local
   scheduler-only pilot/RQS and S13-17 actual verified d/f submission are NOT_RUN.
-  No user authorization for any actual pilot or Cron activation was supplied.
-- Only fixture dialect sge_xml_v1 is tested. Unknown local SGE versions, textual
-  timestamps without timezone, namespaces/states, unconfirmed pending/held coverage,
+  These are cloud acceptance statuses. The user reports two completed OGE 6.2u7
+  scheduler pilots and the original 402 tests passing on the target. This parser
+  patch still needs read-only local revalidation; it authorizes no further pilot
+  or Cron activation. See oge_6_2u7_parser_acceptance.md.
+- Fixture dialect sge_xml_v1 now covers strict OGE 6.2u7 C/English dates only with
+  an explicit approved profile timezone. Missing IANA data, DST gaps/folds, unknown
+  namespaces/states, unconfirmed pending/held coverage,
   unhandled serial/PE details or arrays block before dispatch. Do not certify a
   local distribution from an internet manual or a passing mock. A reviewed adapter
   extension may be needed after private local capability inventory.

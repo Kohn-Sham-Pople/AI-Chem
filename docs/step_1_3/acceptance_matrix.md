@@ -10,14 +10,14 @@ PASS means automated synthetic evidence. Actual cluster checks remain NOT_RUN; n
 | S13-02 | Request redelivery and stable identity | PASS | 3 (PASS) |
 | S13-03 | Labels and physical/scientific aliases | PASS | 3 (PASS) |
 | S13-04 | Bundle integrity and source immutability | PASS | 7 (PASS) |
-| S13-05 | Accepted timeout/crash recovery | PASS | 4 (PASS) |
+| S13-05 | Accepted timeout/crash recovery | PASS | 6 (PASS) |
 | S13-06 | Fence-before-spawn crash | PASS | 3 (PASS) |
 | S13-07 | Immutable receipt and DB crash recovery | PASS | 15 (PASS) |
 | S13-08 | Unknown/delayed observation never retries | PASS | 8 (PASS) |
-| S13-09 | Weak/multiple identity evidence | PASS | 6 (PASS) |
-| S13-10 | Malformed acknowledgment and bounded clients | PASS | 29 (PASS) |
-| S13-11 | User-wide 320-slot admission | PASS | 18 (PASS) |
-| S13-12 | Reservation/PE row deduplication | PASS | 3 (PASS) |
+| S13-09 | Weak/multiple identity evidence | PASS | 13 (PASS) |
+| S13-10 | Strict scheduler parsers and bounded clients | PASS | 102 (PASS) |
+| S13-11 | User-wide 320-slot admission | PASS | 21 (PASS) |
+| S13-12 | Reservation/PE row deduplication | PASS | 6 (PASS) |
 | S13-13 | Concurrent writers and CAS/DB failures | PASS | 3 (PASS) |
 | S13-14 | Strict dry-run and side-effect-free help | PASS | 2 (PASS) |
 | S13-15 | Actual SGE defaults/environment/CLI precedence | NOT_RUN | 5 (PASS) |
@@ -27,7 +27,7 @@ PASS means automated synthetic evidence. Actual cluster checks remain NOT_RUN; n
 
 Full parameterized test IDs and local blockers are in acceptance_matrix.json.
 
-Full suite: 402 passed, 0 failed, 0 not run; Step 1-2 267, Step 1-3 135.
+Full suite: 490 passed, 0 failed, 0 not run; Step 1-2 267, Step 1-3 223.
 
 Cloud Python 3.9.19 / linked SQLite 3.46.0 is test evidence, not exact HPC acceptance.
 
